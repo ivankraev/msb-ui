@@ -1,0 +1,14 @@
+@import '../../../theme/variables.scss';
+
+.container {
+  height: 60px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}

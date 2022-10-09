@@ -1,0 +1,34 @@
+import React from 'react'
+
+const BuildingIcon = () => {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M14 0H2C1.63333 0 1.33333 0.3 1.33333 0.666667V16H6.66667V13.3333H9.33333V16H14.6667V0.666667C14.6667 0.3 14.3667 0 14 0ZM5.33333 12H2.66667V9.33333H5.33333V12ZM5.33333 8H2.66667V5.33333H5.33333V8ZM5.33333 4H2.66667V1.33333H5.33333V4ZM9.33333 12H6.66667V9.33333H9.33333V12ZM9.33333 8H6.66667V5.33333H9.33333V8ZM9.33333 4H6.66667V1.33333H9.33333V4ZM13.3333 12H10.6667V9.33333H13.3333V12ZM13.3333 8H10.6667V5.33333H13.3333V8ZM13.3333 4H10.6667V1.33333H13.3333V4Z"
+        fill="#DFDFDF"
+      />
+      <mask id="mask0_3966_30345" maskUnits="userSpaceOnUse" x="1" y="0" width="14" height="16">
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M14 0H2C1.63333 0 1.33333 0.3 1.33333 0.666667V16H6.66667V13.3333H9.33333V16H14.6667V0.666667C14.6667 0.3 14.3667 0 14 0ZM5.33333 12H2.66667V9.33333H5.33333V12ZM5.33333 8H2.66667V5.33333H5.33333V8ZM5.33333 4H2.66667V1.33333H5.33333V4ZM9.33333 12H6.66667V9.33333H9.33333V12ZM9.33333 8H6.66667V5.33333H9.33333V8ZM9.33333 4H6.66667V1.33333H9.33333V4ZM13.3333 12H10.6667V9.33333H13.3333V12ZM13.3333 8H10.6667V5.33333H13.3333V8ZM13.3333 4H10.6667V1.33333H13.3333V4Z"
+          fill="white"
+        />
+      </mask>
+      <g mask="url(#mask0_3966_30345)">
+        <rect
+          x="16.3333"
+          y="16"
+          width="16"
+          height="16"
+          transform="rotate(-180 16.3333 16)"
+          fill="#DFDFDF"
+        />
+      </g>
+    </svg>
+  )
+}
+
+export default BuildingIcon

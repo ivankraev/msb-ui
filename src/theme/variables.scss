@@ -1,0 +1,59 @@
+/*
+* Colors
+*/
+$primary-color: #049fd9;
+$primary-light-color: #ebfaff;
+$secondary-color: #39393b;
+$border-color: #d1d1d1;
+$dark-border-color: #626469;
+$light-border-color: #dfdfdf;
+$default-color: #000;
+$invert-color: #fff;
+$default-background-color: #fff;
+$light-dark-color: #58585b;
+$grey-color: #9e9ea2;
+
+:export {
+  primaryColor: $primary-color;
+  primaryLightColor: $primary-light-color;
+  secondaryColor: $secondary-color;
+  borderColor: $border-color;
+  darkBorderColor: $dark-border-color;
+  lightBorderColor: $light-border-color;
+  defaultColor: $default-color;
+  invertColor: $invert-color;
+  defaultBackgroundColor: $default-background-color;
+  lightDarkColor: $light-dark-color;
+  greyColor: $grey-color;
+}
+
+/*
+* Font families
+*/
+$primary-font-family: 'CiscoSansTTRegular', sans-serif;
+
+/*
+* Font weights
+*/
+$normal-font-weight: 400;
+$medium-font-weight: 500;
+$semi-bold-font-weight: 600;
+$bold-font-weight: 700;
+
+/*
+* Heights
+*/
+$header-height: 64px;
+
+/*
+* Breakpoints
+*/
+$tiny-screen-breakpoint: 576px;
+$small-screen-breakpoint: 768px;
+$medium-screen-breakpoint: 992px;
+$large-screen-breakpoint: 1200px;
+
+/*
+* Shadows
+*/
+$table-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px;

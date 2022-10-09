@@ -1,0 +1,40 @@
+@import '../../../../theme/variables.scss';
+
+.container {
+  .menuList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    .menuItem {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px 10px 20px;
+      border-bottom: 1px solid $dark-border-color;
+
+      &:first-child {
+        border-top: 1px solid $dark-border-color;
+      }
+
+      &:hover {
+        background-color: $light-dark-color;
+      }
+      // TODO: uncomment after routing implemented
+      // &.selected {
+      //   border-left: 5px solid $primary-color;
+      // }
+
+      .menuItemDetails {
+        .menuItemLabel {
+          padding-left: 1rem;
+        }
+      }
+
+      svg {
+        vertical-align: middle;
+      }
+    }
+  }
+}
