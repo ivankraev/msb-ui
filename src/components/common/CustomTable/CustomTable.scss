@@ -39,7 +39,6 @@
     th {
       text-align: left;
       padding: 0 24px;
-      min-width: calc(3vw + 70px);
     }
 
     tr {
@@ -49,6 +48,7 @@
     td {
       box-sizing: border-box;
       padding: 0 24px;
+      width: 7rem;
 
       &:hover {
         background-color: $primary-light-color;
