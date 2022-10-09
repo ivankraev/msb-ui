@@ -3,12 +3,11 @@ import React from 'react'
 const ArrowDownIcon = () => {
   return (
     <svg
-      style={{ transform: 'scale(0.7)', marginLeft: '8px', cursor: 'pointer' }}
+      style={{ transform: 'scale(0.75)', cursor: 'pointer' }}
       width={16}
       height={14}
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+      xmlns="http://www.w3.org/2000/svg">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

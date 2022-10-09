@@ -1,5 +1,5 @@
 import React from 'react'
-import s from './Pagination.scss'
+import s from '@msp/components/common/CustomTable/components/Pagination/Pagination.scss'
 import AngleRightIcon from '@msp/components/icons/AngleRightIcon'
 import AngleLeftIcon from '@msp/components/icons/AngleLeftIcon'
 import variables from '@msp/theme/variables.scss'

@@ -1,5 +1,5 @@
 import Overview from '@msp/components/Overview'
-import Invoices from '@msp/components/Invoices'
+import Invoices from '@msp/components/Billing/Invoices'
 
 interface RouteProps {
   path: string

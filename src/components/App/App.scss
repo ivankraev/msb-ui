@@ -111,7 +111,9 @@ abbr[title] {
 
 b,
 strong {
-  font-weight: bolder;
+  font-weight: $bold-font-weight;
+  font-size: 0.813rem;
+  line-height: 1.138rem;
 }
 
 /**
