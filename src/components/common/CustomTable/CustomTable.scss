@@ -6,12 +6,12 @@
   table tbody {
     display: block;
     overflow-y: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
     // Hide scrollbar in Chrome,Safari,Opera
     &::-webkit-scrollbar {
       display: none;
     }
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
   }
 
   tbody {
@@ -34,11 +34,11 @@
   table {
     border-collapse: collapse;
     white-space: nowrap;
-    min-width: calc(30vh + 450px);
+    min-width: calc(25vh + 450px);
 
     th {
       text-align: left;
-      padding: 0px 24px;
+      padding: 0 24px;
       min-width: calc(3vw + 70px);
     }
 
@@ -48,7 +48,7 @@
 
     td {
       box-sizing: border-box;
-      padding: 0px 24px;
+      padding: 0 24px;
 
       &:hover {
         background-color: $primary-light-color;
