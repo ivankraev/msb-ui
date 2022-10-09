@@ -3,6 +3,27 @@
 .container {
   box-shadow: $table-shadow;
 
+  table tbody {
+    display: block;
+    overflow-y: auto;
+    // Hide scrollbar in Chrome,Safari,Opera
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  tbody {
+    max-height: calc(100vh - 330px);
+  }
+
+  table thead,
+  table tbody tr {
+    display: table;
+    width: 100%;
+  }
+
   td,
   th,
   table {
