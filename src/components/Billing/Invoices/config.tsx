@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CellProps, Column } from 'react-table'
 import DownloadIcon from '@msp/components/icons/DownloadIcon'
 import ArrowDownIcon from '@msp/components/icons/ArrowDownIcon'
@@ -24,12 +24,26 @@ const downloadHandler: CellComponent<Invoice['invoiceUrl']> = ({ value }) => (
   />
 )
 
-const sortableHeader = () => (
-  <div className={s.tableHeaderHolder}>
-    <p>Document Number</p>
-    <ArrowDownIcon />
-  </div>
-)
+const sortableHeader = () => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+
+  const resizeHandler = () => {
+    setScreenWidth(window.innerWidth)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', resizeHandler)
+
+    return () => window.removeEventListener('resize', resizeHandler)
+  }, [window.innerWidth])
+
+  return (
+    <div className={s.tableHeaderHolder}>
+      <p>{screenWidth > 1850 ? 'Document Number' : 'Doc'}</p>
+      <ArrowDownIcon />
+    </div>
+  )
+}
 
 export const COLUMNS: Column<Invoice>[] = [
   {
