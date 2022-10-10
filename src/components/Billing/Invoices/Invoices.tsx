@@ -1,5 +1,7 @@
 import React, { useMemo } from 'react'
-import { COLUMNS, MOCK_DATA } from './config'
+import { COLUMNS } from '@msp/components/Billing/Invoices/config'
+import { Invoice } from '@msp/components/Billing/Invoices/types'
+import MOCK_DATA from '@msp/mocks/invoices.json'
 import CustomTable from '@msp/components/common/CustomTable'
 import SubSidebar from '@msp/components/common/SubSidebar'
 import NavbarHolder from '@msp/components/common/SubSidebar/components/NavbarHolder'
@@ -8,7 +10,7 @@ import ClockIcon from '@msp/components/icons/TimePeriodIcons/Calendar'
 import s from '@msp/components/Billing/Invoices/Invoices.scss'
 
 const Invoices = () => {
-  const data = useMemo(() => MOCK_DATA, [MOCK_DATA])
+  const data: Invoice[] = useMemo(() => MOCK_DATA.data, [MOCK_DATA])
   const columns = useMemo(() => COLUMNS, [])
 
   const periods = [
