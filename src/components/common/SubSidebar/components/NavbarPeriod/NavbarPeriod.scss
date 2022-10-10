@@ -1,8 +1,10 @@
 @import '../../../../../theme/variables.scss';
+
 .container {
   li {
     width: 100%;
     cursor: pointer;
+
     span {
       display: flex;
       align-items: center;
@@ -14,6 +16,6 @@
 }
 
 .activeMenuItem {
-  background-color: silver;
+  background-color: $light-border-color;
   font-weight: $bold-font-weight;
 }

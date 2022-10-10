@@ -18,6 +18,7 @@ const NavbarPeriod = ({ periods }: Props) => {
       <ul>
         {periods.map((period) => (
           <li
+            key={period.label}
             className={classNames({ [s.activeMenuItem]: period.value === activeItem })}
             onClick={() => {
               if (period.value === activeItem) return
