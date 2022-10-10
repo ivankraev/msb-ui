@@ -399,3 +399,11 @@ tr {
 th:not(:first-child) {
   color: $grey-color;
 }
+
+ul {
+  margin: 0;
+  padding: 0;
+  li {
+    list-style-type: none;
+  }
+}

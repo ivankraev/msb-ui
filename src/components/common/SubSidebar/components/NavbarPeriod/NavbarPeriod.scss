@@ -1,0 +1,19 @@
+@import '../../../../../theme/variables.scss';
+.container {
+  li {
+    width: 100%;
+    cursor: pointer;
+    span {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      gap: 10px;
+      height: 20px;
+    }
+  }
+}
+
+.activeMenuItem {
+  background-color: silver;
+  font-weight: $bold-font-weight;
+}

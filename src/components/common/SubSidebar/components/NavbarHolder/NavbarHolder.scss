@@ -1,0 +1,13 @@
+@import '../../../../../theme/variables.scss';
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  hr {
+    background-color: $light-border-color;
+    height: 1px;
+    width: 100%;
+    border: none;
+    margin-bottom: 32px;
+  }
+}
