@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.1.3 (2022-10-10)
+
+
+### ✨ Features
+
+* **asdas:** sadas ([93195a1](https://github.com/ivankraev/msb-ui/commit/93195a1a723a47dc348fab5f2615f85e5ba8ec7e))
+
 ### [0.1.2](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/compare/v0.1.1...v0.1.2) (2022-10-09)
 
 
