@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react'
-import { COLUMNS, periods, productItems, cities } from '@msp/components/Billing/Invoices/config'
+import React, { useMemo, useState } from 'react'
+import { COLUMNS, periods, productItems, CITIES } from '@msp/components/Billing/Invoices/config'
 import { Invoice } from '@msp/components/Billing/Invoices/types'
 import MOCK_DATA from '@msp/mocks/invoices.json'
 import CustomTable from '@msp/components/common/CustomTable'
@@ -8,16 +8,24 @@ import NavbarHolder from '@msp/components/common/SubSidebar/components/NavbarHol
 import NavbarPeriod from '@msp/components/common/SubSidebar/components/NavbarPeriod'
 import NavbarCheckbox from '@msp/components/common/SubSidebar/components/NavbarCheckbox'
 import SearchBar from '@msp/components/common/SearchBar'
-import Header from '@msp/components/common/Header'
+import PageHeader from '@msp/components/common/PageHeader'
 import s from './Invoices.scss'
 
 const Invoices = () => {
-  const data: Invoice[] = useMemo(() => MOCK_DATA.data, [MOCK_DATA])
+  const [cities, setCities] = useState(CITIES)
+
+  const invoices: Invoice[] = useMemo(() => MOCK_DATA.data, [MOCK_DATA])
   const columns = useMemo(() => COLUMNS, [])
+
+  const onCitySearchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCities(
+      CITIES.filter((city) => city.label.toUpperCase().includes(e.target.value.toUpperCase())),
+    )
+  }
 
   return (
     <div>
-      <Header label="Invoicing history" />
+      <PageHeader label="Invoicing history" />
       <div className={s.container}>
         <SubSidebar>
           <NavbarHolder title="Period">
@@ -28,11 +36,11 @@ const Invoices = () => {
           </NavbarHolder>
           <NavbarHolder title="Customer">
             <NavbarCheckbox items={cities}>
-              <SearchBar placeholder="Search for customer" />
+              <SearchBar onChange={onCitySearchHandler} placeholder="Search for customer" />
             </NavbarCheckbox>
           </NavbarHolder>
         </SubSidebar>
-        <CustomTable columns={columns} data={data} />
+        <CustomTable columns={columns} data={invoices} />
       </div>
     </div>
   )

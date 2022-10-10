@@ -1,5 +1,5 @@
 import React from 'react'
-import CheckboxIcon from '@msp/components/icons/CheckboxIcon'
+import CheckboxItem from '@msp/components/common/CheckboxItem'
 import s from './NavbarCheckbox.scss'
 
 interface Props {
@@ -18,10 +18,7 @@ const NavbarCheckbox = ({ items, children }: Props) => {
       <ul>
         {items.map((period) => (
           <li key={period.label}>
-            <span>
-              <CheckboxIcon />
-              <p>{period.label}</p>
-            </span>
+            <CheckboxItem label={period.label} />
           </li>
         ))}
       </ul>

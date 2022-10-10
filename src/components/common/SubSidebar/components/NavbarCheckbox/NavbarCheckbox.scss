@@ -4,22 +4,10 @@
   li {
     width: 100%;
 
-    svg {
-      cursor: pointer;
-    }
-
     &:first-child {
       span {
         padding-top: 0;
       }
-    }
-
-    span {
-      display: flex;
-      align-items: center;
-      padding-block: 8px;
-      gap: 10px;
-      height: 20px;
     }
   }
 }

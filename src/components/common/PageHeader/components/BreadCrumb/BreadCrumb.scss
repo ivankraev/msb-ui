@@ -1,0 +1,13 @@
+.container {
+  margin-top: 24px;
+
+  ul {
+    display: flex;
+    font-size: 0.875rem;
+
+    li::after {
+      padding: 4px;
+      content: '/\00a0';
+    }
+  }
+}

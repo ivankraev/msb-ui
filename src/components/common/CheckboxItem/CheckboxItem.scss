@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding-block: 8px;
+  gap: 10px;
+  height: 20px;
+
+  svg {
+    cursor: pointer;
+  }
+}
