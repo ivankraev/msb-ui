@@ -1,5 +1,5 @@
 import React from 'react'
-import s from '@msp/components/common/Subsidebar/Subsidebar.scss'
+import s from './SubSidebar.scss'
 
 interface Props {
   children: React.ReactNode

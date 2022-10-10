@@ -4,6 +4,28 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  position: relative;
+
+  ul {
+    max-height: 350px;
+    overflow: auto;
+
+    // Hide scrollbar in Chrome,Safari,Opera
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $grey-color;
+      border-radius: 3px;
+    }
+  }
+
+  &:last-child {
+    hr {
+      display: none;
+    }
+  }
 
   hr {
     background-color: $light-border-color;

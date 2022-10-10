@@ -1,0 +1,34 @@
+@import '../../../../../theme/variables.scss';
+
+.container {
+  li {
+    width: 100%;
+
+    svg {
+      cursor: pointer;
+    }
+
+    &:first-child {
+      span {
+        padding-top: 0;
+      }
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      padding-block: 8px;
+      gap: 10px;
+      height: 20px;
+    }
+  }
+}
+
+.deselectButton {
+  font-size: 0.875rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: $primary-color;
+  cursor: pointer;
+}

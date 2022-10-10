@@ -1,5 +1,5 @@
 import React from 'react'
-import s from '@msp/components/common/Subsidebar/components/Navbarholder/NavbarHolder.scss'
+import s from './NavbarHolder.scss'
 
 interface Props {
   title: string

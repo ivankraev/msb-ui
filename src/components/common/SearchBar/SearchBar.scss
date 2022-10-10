@@ -1,0 +1,15 @@
+@import '../../../theme/variables.scss';
+
+.container {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 10px 0 20px;
+  height: 32px;
+  border: 1px solid $grey-color;
+  box-shadow: 0 1px 0 $light-border-color;
+  font-size: 0.875rem;
+  padding: 7px 12px 5px 40px;
+  outline: none;
+  border-radius: 3px;
+  background: url('../../icons/Search.svg') no-repeat 12px center;
+}

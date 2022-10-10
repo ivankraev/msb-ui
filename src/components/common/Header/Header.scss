@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 92px;
+  position: relative;
+  margin-bottom: 32px;
+
+  h1 {
+    position: absolute;
+    bottom: 0;
+  }
+
+  span {
+    position: absolute;
+    top: 24px;
+  }
+}

@@ -1,3 +1,12 @@
 .container {
   min-width: 240px;
+  max-height: calc(100vh - 189px);
+  overflow: auto;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  // Hide scrollbar in Chrome,Safari,Opera
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
