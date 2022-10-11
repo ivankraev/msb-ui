@@ -1,5 +1,5 @@
 import React from 'react'
-import BreadCrumb from '@msp/components/common/PageHeader/components/BreadCrumb'
+import BreadCrumb from '@common/PageHeader/components/BreadCrumb'
 import s from './PageHeader.scss'
 
 interface Props {
@@ -7,7 +7,7 @@ interface Props {
   children?: React.ReactNode
 }
 
-const Header = ({ label, children }: Props) => {
+const PageHeader = ({ label, children }: Props) => {
   return (
     <div className={s.container}>
       <div className={s.headersHolder}>
@@ -19,4 +19,4 @@ const Header = ({ label, children }: Props) => {
   )
 }
 
-export default Header
+export default PageHeader

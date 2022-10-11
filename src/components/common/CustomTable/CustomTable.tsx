@@ -1,7 +1,7 @@
 import React from 'react'
 import { Column, useTable } from 'react-table'
 import classNames from 'classnames'
-import Pagination from '@msp/components/common/CustomTable/components/Pagination'
+import Pagination from '@common/CustomTable/components/Pagination'
 import s from './CustomTable.scss'
 
 interface Props<T extends Record<string, unknown>> {

@@ -1,5 +1,5 @@
 import React from 'react'
-import CheckboxItem from '@msp/components/common/CheckboxItem'
+import CheckboxItem from '@common/CheckboxItem'
 import s from './NavbarCheckbox.scss'
 
 interface Props {

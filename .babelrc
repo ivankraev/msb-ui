@@ -6,7 +6,8 @@
       {
         "root": ["./"],
         "alias": {
-          "@msp": "./src"
+          "@msp": "./src",
+          "@common": "./src/components/common"
         }
       }
     ]
