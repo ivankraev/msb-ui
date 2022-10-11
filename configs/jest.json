@@ -1,6 +1,0 @@
-{
-  "preset": "ts-jest",
-  "moduleFileExtensions": ["ts", "tsx", "js", "jsx"],
-  "testMatch": ["<rootDir>/src/**/?(*.)test.{ts,tsx}"],
-  "modulePaths": ["<rootDir>/src/"]
-}
