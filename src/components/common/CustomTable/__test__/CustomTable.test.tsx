@@ -4,7 +4,7 @@ import CustomTable from '@common/CustomTable'
 import { Column } from 'react-table'
 
 describe('CustomTable component', () => {
-  it('Should render the component with the proper props and handle the onChange event', async () => {
+  it('Should render the component with the proper content', async () => {
     type MockItem = {
       id: number
       body: string
