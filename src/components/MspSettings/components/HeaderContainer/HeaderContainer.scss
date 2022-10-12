@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  button {
+    align-self: flex-end;
+  }
+}

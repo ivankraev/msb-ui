@@ -3,6 +3,8 @@ import Container from '@common/Container'
 import Button from '@common/Button'
 import Logo from '@msp/assets/images/AcmeWidgetsLogo'
 import TaxCertificate from '@msp/components/MspSettings/components/TaxCertificate'
+import HeaderContainer from '@msp/components/MspSettings/components/HeaderContainer'
+import SettingsContainer from '@msp/components/MspSettings/components/SettingsContainer'
 import s from './MspSettings.scss'
 
 const MspSettings = () => {
@@ -10,27 +12,22 @@ const MspSettings = () => {
     <Container label="Msp Settings">
       <div className={s.container}>
         <div className={s.generalSettingsHolder}>
-          <div className={s.headerHolder}>
-            <h3>Info</h3>
+          <HeaderContainer label="Info">
             <Button>edit info</Button>
-          </div>
-          <div className={s.settingsContainer}>
-            <strong>MSP name</strong>
+          </HeaderContainer>
+          <SettingsContainer label="MSP name">
             <span>Acme Widgets</span>
-          </div>
-          <div className={s.settingsContainer}>
-            <strong>MSP logo</strong>
+          </SettingsContainer>
+          <SettingsContainer label="MSP logo">
             <Logo />
-          </div>
+          </SettingsContainer>
           <hr />
-          <div className={s.headerHolder}>
-            <h3>Other settings</h3>
+          <HeaderContainer label="Other settings">
             <Button>change</Button>
-          </div>
-          <div className={s.settingsContainer}>
-            <strong>Tax certificate</strong>
+          </HeaderContainer>
+          <SettingsContainer label="Tax certificate">
             <TaxCertificate />
-          </div>
+          </SettingsContainer>
         </div>
       </div>
     </Container>
