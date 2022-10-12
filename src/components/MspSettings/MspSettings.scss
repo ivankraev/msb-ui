@@ -1,0 +1,43 @@
+@import '../../theme/variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 1032px;
+}
+
+.generalSettingsHolder {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 16px;
+
+  hr {
+    background-color: $light-border-color;
+    height: 1px;
+    width: 100%;
+    border: none;
+    margin: 0;
+  }
+}
+
+.settingsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  span {
+    font-size: 0.875rem;
+  }
+}
+
+.headerHolder {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  button {
+    align-self: flex-end;
+  }
+}

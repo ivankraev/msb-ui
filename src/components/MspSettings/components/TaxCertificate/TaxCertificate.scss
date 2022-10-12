@@ -1,0 +1,40 @@
+@import '../../../../theme/variables.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 58px;
+  width: 412px;
+  float: left;
+  border-radius: 2px;
+  border: 1px solid $primary-color;
+
+  svg:nth-child(3) {
+    padding: 21px 24px;
+
+    g {
+      cursor: pointer;
+    }
+  }
+}
+
+.iconHolder {
+  width: 64px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary-color;
+}
+
+.certInfoHolder {
+  padding: 11px 14px;
+  width: 268px;
+  display: flex;
+  flex-direction: column;
+
+  span:nth-child(2) {
+    font-size: 0.75rem;
+  }
+}
