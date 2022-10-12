@@ -1,0 +1,66 @@
+@import '../../theme/variables.scss';
+
+$purpleColor: '#9A4B9D';
+$darkBlue: '#5674B9';
+$greyColor: '#9E9EA2';
+$lightBlue: '#00ACC1';
+$blackColor: '#000000';
+
+.cardContainer {
+  display: flex;
+  gap: 15px;
+  font-size: 17px;
+  line-height: 24px;
+  .bigCard {
+    width: 260px;
+    height: 120px;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -1px 2px 2px rgba(0, 0, 0, 0.25);
+    .count {
+      font-size: 1.3rem;
+    }
+    .link {
+      color: $primary-color;
+      font-size: 0.8rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      margin-top: 15px;
+    }
+  }
+  .smallCard {
+    width: 260px;
+    height: 67px;
+    font-size: 0.7rem;
+    box-sizing: border-box;
+    padding: 5px 5px;
+    margin-top: 25px;
+    box-shadow: -1px 2px 2px rgba(0, 0, 0, 0.25), 1px 2px 2px rgba(0, 0, 0, 0.25);
+    display: flex;
+    gap: 10px;
+    .title {
+      color: $primary-color;
+      font-size: 0.8rem;
+    }
+    .count {
+      font-size: 0.9rem;
+      color: $secondary-color;
+    }
+    .notActive {
+      .title,
+      .count {
+        color: $dark-border-color;
+      }
+    }
+  }
+}
+
+:export {
+  purpleColor: unquote($purpleColor);
+  darkBlue: unquote($darkBlue);
+  greyColor: unquote($greyColor);
+  lightBlue: unquote($lightBlue);
+  blackColor: unquote($blackColor);
+}

@@ -2,6 +2,9 @@
 const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const DotenvPlugin = require('webpack-dotenv-plugin')
+require('dotenv').config({ path: '../../.env' })
+
 module.exports = {
   entry: './index.tsx',
   resolve: {
@@ -46,6 +49,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.html',
       title: 'Hot Module Replacement',
+    }),
+    new DotenvPlugin({
+      path: '.env',
+      sample: '.env.example',
+      allowEmptyValues: true,
     }),
   ],
 }

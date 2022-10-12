@@ -1,7 +1,9 @@
 @import '../../theme/variables.scss';
 
 .container {
-  height: 100%;
+  height: calc(100vh - $header-height);
+  position: sticky;
+  top: $header-height;
   min-width: 280px;
   background-color: $secondary-color;
   color: $invert-color;
@@ -11,11 +13,6 @@
     align-items: center;
     gap: 1rem;
     padding: 24px 24px 34px;
-
-    .logoImage {
-      width: 57px;
-      height: 30px;
-    }
 
     .name {
       font-size: 1rem;

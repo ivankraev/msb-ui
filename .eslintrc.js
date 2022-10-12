@@ -6,7 +6,7 @@ module.exports = {
     sourceType: 'module',
     tsconfigRootDir: __dirname,
   },
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'unused-imports'],
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -19,7 +19,7 @@ module.exports = {
     node: true,
     jest: true,
   },
-  ignorePatterns: ['.eslintrc.js', 'configs/*'],
+  ignorePatterns: ['.eslintrc.js', 'configs/*', 'jest.config.js'],
   rules: {
     'react/display-name': 'off',
     '@typescript-eslint/interface-name-prefix': 'off',
@@ -27,6 +27,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-explicit-any': 2,
+    'unused-imports/no-unused-imports': 'error',
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'react/self-closing-comp': ['error', { component: true, html: true }],

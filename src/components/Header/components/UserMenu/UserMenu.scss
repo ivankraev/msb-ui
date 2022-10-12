@@ -1,0 +1,43 @@
+@import '../../../../theme/variables.scss';
+
+$menu-shadow: 0 3px 6px rgba(85, 85, 85, 0.24);
+
+.container {
+  position: absolute;
+  right: 0;
+  min-width: 360px;
+  box-shadow: $menu-shadow;
+  background-color: $default-background-color;
+  padding: 1.5rem;
+  font-size: 0.875rem;
+
+  .userName {
+    font-size: 1.25rem;
+  }
+
+  .userEmail {
+    margin-top: 0.5rem;
+    color: $grey-color;
+  }
+
+  hr {
+    border-color: $light-grey-color;
+    border-bottom: none;
+    margin: 12px 0 22px;
+  }
+
+  .linksList {
+    margin: 20px 0;
+    display: grid;
+    gap: 15px;
+  }
+
+  .ctaLabel {
+    text-align: center;
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  .fullWidthCta {
+    width: 100%;
+  }
+}

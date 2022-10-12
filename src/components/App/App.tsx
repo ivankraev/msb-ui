@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Navigate, RouteProps } from 'react-router'
+import { RouteProps } from 'react-router'
+import { Navigate } from 'react-router-dom'
 
 import './App.scss'
 import routes from '@msp/routes/main'
@@ -9,6 +10,7 @@ import ProtectedRoute from '@msp/routes/ProtectedRoute'
 
 interface IRouteProps extends Omit<RouteProps, 'element'> {
   element: React.ElementType
+  protect?: boolean
 }
 
 const renderRoutes = (): React.ReactElement[] =>

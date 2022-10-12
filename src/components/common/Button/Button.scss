@@ -1,0 +1,20 @@
+@import '../../../theme/variables.scss';
+
+.button {
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 1px solid $primary-color;
+  border-radius: 3px;
+  padding: 0.5rem;
+  font-weight: $bold-font-weight;
+
+  &.empty {
+    color: $primary-color;
+    background-color: $default-background-color;
+  }
+
+  &.contained {
+    background-color: $primary-color;
+    color: $invert-color;
+  }
+}

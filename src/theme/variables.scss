@@ -12,6 +12,7 @@ $invert-color: #fff;
 $default-background-color: #fff;
 $light-dark-color: #58585b;
 $grey-color: #9e9ea2;
+$light-grey-color: #dfdfdf;
 
 :export {
   primaryColor: $primary-color;
@@ -25,6 +26,7 @@ $grey-color: #9e9ea2;
   defaultBackgroundColor: $default-background-color;
   lightDarkColor: $light-dark-color;
   greyColor: $grey-color;
+  lightGreyColor: $light-grey-color;
 }
 
 /*

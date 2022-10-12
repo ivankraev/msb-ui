@@ -1,6 +1,10 @@
 @import '../../theme/variables.scss';
 
 .container {
+  position: sticky;
+  box-sizing: border-box;
+  background-color: $default-background-color;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,21 +36,20 @@
     align-items: center;
     gap: 30px;
 
-    .userDetails {
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      padding: 8px 12px;
-      border: 1px solid $border-color;
+    .userDetailsContainer {
+      position: relative;
 
-      .companyLogo {
-        width: 60px;
-        height: 30px;
-      }
+      .userDetails {
+        display: flex;
+        align-items: center;
+        padding: 8px 12px;
+        border: 1px solid $border-color;
+        cursor: pointer;
 
-      .name {
-        font-size: 0.875rem;
-        padding: 0 6px 0 15px;
+        .name {
+          font-size: 0.875rem;
+          padding: 0 6px 0 15px;
+        }
       }
     }
   }
