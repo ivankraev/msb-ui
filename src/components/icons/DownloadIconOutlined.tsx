@@ -28,7 +28,7 @@ const DownloadIconOutlined = ({ link }: Props) => {
           fill="white"
         />
       </mask>
-      <a href={link}>
+      <a href={link} download>
         <g mask="url(#mask0_4080_10289)">
           <rect
             x="16"

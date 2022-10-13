@@ -1,32 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import s from './TaxCertificate.scss'
 import TaxCertificateIcon from '@msp/components/icons/TaxCertificateIcon'
 import DownloadIconOutlined from '@msp/components/icons/DownloadIconOutlined'
+import { useAppSelector } from '@msp/redux/hooks'
 
-interface Props {
-  file: File | null
-}
+const TaxCertificate = () => {
+  const { file } = useAppSelector((state) => state.settings.certificate)
 
-interface MyOjb extends File {
-  downloadUrl: string
-}
-
-const TaxCertificate = ({ file }: Props) => {
-  if (!file) return <span>No certificate uploaded</span>
-
-  const handler = {
-    get(obj: MyOjb, prop: keyof File) {
-      obj.downloadUrl = URL.createObjectURL(file)
-
-      if (prop === 'name' && obj[prop].length > 20) {
-        return obj[prop].slice(0, 20).concat('...')
+  useEffect(() => {
+    return () => {
+      if (file) {
+        URL.revokeObjectURL(file.downloadUrl)
       }
+    }
+  }, [])
 
-      return obj[prop]
-    },
-  }
-
-  const certProxy = new Proxy(file as MyOjb, handler)
+  if (!file) return <span>No file uploaded</span>
 
   return (
     <div className={s.container}>
@@ -34,11 +23,10 @@ const TaxCertificate = ({ file }: Props) => {
         <TaxCertificateIcon />
       </div>
       <div className={s.certInfoHolder}>
-        <span>{certProxy.name}</span>
-        <span>{certProxy.size}</span>
+        <span>{file.name}</span>
+        <span>{(file.size / 1024).toFixed()}kb</span>
       </div>
-
-      <DownloadIconOutlined link={certProxy.downloadUrl} />
+      <DownloadIconOutlined link={file.downloadUrl} />
     </div>
   )
 }

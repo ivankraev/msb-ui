@@ -1,13 +1,59 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import MsbSettings from '@msp/components/MspSettings'
+import { fireEvent } from '@testing-library/react'
+import { renderWithProviders } from '@msp/utils/test-utils'
+import MspSettings from '@msp/components/MspSettings'
+
+const preloadedState = {
+  settings: {
+    mspName: 'Test Name',
+    logo: 'test logo',
+    certificate: {
+      file: null,
+      error: null,
+    },
+  },
+}
 
 describe('MsbSettings component', () => {
-  it('Should render h1, h3, strong and svg elements', () => {
-    const { container } = render(<MsbSettings />)
-    expect(container.querySelector('h1')).not.toBeNull()
-    expect(container.querySelector('h3')).not.toBeNull()
+  it('Should render the correct content provided by the store', () => {
+    const { container } = renderWithProviders(<MspSettings />, { preloadedState })
+
+    expect(container.querySelectorAll('span')[0].textContent).toBe('Test Name')
+    expect(container.querySelector('h1')?.textContent).toBe('Msp Settings')
+    expect(container.querySelector('img')?.src).toBe('http://localhost/test%20logo')
     expect(container.querySelector('strong')).not.toBeNull()
-    expect(container.querySelector('svg')).not.toBeNull()
+  })
+
+  it('Should change the file succesfully with the proper format', async () => {
+    const { getByTestId } = renderWithProviders(<MspSettings />, { preloadedState })
+
+    global.URL.createObjectURL = jest.fn()
+
+    const file = new File(['(⌐□_□)'], 'chucknorris.pdf', { type: 'application/pdf' })
+
+    const uploader = getByTestId('file-uploader')
+
+    fireEvent.change(uploader, { target: { files: [file] } })
+
+    const imageInput = getByTestId('file-uploader')
+
+    expect((imageInput as HTMLInputElement).files![0].name).toBe('chucknorris.pdf')
+    expect((imageInput as HTMLInputElement).files![0].type).toBe('application/pdf')
+    expect(global.URL.createObjectURL).toHaveBeenCalled()
+  })
+
+  it('Should not upload file with wrong format', async () => {
+    const { getByTestId, getByText } = renderWithProviders(<MspSettings />, { preloadedState })
+
+    const file = new File(['(⌐□_□)'], 'chucknorris.png', { type: 'image/png' })
+
+    global.URL.createObjectURL = jest.fn()
+
+    const uploader = getByTestId('file-uploader')
+
+    fireEvent.change(uploader, { target: { files: [file] } })
+
+    expect(getByText(/File format not allowed!/)).toBeInTheDocument()
+    expect(global.URL.createObjectURL).toHaveBeenCalledTimes(0)
   })
 })

@@ -1,7 +1,7 @@
 {
   "name": "Rebecca Rogers",
   "email": "rrogers@acme-widgets.com",
-  "logo": "company-logo.png",
+  "logo": "company-logo.svg",
   "organization": "Acme Widgets",
   "availableOrganizations": ["Alpha Ltd."]
 }

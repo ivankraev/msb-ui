@@ -9,6 +9,7 @@ import { Provider } from 'react-redux'
 import AppStore, { RootState } from '../redux/store'
 // As a basic setup, import your same slice reducers
 import userReducer from '../features/user/userSlice'
+import settingsReducer from '../features/settings/settingsSlice'
 
 // This type interface extends the default options for render from RTL, as well
 // as allows the user to specify other things such as initialState, store.
@@ -22,7 +23,10 @@ export function renderWithProviders(
   {
     preloadedState = {},
     // Automatically create a store instance if no store was passed in
-    store = configureStore({ reducer: { user: userReducer }, preloadedState }),
+    store = configureStore({
+      reducer: { user: userReducer, settings: settingsReducer },
+      preloadedState,
+    }),
     ...renderOptions
   }: ExtendedRenderOptions = {},
 ) {
