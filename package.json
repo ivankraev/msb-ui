@@ -1,6 +1,6 @@
 {
   "name": "msp-hub-front",
-  "version": "0.1.10",
+  "version": "0.1.13",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
@@ -28,7 +28,9 @@
     "lint:styles": "stylelint **.scss --fix",
     "format": "prettier --write ./src",
     "commit": "cz",
-    "release": "standard-version",
+    "release:patch": "standard-version --release-as patch",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major",
     "prepare": "husky install"
   },
   "browserslist": {

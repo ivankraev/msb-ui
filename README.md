@@ -16,10 +16,10 @@
 	.
 	├── docs                       # Documentation files
 	├── .husky                     # Husky scripts files
-	├── public                     
+	├── public
 	├── src                        # Source files
 	│   ├── assets                 # Assets (fonts etc.)
-	│   ├── routes                 
+	│   ├── routes
 	│   │   ├── main.ts            # Routes list
 	│   ├── components             # React components
 	│   ├── features               # Redux logic for any functional feature
@@ -33,7 +33,7 @@
 	│   ├── jest.json              # Jest configuration
 	└── README.md
 > Modules can be resolved using absolute path alias @msp (e.g "@msp/routes/main")
-	
+
 ## Responsive breakpoints
 
 Breakpoint | Width
@@ -63,28 +63,51 @@ Command | Description
 
 ## Commit
 
-[Conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) is checked by husky.
-
 To commit your changes, use
 
 ```bash
 $ yarn commit
 ```
 
+## Semantic versioning
+
+- fix: a commit of the type fix patches a bug in your codebase (this correlates with PATCH in Semantic Versioning).
+types other than fix: build:, chore:, ci:, docs:, style:, refactor:, perf:, test:, and others.
+
+- feat: a commit of the type feat introduces a new feature to the codebase (this correlates with MINOR in Semantic Versioning).
+
+- BREAKING CHANGE: a commit that has a footer BREAKING CHANGE:, or appends a ! after the type/scope, introduces a breaking API change (correlating with MAJOR in Semantic Versioning). A BREAKING CHANGE can be part of commits of any type.
+
+For more information, please check [Conventional commit](https://www.conventionalcommits.org/en/v1.0.0/)
+
 Every commit should be tagged, so after you commit the changes, run the script
 
+- Patch
+
 ```bash
-$ yarn release
+$ yarn release:patch
 ```
 
-It will automatically bump up the version, update it in package.json and create notes in 
+- Minor
+
+```bash
+$ yarn release:minor
+```
+
+- Major
+
+```bash
+$ yarn release:major
+```
+
+It will automatically bump up the version, update it in package.json and create notes in
 the CHANGELOG.md file.
+
+If you want to check how your release will look like without actually
+applying it you can add --dry-run after the command.
 
 We can push our changes with the following script
 
 ```bash
 $ git push --follow-tags <remote> <branchname>
 ```
-
-
-

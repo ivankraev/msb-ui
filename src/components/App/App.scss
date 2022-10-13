@@ -51,9 +51,12 @@ h1 {
      */
 
 hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
   border: none;
   border-top: 1px solid $light-grey-color;
 }
