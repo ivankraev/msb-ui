@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 58px;
+  min-height: 58px;
   width: 412px;
   border-radius: 2px;
   border: 1px solid $primary-color;
@@ -28,7 +28,7 @@
 }
 
 .certInfoHolder {
-  padding: 11px 14px;
+  padding: 0.688rem 0.875rem;
   width: 268px;
   display: flex;
   flex-direction: column;

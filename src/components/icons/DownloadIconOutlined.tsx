@@ -1,6 +1,10 @@
 import React from 'react'
 
-const DownloadIconOutlined = () => {
+interface Props {
+  link: string
+}
+
+const DownloadIconOutlined = ({ link }: Props) => {
   return (
     <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -24,16 +28,18 @@ const DownloadIconOutlined = () => {
           fill="white"
         />
       </mask>
-      <g mask="url(#mask0_4080_10289)">
-        <rect
-          x="16"
-          y="16.9474"
-          width="16"
-          height="16"
-          transform="rotate(-180 16 16.9474)"
-          fill="#049FD9"
-        />
-      </g>
+      <a href={link}>
+        <g mask="url(#mask0_4080_10289)">
+          <rect
+            x="16"
+            y="16.9474"
+            width="16"
+            height="16"
+            transform="rotate(-180 16 16.9474)"
+            fill="#049FD9"
+          />
+        </g>
+      </a>
     </svg>
   )
 }
