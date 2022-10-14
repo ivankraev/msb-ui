@@ -2,8 +2,9 @@ import React, { useRef } from 'react'
 import { settingsActions } from '@msp/features/settings/settingsSlice'
 import { useAppSelector } from '@msp/redux/hooks'
 import TaxCertificate from '@msp/components/MspSettings/components/TaxCertificate'
-import HeaderContainer from '@msp/components/MspSettings/components/HeaderContainer'
-import SettingsContainer from '@msp/components/MspSettings/components/SettingsContainer'
+import HeaderContainer from '@common/UserSettings/components/HeaderContainer'
+import SettingsContainer from '@common/UserSettings/components/SettingsContainer'
+import InnerContainer from '@common/UserSettings/components/Container'
 import Container from '@common/Container'
 import Button from '@common/Button'
 import Logo from '@common/Logo'
@@ -55,35 +56,33 @@ const MspSettings = () => {
 
   return (
     <Container label="Msp Settings">
-      <div className={s.container}>
-        <div className={s.generalSettingsHolder}>
-          <HeaderContainer label="Info">
-            <Button>edit info</Button>
-          </HeaderContainer>
-          <SettingsContainer label="MSP name">
-            <span>{mspName}</span>
-          </SettingsContainer>
-          <SettingsContainer label="MSP logo">
-            <Logo className={s.logo} link={logo!} />
-          </SettingsContainer>
-          <hr />
-          <HeaderContainer label="Other settings">
-            <input
-              hidden
-              type="file"
-              data-testid="file-uploader"
-              ref={hiddenFileInput}
-              onChange={handleChange}
-              accept={CERT_ALLOWED_FORMATS.join(',')}
-            />
-            <Button onClick={handleClick}>{file ? 'change' : 'upload'}</Button>
-          </HeaderContainer>
-          <SettingsContainer label="Tax certificate">
-            {error && <span className={s.error}>{error.message}</span>}
-            <TaxCertificate />
-          </SettingsContainer>
-        </div>
-      </div>
+      <InnerContainer>
+        <HeaderContainer label="Info">
+          <Button>edit info</Button>
+        </HeaderContainer>
+        <SettingsContainer label="MSP name">
+          <span>{mspName}</span>
+        </SettingsContainer>
+        <SettingsContainer label="MSP logo">
+          <Logo className={s.logo} link={logo!} />
+        </SettingsContainer>
+        <hr />
+        <HeaderContainer label="Other settings">
+          <input
+            hidden
+            type="file"
+            data-testid="file-uploader"
+            ref={hiddenFileInput}
+            onChange={handleChange}
+            accept={CERT_ALLOWED_FORMATS.join(',')}
+          />
+          <Button onClick={handleClick}>{file ? 'change' : 'upload'}</Button>
+        </HeaderContainer>
+        <SettingsContainer label="Tax certificate">
+          {error && <span className={s.error}>{error.message}</span>}
+          <TaxCertificate />
+        </SettingsContainer>
+      </InnerContainer>
     </Container>
   )
 }

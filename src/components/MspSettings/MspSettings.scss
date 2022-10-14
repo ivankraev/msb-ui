@@ -1,27 +1,5 @@
 @import '../../theme/variables.scss';
 
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  width: 60vw;
-}
-
-.generalSettingsHolder {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  gap: 16px;
-
-  hr {
-    background-color: $light-border-color;
-    height: 1px;
-    width: 100%;
-    border: none;
-    margin: 0;
-  }
-}
-
 .error {
   color: $error-color;
 }
