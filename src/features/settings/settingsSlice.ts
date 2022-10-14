@@ -27,9 +27,6 @@ const SettingsSLice = createSlice({
   reducers: {
     changeCertificateSuccess: (state, action: PayloadAction<CertFile>): SettingsSliceState => {
       const file = action.payload
-      // Limit the name if its too long
-      if (file.name.length > 20) file.name = file.name.slice(0, 20).concat('...')
-      // Format the file size
 
       let ext = 'kb'
       // size in kb

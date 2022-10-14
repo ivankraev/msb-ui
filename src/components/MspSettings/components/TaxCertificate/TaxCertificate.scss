@@ -4,13 +4,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 58px;
-  width: 412px;
+  min-height: 3.625rem;
+  width: 25.75rem;
   border-radius: 2px;
   border: 1px solid $primary-color;
 
   svg:nth-child(3) {
-    padding: 21px 24px;
+    padding: 1.313rem 1.5rem;
 
     g {
       cursor: pointer;
@@ -19,7 +19,7 @@
 }
 
 .iconHolder {
-  width: 64px;
+  width: 4rem;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -29,9 +29,15 @@
 
 .certInfoHolder {
   padding: 0.688rem 0.875rem;
-  width: 268px;
+  width: 16.75rem;
   display: flex;
   flex-direction: column;
+
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   span:nth-child(2) {
     font-size: 0.75rem;
