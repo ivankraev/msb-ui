@@ -16,18 +16,18 @@ $light-grey-color: #dfdfdf;
 $error-color: #cf2030;
 
 :export {
-  primarycolor: $primary-color;
-  primarylightcolor: $primary-light-color;
-  secondarycolor: $secondary-color;
-  bordercolor: $border-color;
-  darkbordercolor: $dark-border-color;
-  lightbordercolor: $light-border-color;
-  defaultcolor: $default-color;
-  invertcolor: $invert-color;
-  defaultbackgroundcolor: $default-background-color;
-  lightdarkcolor: $light-dark-color;
-  greycolor: $grey-color;
-  lightgreycolor: $light-grey-color;
+  primaryColor: $primary-color;
+  primaryLightColor: $primary-light-color;
+  secondaryColor: $secondary-color;
+  borderColor: $border-color;
+  darkBorderColor: $dark-border-color;
+  lightBorderColor: $light-border-color;
+  defaultColor: $default-color;
+  invertColor: $invert-color;
+  defaultBackgroundColor: $default-background-color;
+  lightDarkColor: $light-dark-color;
+  greyColor: $grey-color;
+  lightGreyColor: $light-grey-color;
   errorColor: $error-color;
 }
 

@@ -1,13 +1,13 @@
 import React, { useRef } from 'react'
 import { settingsActions } from '@msp/features/settings/settingsSlice'
 import { useAppSelector } from '@msp/redux/hooks'
-import Container from '@common/Container'
-import Button from '@common/Button'
 import TaxCertificate from '@msp/components/MspSettings/components/TaxCertificate'
 import HeaderContainer from '@msp/components/MspSettings/components/HeaderContainer'
 import SettingsContainer from '@msp/components/MspSettings/components/SettingsContainer'
-import s from './MspSettings.scss'
+import Container from '@common/Container'
+import Button from '@common/Button'
 import Logo from '@common/Logo'
+import s from './MspSettings.scss'
 
 const CERT_ALLOWED_FORMATS = [
   'application/pdf',
@@ -36,12 +36,20 @@ const MspSettings = () => {
     if (!event.target.files) return
 
     const fileUploaded = event.target.files[0]
+
     if (!CERT_ALLOWED_FORMATS.includes(fileUploaded?.type)) {
-      changeCertificateFail(TEXT_ON_WRONG_FORMAT)
-      return
+      return changeCertificateFail({ message: TEXT_ON_WRONG_FORMAT })
     }
 
-    changeCertificateSuccess(fileUploaded)
+    // TODO: Need to submit the file here
+
+    const payload = {
+      name: fileUploaded.name,
+      size: fileUploaded.size,
+      downloadUrl: URL.createObjectURL(fileUploaded),
+    }
+
+    changeCertificateSuccess(payload)
     event.target.value = ''
   }
 
@@ -71,7 +79,7 @@ const MspSettings = () => {
             <Button onClick={handleClick}>{file ? 'change' : 'upload'}</Button>
           </HeaderContainer>
           <SettingsContainer label="Tax certificate">
-            {error && <span className={s.error}>{error}</span>}
+            {error && <span className={s.error}>{error.message}</span>}
             <TaxCertificate />
           </SettingsContainer>
         </div>

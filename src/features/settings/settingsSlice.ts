@@ -1,16 +1,14 @@
 import { useAppDispatch } from '@msp/redux/hooks'
-import { bindActionCreators, createSlice } from '@reduxjs/toolkit'
-
-interface FileWithURL extends File {
-  downloadUrl: string
-}
+import { bindActionCreators, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { CertFile } from '@msp/shared/interfaces/certfile.interface'
+import { AxiosError } from 'axios'
 
 export interface SettingsSliceState {
   mspName: string | null
   logo: string | null
   certificate: {
-    file: FileWithURL | null
-    error: string | null
+    file: CertFile | null
+    error: Partial<AxiosError> | null
   }
 }
 
@@ -24,31 +22,32 @@ export const initialState: SettingsSliceState = {
 }
 
 const SettingsSLice = createSlice({
-  name: 'user',
+  name: 'settings',
   initialState,
   reducers: {
-    changeCertificateSuccess: (state, action): SettingsSliceState => {
-      const file = action.payload as File
+    changeCertificateSuccess: (state, action: PayloadAction<CertFile>): SettingsSliceState => {
+      const file = action.payload
+      // Limit the name if its too long
+      if (file.name.length > 20) file.name = file.name.slice(0, 20).concat('...')
+      // Format the file size
 
-      const proxyHandler = {
-        get(obj: FileWithURL, prop: keyof FileWithURL) {
-          const url = URL.createObjectURL(file)
-
-          obj.downloadUrl = url
-
-          if (prop === 'name' && obj[prop].length > 20) {
-            return obj[prop].slice(0, 20).concat('...')
-          }
-
-          return obj[prop]
-        },
+      let ext = 'kb'
+      // size in kb
+      let size = Number(file.size) / 1024
+      // size in mb
+      if (size > 1000) {
+        size = size / 1000
+        ext = 'Mb'
       }
 
-      const proxyFile = new Proxy(file as FileWithURL, proxyHandler)
-
-      return { ...state, certificate: { file: proxyFile, error: null } }
+      file.size = `${size.toFixed(1)}${ext}`
+      // return the result
+      return { ...state, certificate: { file, error: null } }
     },
-    changeCertificateFail: (state, action): SettingsSliceState => {
+    changeCertificateFail: (
+      state,
+      action: PayloadAction<Partial<AxiosError>>,
+    ): SettingsSliceState => {
       return { ...state, certificate: { ...state.certificate, error: action.payload } }
     },
   },
