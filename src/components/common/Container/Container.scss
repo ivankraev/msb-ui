@@ -1,8 +1,10 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 64px;
+}
+
 .children {
   display: flex;
   gap: 24px;
-}
-
-.container {
-  padding-inline: 64px;
 }

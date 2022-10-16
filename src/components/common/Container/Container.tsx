@@ -1,16 +1,18 @@
 import React from 'react'
-import s from './Container.scss'
 import PageHeader from '@common/PageHeader'
+import cx from 'classnames'
+import s from './Container.scss'
 
 interface Props {
   label: string
   children: React.ReactNode
   headerButtons?: React.ReactNode
+  styles?: React.CSSProperties
 }
 
-const Container = ({ label, children, headerButtons }: Props) => {
+const Container = ({ label = 'default', children, headerButtons, styles }: Props) => {
   return (
-    <div className={s.container}>
+    <div className={cx(s.container, styles)}>
       <PageHeader label={label}>{headerButtons}</PageHeader>
       <div className={s.children}>{children}</div>
     </div>

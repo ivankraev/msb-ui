@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import Container from '@common/UserSettings/components/Container'
 
-describe('SettingsContainer component', () => {
+describe('SettingsComponent component', () => {
   it('Should render the component with the proper children', () => {
     const mockHeaderText = 'My Header'
 

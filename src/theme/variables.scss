@@ -2,6 +2,7 @@
 * Colors
 */
 $primary-color: #049fd9;
+$primary-color-dark: #03688e;
 $primary-light-color: #ebfaff;
 $secondary-color: #39393b;
 $border-color: #d1d1d1;
@@ -17,6 +18,7 @@ $error-color: #cf2030;
 
 :export {
   primaryColor: $primary-color;
+  primaryColorDark: $primary-color-dark;
   primaryLightColor: $primary-light-color;
   secondaryColor: $secondary-color;
   borderColor: $border-color;

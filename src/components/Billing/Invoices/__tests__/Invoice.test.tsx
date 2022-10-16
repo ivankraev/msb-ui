@@ -1,10 +1,16 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import Invoices from '@msp/components//Billing/Invoices'
+import { MemoryRouter } from 'react-router-dom'
+import Invoices from '@msp/components/Billing/Invoices/Invoices'
 
 describe('Invoices page', () => {
   it('Should consist of h1, table, li and svg elements', () => {
-    const { container } = render(<Invoices />)
+    jest.mock('../../../../hooks/useActiveRoutes', () => {
+      return []
+    })
+
+    const { container } = render(<Invoices />, { wrapper: MemoryRouter })
+
     expect(container.querySelector('h1')).not.toBeNull()
     expect(container.querySelector('table')).not.toBeNull()
     expect(container.querySelector('li')).not.toBeNull()

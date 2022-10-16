@@ -1,9 +1,7 @@
 @import '../../theme/variables.scss';
 
 .container {
-  height: calc(100vh - $header-height);
   position: sticky;
-  top: $header-height;
   min-width: 280px;
   background-color: $secondary-color;
   color: $invert-color;

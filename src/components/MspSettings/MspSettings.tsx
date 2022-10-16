@@ -2,8 +2,8 @@ import React, { useRef } from 'react'
 import { settingsActions } from '@msp/features/settings/settingsSlice'
 import { useAppSelector } from '@msp/redux/hooks'
 import TaxCertificate from '@msp/components/MspSettings/components/TaxCertificate'
-import HeaderContainer from '@common/UserSettings/components/HeaderContainer'
-import SettingsContainer from '@common/UserSettings/components/SettingsContainer'
+import SettingsComponent from '@common/UserSettings/components/SettingsComponent'
+import HeaderComponent from '@common/UserSettings/components/HeaderComponent'
 import InnerContainer from '@common/UserSettings/components/Container'
 import Container from '@common/Container'
 import Button from '@common/Button'
@@ -55,19 +55,19 @@ const MspSettings = () => {
   }
 
   return (
-    <Container label="Msp Settings">
+    <Container label="Msp Settings" styles={s.container}>
       <InnerContainer>
-        <HeaderContainer label="Info">
+        <HeaderComponent label="Info">
           <Button>edit info</Button>
-        </HeaderContainer>
-        <SettingsContainer label="MSP name">
+        </HeaderComponent>
+        <SettingsComponent label="MSP name">
           <span>{mspName}</span>
-        </SettingsContainer>
-        <SettingsContainer label="MSP logo">
+        </SettingsComponent>
+        <SettingsComponent label="MSP logo">
           <Logo className={s.logo} link={logo!} />
-        </SettingsContainer>
+        </SettingsComponent>
         <hr />
-        <HeaderContainer label="Other settings">
+        <HeaderComponent label="Other settings">
           <input
             hidden
             type="file"
@@ -77,11 +77,11 @@ const MspSettings = () => {
             accept={CERT_ALLOWED_FORMATS.join(',')}
           />
           <Button onClick={handleClick}>{file ? 'change' : 'upload'}</Button>
-        </HeaderContainer>
-        <SettingsContainer label="Tax certificate">
+        </HeaderComponent>
+        <SettingsComponent label="Tax certificate">
           {error && <span className={s.error}>{error.message}</span>}
           <TaxCertificate />
-        </SettingsContainer>
+        </SettingsComponent>
       </InnerContainer>
     </Container>
   )

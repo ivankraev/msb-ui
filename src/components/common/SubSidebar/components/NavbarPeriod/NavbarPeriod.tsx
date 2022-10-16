@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import classNames from 'classnames'
+import cx from 'classnames'
 import s from './NavbarPeriod.scss'
 
 interface Props {
@@ -19,7 +19,7 @@ const NavbarPeriod = ({ periods }: Props) => {
         {periods.map((period) => (
           <li
             key={period.label}
-            className={classNames({ [s.activeMenuItem]: period.value === activeItem })}
+            className={cx({ [s.activeMenuItem]: period.value === activeItem })}
             onClick={() => {
               if (period.value === activeItem) return
               setActiveItem(period.value)

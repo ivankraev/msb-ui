@@ -9,6 +9,7 @@ import CustomTable from '@common/CustomTable'
 import SubSidebar from '@common/SubSidebar'
 import Container from '@common/Container'
 import SearchBar from '@common/SearchBar'
+import s from './Invoices.scss'
 
 const Invoices = () => {
   const [cities, setCities] = useState(CITIES)
@@ -23,7 +24,7 @@ const Invoices = () => {
   }
 
   return (
-    <Container label="Invoicing history">
+    <Container label="Invoicing history" styles={s.container}>
       <SubSidebar>
         <NavbarHolder title="Period">
           <NavbarPeriod periods={periods} />

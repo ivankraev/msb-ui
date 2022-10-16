@@ -1,16 +1,16 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import HeaderContainer from '@common/UserSettings/components/HeaderContainer'
+import SettingsComponent from '@common/UserSettings/components/SettingsComponent'
 
-describe('HeaderContainer component', () => {
+describe('SettingsComponent component', () => {
   it('Should render the component with the proper children and props', () => {
     const mockHeaderText = 'My Header'
     const mockLabel = 'My label'
 
     const { getByText } = render(
-      <HeaderContainer label={mockLabel}>
+      <SettingsComponent label={mockLabel}>
         <h1>{mockHeaderText}</h1>
-      </HeaderContainer>,
+      </SettingsComponent>,
     )
 
     getByText(mockHeaderText)

@@ -1,7 +1,10 @@
+@import '../../theme/variables.scss';
+
 .container {
   display: flex;
   flex: 1 1 auto;
   overflow: auto;
+  min-height: calc(100vh - $header-height);
 }
 
 .centerContainer {

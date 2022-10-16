@@ -1,10 +1,15 @@
 @import '../../theme/variables.scss';
 
+.container {
+  gap: 2rem;
+  padding-bottom: 2rem;
+}
+
 .error {
   color: $error-color;
 }
 
 .logo {
-  width: 150px !important;
+  width: 9.375rem !important;
   height: auto !important;
 }

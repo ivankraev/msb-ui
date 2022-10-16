@@ -1,13 +1,13 @@
 import React from 'react'
 import { Column, useTable } from 'react-table'
-import classNames from 'classnames'
+import cx from 'classnames'
 import Pagination from '@common/CustomTable/components/Pagination'
 import s from './CustomTable.scss'
 
 interface Props<T extends Record<string, unknown>> {
   data: T[]
   columns: readonly Column<T>[]
-  styles?: { container: React.CSSProperties }
+  styles?: React.CSSProperties
 }
 
 const CustomTable = <T extends Record<string, unknown>>({ columns, data, styles }: Props<T>) => {
@@ -16,7 +16,7 @@ const CustomTable = <T extends Record<string, unknown>>({ columns, data, styles 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance
 
   return (
-    <div className={classNames(s.container, styles?.container)}>
+    <div className={cx(s.container, styles)}>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (

@@ -1,7 +1,7 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
 import { renderWithProviders } from '@msp/utils/test-utils'
-import MspSettings from '@msp/components/MspSettings'
+import MspSettings from '@msp/components/MspSettings/MspSettings'
 
 const preloadedState = {
   settings: {

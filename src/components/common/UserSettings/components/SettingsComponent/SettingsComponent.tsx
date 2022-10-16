@@ -1,18 +1,18 @@
 import React from 'react'
-import s from './HeaderContainer.scss'
+import s from './SettingsComponent.scss'
 
 interface Props {
   label: string
   children: React.ReactNode
 }
 
-const HeaderContainer = ({ label, children }: Props) => {
+const SettingsComponent = ({ label, children }: Props) => {
   return (
     <div className={s.container}>
-      <h3>{label}</h3>
+      <strong>{label}</strong>
       {children}
     </div>
   )
 }
 
-export default HeaderContainer
+export default SettingsComponent

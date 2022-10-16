@@ -1,15 +1,35 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import BreadCrumb from '@common/PageHeader/components/BreadCrumb'
+import { MemoryRouter } from 'react-router-dom'
+import { useActiveRoutePaths } from '@msp/hooks/useActiveRoutes'
+jest.mock('@msp/hooks/useActiveRoutes')
+
+const mockPaths = [
+  {
+    match: {
+      pathname: '/customer-management',
+      params: {},
+      pathnameBase: '/customer-management',
+      pattern: { path: '/customer-management', end: false },
+    },
+    title: 'Customer Management',
+    definition: {
+      title: 'Customer Management',
+      path: '/customer-management',
+      element: () => <h1 />,
+    },
+  },
+]
 
 describe('BreadCrumb component', () => {
   it('BreadCrumb should consist of the correct paths', () => {
-    window.history.pushState({}, '', '/test/breadcrumb/someUrl')
-    render(<BreadCrumb />)
-    const paths = window.location.pathname.split('/').filter((path) => path.length > 0)
-    const pathOnTheScreen = screen.getAllByRole(`listitem`)
-    const renderedPaths: string[] = []
-    pathOnTheScreen.forEach((el) => el.textContent !== null && renderedPaths.push(el.textContent))
-    expect(paths).toStrictEqual(renderedPaths)
+    const mockedHook = useActiveRoutePaths as jest.MockedFunction<typeof useActiveRoutePaths>
+    mockedHook.mockReturnValueOnce(mockPaths)
+
+    const { getByRole } = render(<BreadCrumb />, { wrapper: MemoryRouter })
+
+    expect(mockedHook).toHaveBeenCalled()
+    expect(getByRole('listitem')).toHaveTextContent('Customer Management')
   })
 })

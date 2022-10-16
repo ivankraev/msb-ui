@@ -14,7 +14,9 @@ export const useLocationChange = (
   action: (location: Location, prevLocation: Location | null) => void,
 ) => {
   const location = useLocation()
+
   const prevLocation = usePrevious(location)
+
   useEffect(() => {
     action(location, prevLocation)
   }, [location])
