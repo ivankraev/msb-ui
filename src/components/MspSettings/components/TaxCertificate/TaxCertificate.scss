@@ -19,7 +19,7 @@
 }
 
 .iconHolder {
-  width: 4rem;
+  min-width: 4rem;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -32,6 +32,7 @@
   width: 16.75rem;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
   span {
     white-space: nowrap;
