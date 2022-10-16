@@ -44,7 +44,11 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getUserInfo.fulfilled, (state, action) => {
-      state.userInfo = { ...action.payload, organization: 'Acme Widgets', logo: 'company-logo.png' }
+      state.userInfo = {
+        ...action.payload,
+        organization: 'Acme Widgets',
+        logo: './company-logo.png',
+      }
       localStorage.setItem('userInfo', JSON.stringify(state.userInfo))
       return state
     })

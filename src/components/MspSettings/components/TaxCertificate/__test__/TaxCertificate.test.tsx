@@ -5,7 +5,7 @@ import { renderWithProviders } from '@msp/utils/test-utils'
 const preloadedState = {
   settings: {
     mspName: 'Acme Widgets',
-    logo: 'company-logo.png',
+    logo: '/company-logo.png',
     certificate: {
       file: null,
       error: null,

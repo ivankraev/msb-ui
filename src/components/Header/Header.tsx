@@ -15,6 +15,8 @@ const CLICK_OUTSIDE_IGNORE_CLASSNAME = 'ignoreUserMenu'
 
 const Header: React.FC = () => {
   const { userInfo } = useAppSelector((state) => state.user)
+  console.log(userInfo)
+
   const [isMenuShown, setMenuShown] = useState(false)
   // close the menu on navigation
   useLocationChange(() => {
@@ -28,7 +30,7 @@ const Header: React.FC = () => {
     <div className={s.container}>
       <div className={s.brandInfoContainer}>
         <div className={s.brandLogoContainer}>
-          <img className={s.brandLogo} src="logo-placeholder.jpg" />
+          <img className={s.brandLogo} src="/logo-placeholder.jpg" />
         </div>
         <span className={s.brandMark}>Secure MSP Hub</span>
       </div>

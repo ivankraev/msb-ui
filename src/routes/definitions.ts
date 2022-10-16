@@ -11,5 +11,6 @@ export const routes = {
       index: `${CUSTOMER_MANAGEMENT}/customers`,
       new: 'new',
     },
+    policies: '/policies',
   },
 }

@@ -14,7 +14,7 @@ export interface SettingsSliceState {
 
 export const initialState: SettingsSliceState = {
   mspName: 'Acme Widgets',
-  logo: 'company-logo.png',
+  logo: '/company-logo.png',
   certificate: {
     file: null,
     error: null,
