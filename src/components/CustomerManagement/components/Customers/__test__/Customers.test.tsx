@@ -2,7 +2,7 @@ import React from 'react'
 import Customers from '@msp/components/CustomerManagement/components/Customers/Customers'
 import { render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-import { routes } from '@msp/routes/definitions'
+import { routes } from '@msp/routes/links'
 
 const mockRoute = routes.customer_management.customers.index
 

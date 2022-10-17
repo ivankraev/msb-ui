@@ -1,6 +1,6 @@
 const CUSTOMER_MANAGEMENT = '/customer-management'
 
-export const routes = {
+export const links = {
   index: '/',
   invoices: '/invoices',
   settings: '/settings',
@@ -10,7 +10,9 @@ export const routes = {
     customers: {
       index: `${CUSTOMER_MANAGEMENT}/customers`,
       new: 'new',
+      customer: (name: string) => `${CUSTOMER_MANAGEMENT}/customers/${name}`,
     },
-    policies: '/policies',
+    policies: `${CUSTOMER_MANAGEMENT}/policies`,
+    reports: `${CUSTOMER_MANAGEMENT}/reports`,
   },
 }

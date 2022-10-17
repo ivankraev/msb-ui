@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useLocation, Outlet } from 'react-router-dom'
-import { routes } from '@msp/routes/definitions'
+import { links } from '@msp/routes/links'
 import Container from '@common/Container'
 import s from './Customers.scss'
 
@@ -9,18 +9,18 @@ const Customers = () => {
 
   const mockCustomer = { title: 'Albuquerque', value: 'alburquerque' }
 
-  if (pathname !== routes.customer_management.customers.index) {
+  if (pathname !== links.customer_management.customers.index) {
     return <Outlet />
   }
 
   return (
     <Container label="Customers" styles={s.container}>
-      <Link to={routes.customer_management.customers.new}>New customer</Link>
+      <Link to={links.customer_management.customers.new}>New customer</Link>
       <Link state={{ data: mockCustomer.title }} to={mockCustomer.value}>
         Customer details
       </Link>
-      <Link to="/customer-management/policies">Policies</Link>
-      <Link to="/customer-management/reports">Reports</Link>
+      <Link to={links.customer_management.policies}>Policies</Link>
+      <Link to={links.customer_management.reports}>Reports</Link>
     </Container>
   )
 }

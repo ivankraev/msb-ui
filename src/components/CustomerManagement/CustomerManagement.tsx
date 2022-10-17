@@ -1,15 +1,15 @@
 import React from 'react'
 import { useLocation, Outlet, Navigate } from 'react-router-dom'
-import { routes } from '@msp/routes/definitions'
+import { links } from '@msp/routes/links'
 
 const CustomerManagement = () => {
   const { pathname } = useLocation()
 
-  if (pathname !== routes.customer_management.index) {
+  if (pathname !== links.customer_management.index) {
     return <Outlet />
   }
 
-  return <Navigate replace to={routes.customer_management.customers.index} />
+  return <Navigate replace to={links.customer_management.customers.index} />
 }
 
 export default CustomerManagement
