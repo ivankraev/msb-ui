@@ -2,6 +2,7 @@ import { useAppDispatch } from '@msp/redux/hooks'
 import { bindActionCreators, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { CertFile } from '@msp/shared/interfaces/certfile.interface'
 import { AxiosError } from 'axios'
+import { formatSize } from '@msp/utils/size-format'
 
 export interface SettingsSliceState {
   mspName: string | null
@@ -14,7 +15,7 @@ export interface SettingsSliceState {
 
 export const initialState: SettingsSliceState = {
   mspName: 'Acme Widgets',
-  logo: '/company-logo.png',
+  logo: 'company-logo.png',
   certificate: {
     file: null,
     error: null,
@@ -28,16 +29,7 @@ const SettingsSLice = createSlice({
     changeCertificateSuccess: (state, action: PayloadAction<CertFile>): SettingsSliceState => {
       const file = action.payload
 
-      let ext = 'kb'
-      // size in kb
-      let size = Number(file.size) / 1024
-      // size in mb
-      if (size > 1000) {
-        size = size / 1000
-        ext = 'Mb'
-      }
-
-      file.size = `${size.toFixed(1)}${ext}`
+      formatSize(file)
       // return the result
       return { ...state, certificate: { file, error: null } }
     },
