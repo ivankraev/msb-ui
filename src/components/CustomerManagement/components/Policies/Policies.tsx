@@ -4,7 +4,7 @@ import React from 'react'
 const Policies = () => {
   return (
     <Container label="Policies">
-      <h1></h1>
+      <h1 />
     </Container>
   )
 }
