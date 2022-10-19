@@ -1,12 +1,22 @@
+import React from 'react'
 import Button from '@common/Button'
 import HeaderComponent from '@common/UserSettings/components/HeaderComponent'
-import React from 'react'
-import s from './ProvisionedProducts.scss'
-const ProvisionedProducts = () => {
+import ServiceTable from '@msp/components/Plans/components/ProvisionedProducts/components/ServiceTable'
+import { Service } from '@msp/shared/interfaces/plans.interface'
+
+interface Props {
+  services: Service[]
+  planName: string
+  changeHandler: () => void
+}
+const ProvisionedProducts = ({ services, planName, changeHandler }: Props) => {
   return (
-    <HeaderComponent label="Provisioned products">
-      <Button>change</Button>
-    </HeaderComponent>
+    <>
+      <HeaderComponent label="Provisioned products">
+        <Button onClick={changeHandler}>change</Button>
+      </HeaderComponent>
+      <ServiceTable planName={planName} services={services} />
+    </>
   )
 }
 

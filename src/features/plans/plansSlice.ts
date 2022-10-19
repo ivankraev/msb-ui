@@ -1,12 +1,11 @@
 import { bindActionCreators, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { SelectOption } from '@msp/shared/interfaces/select-option.interface'
-import { Plan, Service } from '@msp/shared/interfaces/plans.interface'
+import { Seat, Service } from '@msp/shared/interfaces/plans.interface'
 import { initialState } from '@msp/features/plans/state'
 import { useAppDispatch } from '@msp/redux/hooks'
 
 export interface PlansSliceState {
-  plans: Plan[]
-  selectedPlan: Plan
+  selectedPlanName: string
   services: Service[]
   selectedServices: Service[]
 }
@@ -45,11 +44,13 @@ const plansSlice = createSlice({
 
       selectedService[type].selectedOption = action.payload
     },
-    selectPlan: (state, action: PayloadAction<Plan>) => {
-      const plan = state.plans.find((plan) => plan.value === action.payload.value)
-      if (plan) {
-        state.selectedPlan = plan
-      }
+    selectPlan: (state, action: PayloadAction<string>) => {
+      state.selectedPlanName = action.payload
+    },
+    selectSeats: (state, action: PayloadAction<Seat>) => {
+      const service = state.selectedServices.find((svc) => svc.value === action.payload.accessor)
+      if (!service) return
+      service.seats.value = action.payload.value
     },
     resetState: (): PlansSliceState => {
       return initialState

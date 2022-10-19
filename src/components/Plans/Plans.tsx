@@ -12,12 +12,19 @@ import s from './Plans.scss'
 
 const Plans = () => {
   const { steps, currentStep } = useAppSelector((state) => state.steps)
+  const { selectedServices, selectedPlanName } = useAppSelector((state) => state.plans)
   const { incrementStep, decrementStep } = stepsActions()
   const { resetState } = plansActions()
 
   const renderSteps: { [key: number]: JSX.Element | null } = {
     0: <SelectProducts />,
-    1: <ProvisionedProducts />,
+    1: (
+      <ProvisionedProducts
+        services={selectedServices}
+        planName={selectedPlanName}
+        changeHandler={decrementStep}
+      />
+    ),
   }
 
   return (
@@ -31,8 +38,13 @@ const Plans = () => {
             <Button onClick={resetState}>Cancel</Button>
           </div>
           <ButtonsGroup>
-            <Button onClick={decrementStep}>Previous</Button>
-            <Button onClick={incrementStep} contained={true}>
+            <Button onClick={decrementStep} disabled={currentStep === 0}>
+              Previous
+            </Button>
+            <Button
+              onClick={incrementStep}
+              contained={true}
+              disabled={selectedServices.length === 0}>
               {currentStep === steps.length - 1 ? 'save plan' : 'next'}
             </Button>
           </ButtonsGroup>

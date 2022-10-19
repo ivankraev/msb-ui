@@ -1,20 +1,13 @@
 import { PlansSliceState } from './plansSlice'
 
 export const initialState: PlansSliceState = {
-  selectedPlan: { title: 'Small Business Standard', value: 'smallBusinessStandard' },
+  selectedPlanName: '',
   selectedServices: [],
-  plans: [
-    { title: 'All inclusive', value: 'allInclusive' },
-    { title: 'Basic', value: 'basic' },
-    { title: 'Essentials', value: 'essentials' },
-    { title: 'Advanced', value: 'advanced' },
-    { title: 'Small Business Standard', value: 'smallBusinessStandard' },
-  ],
   services: [
     {
       title: 'Umbrella',
       selected: false,
-      seats: '20',
+      seats: { value: 0, accessor: 'umbrella' },
       value: 'umbrella',
       packageOptions: {
         selectedOption: {
@@ -76,7 +69,7 @@ export const initialState: PlansSliceState = {
     {
       title: 'Secure Endpoint',
       selected: false,
-      seats: '20',
+      seats: { value: 0, accessor: 'secureEndpoint' },
       value: 'secureEndpoint',
       packageOptions: {
         selectedOption: {
@@ -138,7 +131,7 @@ export const initialState: PlansSliceState = {
     {
       title: 'DUO',
       selected: false,
-      seats: '20',
+      seats: { value: 0, accessor: 'duo' },
       value: 'duo',
       packageOptions: {
         selectedOption: {
@@ -200,7 +193,7 @@ export const initialState: PlansSliceState = {
     {
       title: 'Cloud Mailbox Defense',
       selected: false,
-      seats: '20',
+      seats: { value: 0, accessor: 'cmd' },
       value: 'cmd',
       packageOptions: {
         selectedOption: {
@@ -262,7 +255,7 @@ export const initialState: PlansSliceState = {
     {
       title: 'SecureX',
       selected: false,
-      seats: '20',
+      seats: { value: 0, accessor: 'secureX' },
       value: 'secureX',
       packageOptions: {
         selectedOption: {
