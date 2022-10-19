@@ -27,7 +27,7 @@ const Button: React.FC<Props> = ({
   })
   if (to) {
     return (
-      <Link to={to} className={buttonClassName}>
+      <Link to={to} className={buttonClassName} onClick={onClick}>
         {children}
       </Link>
     )

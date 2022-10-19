@@ -1,0 +1,18 @@
+@import '../../../theme/variables.scss';
+$icon-img: url('./icon.png');
+
+.container {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid $grey-color;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 $light-border-color;
+  outline: none;
+  font-size: 0.875rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: $icon-img;
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 0.5rem;
+}

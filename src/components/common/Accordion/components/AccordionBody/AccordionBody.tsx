@@ -14,16 +14,8 @@ const AccordionBody = ({ children, isOpen, openStyles, closedStyles }: Props) =>
 
   const elRef = useRef<HTMLDivElement | null>(null)
 
-  const bodyHeightHandler = () => {
-    setBodyHeight(elRef.current?.scrollHeight)
-  }
-
   useEffect(() => {
     setBodyHeight(elRef.current?.scrollHeight)
-    // if we resize the window to smaller we may cut some of the text, so we need to set the state
-    window.addEventListener('resize', bodyHeightHandler)
-
-    return () => window.removeEventListener('resize', bodyHeightHandler)
   }, [])
 
   const classes = cx({

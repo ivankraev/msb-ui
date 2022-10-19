@@ -1,4 +1,5 @@
 const CUSTOMER_MANAGEMENT = '/customer-management'
+const PRODUCTS = '/products'
 
 export const links = {
   index: '/',
@@ -14,5 +15,13 @@ export const links = {
     },
     policies: `${CUSTOMER_MANAGEMENT}/policies`,
     reports: `${CUSTOMER_MANAGEMENT}/reports`,
+  },
+
+  products: {
+    index: PRODUCTS,
+    plans: {
+      index: `${PRODUCTS}/plans`,
+      new: 'new',
+    },
   },
 }

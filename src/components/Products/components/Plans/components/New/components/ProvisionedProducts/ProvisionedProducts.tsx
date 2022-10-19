@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '@common/Button'
 import HeaderComponent from '@common/UserSettings/components/HeaderComponent'
-import ServiceTable from '@msp/components/Plans/components/ProvisionedProducts/components/ServiceTable'
+import ServiceTable from '@msp/components/Products/components/Plans/components/New/components/ProvisionedProducts/components/ServiceTable'
 import { Service } from '@msp/shared/interfaces/plans.interface'
 
 interface Props {

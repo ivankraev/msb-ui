@@ -1,11 +1,16 @@
-@import '../../../../../../theme/variables.scss';
+@import '../../../../../../../../../../theme/variables.scss';
+
 .container {
   font-size: 0.875rem;
 
-  strong,
   td {
     min-width: 12.5rem;
     padding: 0.5rem 1.5rem 0.5rem 0;
+
+    &.strong {
+      font-weight: $bold-font-weight;
+      color: $black-color !important;
+    }
   }
 
   tr {

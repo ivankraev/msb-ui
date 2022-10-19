@@ -10,7 +10,9 @@ import MspSettings from '@msp/components/MspSettings'
 import Overview from '@msp/components/Overview'
 import UserProfile from '@msp/components/UserProfile'
 import Reports from '@msp/components/CustomerManagement/components/Reports'
-import NewPlan from '@msp/components/Plans'
+import NewPlan from '@msp/components/Products/components/Plans/components/New'
+import Products from '@msp/components/Products'
+import Plans from '@msp/components/Products/components/Plans'
 
 export interface RouteProps {
   title?: string
@@ -47,15 +49,28 @@ const routes: RouteProps[] = [
       },
     ],
   },
+
+  {
+    path: '/products',
+    title: 'Products',
+    element: Products,
+    children: [
+      {
+        path: 'plans',
+        title: 'Plans',
+        element: Plans,
+        children: [
+          { path: 'new', title: 'New plan', element: NewPlan },
+          { path: ':name', element: Customer },
+        ],
+      },
+    ],
+  },
+
   {
     path: '/invoices',
     title: 'Invoices',
     element: Invoices,
-  },
-  {
-    path: '/newplan',
-    title: 'Plans',
-    element: NewPlan,
   },
   { path: '/settings', element: MspSettings },
   { path: '/profile', title: 'Profile', element: UserProfile },

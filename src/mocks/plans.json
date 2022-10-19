@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "plan": "All inclusive",
+      "umbrella": true,
+      "secure endpoints": true,
+      "cmd": false,
+      "duo": false,
+      "secureX": true,
+      "subscribers": 67
+    },
+    {
+      "id": 2,
+      "plan": "Basic",
+      "umbrella": true,
+      "secure endpoints": true,
+      "cmd": false,
+      "duo": false,
+      "secureX": true,
+      "subscribers": 96
+    },
+    {
+      "id": 3,
+      "plan": "Essentials",
+      "umbrella": true,
+      "secure endpoints": false,
+      "cmd": false,
+      "duo": false,
+      "secureX": true,
+      "subscribers": 83
+    },
+    {
+      "id": 4,
+      "plan": "Advanced",
+      "umbrella": true,
+      "secure endpoints": true,
+      "cmd": true,
+      "duo": true,
+      "secureX": true,
+      "subscribers": 85
+    },
+    {
+      "id": 5,
+      "plan": "Small Businesses Standard",
+      "umbrella": true,
+      "secure endpoints": true,
+      "cmd": false,
+      "duo": false,
+      "secureX": true,
+      "subscribers": 85
+    }
+  ]
+}

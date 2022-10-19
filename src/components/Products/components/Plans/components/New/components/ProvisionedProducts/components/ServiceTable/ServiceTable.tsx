@@ -17,7 +17,9 @@ const ServiceTable = ({ services, planName }: Props) => {
         </tr>
         {services.map((svc) => (
           <>
-            <strong>{svc.title}</strong>
+            <tr>
+              <td className={s.strong}>{svc.title}</td>
+            </tr>
             <tr>
               <td>Package</td>
               <td>{svc.packageOptions.selectedOption.title}</td>
