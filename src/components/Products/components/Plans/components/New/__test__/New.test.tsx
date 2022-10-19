@@ -28,8 +28,6 @@ describe('New Plan page', () => {
     expect(getByText('SIG Essentials')).toBeInTheDocument()
     expect(getByText('Test plan')).toBeInTheDocument()
     expect(getByText('Default Policy 1')).toBeInTheDocument()
-
-    userEvent.click(getByText('save plan'))
   })
 
   it('Should go back to plans list if cancel button is clicked', () => {
