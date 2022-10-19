@@ -12,7 +12,13 @@ interface Props {
 const SimpleInput = ({ label, styles, handler, defaultValue }: Props) => {
   return (
     <span className={cx(s.container, styles)}>
-      <input type="text" placeholder={label} onChange={handler} defaultValue={defaultValue} />
+      <input
+        type="text"
+        placeholder={label}
+        onChange={handler}
+        defaultValue={defaultValue}
+        data-testid="simple-input"
+      />
     </span>
   )
 }

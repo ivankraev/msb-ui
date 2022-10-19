@@ -28,6 +28,7 @@ const InputSelect = ({ optionsList, setSelectedOption, selectedOption }: Props<S
     <div className={s.container}>
       <div className={s.innerContainer}>
         <input
+          data-testid="select"
           placeholder={selectedOption.title}
           onClick={toggleOptions}
           ref={ignoredElement}

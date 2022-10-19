@@ -42,6 +42,9 @@ const StepsSLice = createSlice({
     setSteps: (state, action: PayloadAction<Step[]>) => {
       state.steps = action.payload
     },
+    resetState: (): StepsSliceState => {
+      return initialState
+    },
   },
 })
 

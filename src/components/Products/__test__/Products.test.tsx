@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom'
 import Products from '@msp/components/Products'
 
 const mockUseLocationValue = {
-  pathname: 'test',
+  pathname: 'testLink',
   search: '',
   hash: '',
   state: null,
@@ -16,7 +16,7 @@ jest.mock('react-router-dom', () => ({
 }))
 
 describe('Products component', () => {
-  it('Should redirect us to another page and should return empty component', () => {
+  it('Should render empty component since we either redirect or return outlet element', () => {
     const { container } = render(<Products />, { wrapper: MemoryRouter })
 
     expect(container).toBeEmptyDOMElement()

@@ -1,28 +1,42 @@
 import React from 'react'
-import { render, cleanup } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { renderWithProviders } from '@msp/utils/test-utils'
+import { preloadedState } from './preloadedState'
+import New from '@msp/components/Products/components/Plans/components/New/New'
 
-import { MemoryRouter } from 'react-router-dom'
-import { links } from '@msp/routes/links'
-import New from '@msp/components/CustomerManagement/components/Customers/components/New/New'
-
-const mockUseLocationValue = {
-  pathname: links.products.plans.new,
-  search: '',
-  hash: '',
-  state: null,
-}
+const mockedNavigator = jest.fn()
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
-  useLocation: jest.fn(() => mockUseLocationValue),
+  useNavigate: () => mockedNavigator,
 }))
 
-afterEach(cleanup)
-
 describe('New Plan page', () => {
-  it('Should consist of input, button, table svg elements', () => {
-    render(<New />, {
-      wrapper: MemoryRouter,
+  it('Should fill the form and display correct data on the review page', () => {
+    const { getAllByRole, getByText, getAllByTestId } = renderWithProviders(<New />, {
+      preloadedState,
     })
+    userEvent.click(getAllByRole('checkbox')[0])
+    userEvent.click(getAllByTestId('select')[0])
+    userEvent.click(getByText('SIG Essentials'))
+    userEvent.click(getAllByTestId('select')[1])
+    userEvent.click(getByText('Default Policy 1'))
+    userEvent.type(getAllByTestId('simple-input')[1], 'Test plan')
+    userEvent.click(getByText('next'))
+
+    expect(getByText('Provisioned products')).toBeInTheDocument()
+    expect(getByText('SIG Essentials')).toBeInTheDocument()
+    expect(getByText('Test plan')).toBeInTheDocument()
+    expect(getByText('Default Policy 1')).toBeInTheDocument()
+
+    userEvent.click(getByText('save plan'))
+  })
+
+  it('Should go back to plans list if cancel button is clicked', () => {
+    const { getByText } = renderWithProviders(<New />, {
+      preloadedState,
+    })
+    userEvent.click(getByText('Cancel'))
+    expect(mockedNavigator).toHaveBeenCalledTimes(1)
   })
 })

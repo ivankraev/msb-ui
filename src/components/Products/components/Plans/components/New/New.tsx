@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAppSelector } from '@msp/redux/hooks'
 import { stepsActions } from '@msp/features/steps/stepsSlice'
@@ -12,11 +12,11 @@ import Stepper from '@common/Stepper'
 import Button from '@common/Button'
 import s from './New.scss'
 
-const Plans = () => {
+const New = () => {
   const { steps, currentStep } = useAppSelector((state) => state.steps)
   const { selectedServices, selectedPlanName } = useAppSelector((state) => state.plans)
-  const { incrementStep, decrementStep } = stepsActions()
-  const { resetState } = plansActions()
+  const { incrementStep, decrementStep, resetState: resetStepsState } = stepsActions()
+  const { resetState: resetPlansState } = plansActions()
 
   const navigate = useNavigate()
 
@@ -31,9 +31,15 @@ const Plans = () => {
     ),
   }
 
+  useEffect(() => {
+    return () => {
+      resetPlansState()
+      resetStepsState()
+    }
+  }, [])
+
   const goBackToPlans = () => {
     navigate(links.products.plans.index)
-    resetState()
   }
 
   return (
@@ -65,4 +71,4 @@ const Plans = () => {
   )
 }
 
-export default Plans
+export default New
