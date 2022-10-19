@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.14](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/compare/v0.1.17...v0.1.14) (2022-10-19)
+
+
+### ✅ Testing
+
+* added userSlice store test for coverage ([8def2f9](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/commit/8def2f97b3df62af36d2432440749c8be3306797))
+* **plans:** added unit tests for higher coverage ([af44f4f](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/commit/af44f4f54d7c4dccb1a3912880074b7a39c4e440))
+* **userslice:** added tests to userSlice ([5156a1d](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/commit/5156a1d453587d7b750b222a3f028306ba9b8610))
+
+
+### 🚚 Chores
+
+* added more tests to plans page ([eebfca1](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/commit/eebfca1804dc6c2cd85ba07b8c3cfae384690a37))
+* added more unit tests to Plans page ([af56339](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/commit/af56339252da33ec595b0b8149fa6bb6c3845e6c))
+* **plans:** merged plans page ([5c72ae7](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/commit/5c72ae7cf16de6643e2dfdc5d8f02ee34e4ef706))
+* **release:** 0.1.12 ([7212f04](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/commit/7212f045c83f91d2930321fda88cfec1b390ca09))
+* **release:** 0.2.0 ([bc7591b](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/commit/bc7591b8cb8e8e20f4295a852c9e6888db2cc3db))
+
+
+### 🐛 Bug Fixes
+
+* fixed button overlay ([5c59cb4](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/commit/5c59cb4f763f6f09890c1e03e874adc786b23404))
+* fixed cofig page ([57f2c11](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/commit/57f2c112a44bd40a8e69d7611829d4a9841e4a94))
+* **header.scss:** added z-index to header ([d57bc95](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/commit/d57bc95374a3ae676012380177b19be8046b5f63))
+* **plans:** small styles fixes ([b1a689e](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/commit/b1a689efd08c45bf2d5d1668a9f8578fc5bb9851))
+
+
+### ✨ Features
+
+* added Plans page layout ([2c903bd](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/commit/2c903bd399ed4c9f87485304bd7c8942367c2530))
+* added serach and filtering on the plans page ([fa5bd18](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/commit/fa5bd18b7216b9bbc8f8ff4f80ad191105d7c924))
+* **new plan:** new plan added ([e7e44da](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/commit/e7e44da33d98a65b652cd829a53b014a387acab2))
+* **select:** added icon to select ([b4ee3a3](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/commit/b4ee3a3a24cfe27b35383fcd96ee6e4b52055dbd))
+
 ### [0.1.13](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/compare/v0.1.12...v0.1.13) (2022-10-12)
 
 

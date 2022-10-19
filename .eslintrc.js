@@ -30,6 +30,7 @@ module.exports = {
     'unused-imports/no-unused-imports': 'error',
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
+    'react/jsx-key': 'off',
     'react/self-closing-comp': ['error', { component: true, html: true }],
     'prettier/prettier': [
       'error',

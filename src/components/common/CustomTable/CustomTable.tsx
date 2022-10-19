@@ -20,10 +20,8 @@ const CustomTable = <T extends Record<string, unknown>>({ columns, data, styles 
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
-            // eslint-disable-next-line
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                // eslint-disable-next-line
                 <th {...column.getHeaderProps()}>{column.render('Header')}</th>
               ))}
             </tr>
@@ -31,13 +29,10 @@ const CustomTable = <T extends Record<string, unknown>>({ columns, data, styles 
         </thead>
         <tbody {...getTableBodyProps()}>
           {rows.map((row) => {
-            // eslint-disable-next-line
             prepareRow(row)
             return (
-              // eslint-disable-next-line
               <tr {...row.getRowProps()}>
                 {row.cells.map((cell) => {
-                  // eslint-disable-next-line
                   return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                 })}
               </tr>
