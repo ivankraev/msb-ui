@@ -1,0 +1,26 @@
+@import '../../../theme/variables.scss';
+
+.container {
+  width: 100%;
+  display: flex;
+}
+
+.step {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+  font-size: 0.875rem;
+
+  &:last-child {
+    width: auto;
+  }
+
+  hr {
+    background-color: $light-border-color;
+    height: 1px;
+    flex: 1;
+    border: none;
+    margin-right: 0.5rem;
+  }
+}

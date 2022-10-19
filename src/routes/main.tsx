@@ -4,12 +4,13 @@ import CallBack from '@msp/components/CallBack'
 import CustomerManagement from '@msp/components/CustomerManagement'
 import Customers from '@msp/components/CustomerManagement/components/Customers'
 import Customer from '@msp/components/CustomerManagement/components/Customers/components/Customer'
-import New from '@msp/components/CustomerManagement/components/Customers/components/New'
+import NewCustomer from '@msp/components/CustomerManagement/components/Customers/components/New'
 import Policies from '@msp/components/CustomerManagement/components/Policies'
 import MspSettings from '@msp/components/MspSettings'
 import Overview from '@msp/components/Overview'
 import UserProfile from '@msp/components/UserProfile'
 import Reports from '@msp/components/CustomerManagement/components/Reports'
+import NewPlan from '@msp/components/Plans'
 
 export interface RouteProps {
   title?: string
@@ -30,7 +31,7 @@ const routes: RouteProps[] = [
         title: 'Customers',
         element: Customers,
         children: [
-          { path: 'new', title: 'New Customer', element: New },
+          { path: 'new', title: 'New Customer', element: NewCustomer },
           { path: ':name', element: Customer },
         ],
       },
@@ -50,6 +51,11 @@ const routes: RouteProps[] = [
     path: '/invoices',
     title: 'Invoices',
     element: Invoices,
+  },
+  {
+    path: '/newplan',
+    title: 'Plans',
+    element: NewPlan,
   },
   { path: '/settings', element: MspSettings },
   { path: '/profile', title: 'Profile', element: UserProfile },

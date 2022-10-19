@@ -1,0 +1,44 @@
+@import '../../../theme/variables.scss';
+
+.container {
+  font-size: 0.875rem;
+
+  input {
+    box-sizing: border-box;
+    padding: 0.438rem 0.75rem;
+    border: 1px solid $grey-color;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 $light-border-color;
+    outline: none;
+    background: url('../../icons/OpenSelectMenuIcon.svg') no-repeat 95% center;
+    background-color: $default-background-color;
+    cursor: pointer;
+
+    &::placeholder {
+      color: $secondary-color;
+    }
+  }
+}
+
+.menu {
+  background-color: $default-background-color;
+  border: 1px solid $grey-color;
+  box-sizing: border-box;
+  position: relative;
+  padding-block: 0.875rem;
+
+  li {
+    padding: 0.5rem 0.875rem;
+    cursor: default;
+
+    &:not(:first-child) {
+      &:hover {
+        background-color: $primary-light-color;
+      }
+    }
+  }
+}
+
+.hide {
+  display: none;
+}

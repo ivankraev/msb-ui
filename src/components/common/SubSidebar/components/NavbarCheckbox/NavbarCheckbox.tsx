@@ -18,7 +18,13 @@ const NavbarCheckbox = ({ items, children }: Props) => {
       <ul>
         {items.map((period) => (
           <li key={period.label}>
-            <CheckboxItem label={period.label} />
+            <CheckboxItem
+              label={period.label}
+              onClick={() => {
+                console.log('checked')
+              }}
+              checked={true}
+            />
           </li>
         ))}
       </ul>

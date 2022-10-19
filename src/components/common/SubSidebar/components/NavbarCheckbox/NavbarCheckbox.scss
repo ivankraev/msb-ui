@@ -1,14 +1,12 @@
 @import '../../../../../theme/variables.scss';
 
 .container {
-  li {
-    width: 100%;
+  font-size: 0.875rem;
 
-    &:first-child {
-      span {
-        padding-top: 0;
-      }
-    }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 }
 

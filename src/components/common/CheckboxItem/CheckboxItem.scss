@@ -1,11 +1,35 @@
+@import '../../../theme/variables.scss';
+
 .container {
   display: flex;
   align-items: center;
-  padding-block: 8px;
-  gap: 10px;
-  height: 20px;
+  gap: 0.625rem;
 
-  svg {
+  strong {
+    font-size: 0.875rem;
     cursor: pointer;
   }
+
+  input {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+    /* creating a custom design */
+    width: 1rem;
+    height: 1rem;
+    border-radius: 3px;
+    border: 2px solid #9e9ea2;
+    cursor: pointer;
+  }
+}
+
+input.checked::before {
+  content: '\2714';
+  color: #fff;
+  margin-left: 0.0675rem;
+}
+
+input.checked {
+  background-color: $primary-color;
+  border: none;
 }
