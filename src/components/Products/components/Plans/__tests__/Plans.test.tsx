@@ -4,9 +4,24 @@ import userEvent from '@testing-library/user-event'
 
 import CustomTable from '@common/CustomTable'
 import MOCK_DATA from '@msp/mocks/plans.json'
-import { COLUMNS } from '@msp/components/Plans/config'
+
 import Plans from '../Plans'
 import { Plan } from '../types'
+import { COLUMNS } from '../config'
+import { links } from '@msp/routes/links'
+import { MemoryRouter } from 'react-router-dom'
+
+const mockUseLocationValue = {
+  pathname: links.products.plans.index,
+  search: '',
+  hash: '',
+  state: null,
+}
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: jest.fn(() => mockUseLocationValue),
+}))
 
 const mockedPlans: Plan[] = MOCK_DATA.data
 
@@ -14,7 +29,7 @@ afterEach(cleanup)
 
 describe('Plans page', () => {
   it('Should consist of input, button, table svg elements', () => {
-    const { container, queryByPlaceholderText } = render(<Plans />)
+    const { container, queryByPlaceholderText } = render(<Plans />, { wrapper: MemoryRouter })
     expect(queryByPlaceholderText('Plan name')).not.toBeNull()
     expect(container.querySelector('button')).not.toBeNull()
     expect(container.querySelector('table')).not.toBeNull()
@@ -40,7 +55,9 @@ describe('Plans page', () => {
   describe('Search input', () => {
     it('Should update plans according to search query', () => {
       const query = 'basic'
-      const { queryByPlaceholderText, queryAllByTestId } = render(<Plans />)
+      const { queryByPlaceholderText, queryAllByTestId } = render(<Plans />, {
+        wrapper: MemoryRouter,
+      })
       const planInput = queryByPlaceholderText('Plan name')
       planInput && fireEvent.change(planInput, { target: { value: query } })
       const leftColumn = queryAllByTestId('left-column')
@@ -50,7 +67,9 @@ describe('Plans page', () => {
     })
 
     it('Should show all plans if no search query', () => {
-      const { queryByPlaceholderText, queryAllByTestId } = render(<Plans />)
+      const { queryByPlaceholderText, queryAllByTestId } = render(<Plans />, {
+        wrapper: MemoryRouter,
+      })
       const planInput = queryByPlaceholderText('Plan name')
 
       planInput && fireEvent.change(planInput, { target: { value: '' } })
@@ -62,7 +81,7 @@ describe('Plans page', () => {
 
   describe('Selectors', () => {
     it('Should update plans according to sort select', () => {
-      const { getAllByTestId, queryAllByTestId } = render(<Plans />)
+      const { getAllByTestId, queryAllByTestId } = render(<Plans />, { wrapper: MemoryRouter })
 
       const select = getAllByTestId('select')[1]
       fireEvent.change(select, { target: { value: 'az' } })
@@ -76,7 +95,9 @@ describe('Plans page', () => {
     })
 
     it('Should update plans according to filter select', async () => {
-      const { getAllByTestId, queryAllByRole, queryByPlaceholderText } = render(<Plans />)
+      const { getAllByTestId, queryAllByRole, queryByPlaceholderText } = render(<Plans />, {
+        wrapper: MemoryRouter,
+      })
       const query = 'cmd'
       const select = getAllByTestId('select')[0]
       const planInput = queryByPlaceholderText('Plan name')
@@ -87,7 +108,9 @@ describe('Plans page', () => {
     })
 
     it('Should show all plans if no search query', () => {
-      const { queryByPlaceholderText, queryAllByRole, getAllByTestId } = render(<Plans />)
+      const { queryByPlaceholderText, queryAllByRole, getAllByTestId } = render(<Plans />, {
+        wrapper: MemoryRouter,
+      })
       const planInput = queryByPlaceholderText('Plan name')
       const select = getAllByTestId('select')[0]
       userEvent.selectOptions(select, 'products')
