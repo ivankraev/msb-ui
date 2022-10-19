@@ -16,7 +16,7 @@ const ServiceTable = ({ services, planName }: Props) => {
           <td>{planName}</td>
         </tr>
         {services.map((svc) => (
-          <>
+          <React.Fragment key={svc.value}>
             <tr>
               <td className={s.strong}>{svc.title}</td>
             </tr>
@@ -32,7 +32,7 @@ const ServiceTable = ({ services, planName }: Props) => {
               <td>Seats</td>
               <td>{svc.seats.value}</td>
             </tr>
-          </>
+          </React.Fragment>
         ))}
       </tbody>
     </table>
