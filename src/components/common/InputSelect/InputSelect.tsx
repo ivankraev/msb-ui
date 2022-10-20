@@ -12,10 +12,10 @@ interface Props<T> {
 }
 
 const InputSelect = ({ optionsList, setSelectedOption, selectedOption }: Props<SelectOption>) => {
-  const [isOptionsOpen, setIsOptionsOpen] = useState(false)
+  const [isOptionsOpen, setOptionsOpen] = useState(false)
 
   const toggleOptions = () => {
-    setIsOptionsOpen(!isOptionsOpen)
+    setOptionsOpen(!isOptionsOpen)
   }
 
   const ignoredElement = useRef<HTMLInputElement | null>(null)
@@ -47,7 +47,7 @@ const InputSelect = ({ optionsList, setSelectedOption, selectedOption }: Props<S
           {optionsList.map((option) => (
             <li
               onClick={() => {
-                setIsOptionsOpen(false)
+                setOptionsOpen(false)
                 if (option.value === selectedOption.value) return
                 setSelectedOption(option)
               }}

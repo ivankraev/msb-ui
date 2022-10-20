@@ -1,5 +1,5 @@
 import React from 'react'
-import New from '@msp/components/CustomerManagement/components/Customers/components/New/New'
+import New from '@msp/components/CustomerManagement/components/Customers/components/CreateCustomer/CreateCustomer'
 import { render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 

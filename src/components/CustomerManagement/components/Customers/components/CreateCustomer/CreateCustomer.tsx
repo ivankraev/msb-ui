@@ -1,7 +1,7 @@
 import React from 'react'
 import Container from '@common/Container'
 
-import s from './New.scss'
+import s from './CreateCustomer.scss'
 
 const New = () => {
   return (

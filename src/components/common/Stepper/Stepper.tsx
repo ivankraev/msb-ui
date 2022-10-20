@@ -1,8 +1,8 @@
 import React from 'react'
-import NotCompletedStep2Icon from '@msp/components/icons/NotCompletedStep2Icon'
-import ActiveStep1Icon from '@msp/components/icons/ActiveStep1Icon'
+import NotCompletedStepTwoIcon from '@msp/components/icons/NotCompletedStepTwoIcon'
+import ActiveStepOneIcon from '@msp/components/icons/ActiveStepOneIcon'
 import CompletedStepIcon from '@msp/components/icons/CompletedStepIcon'
-import CompletedStep2Icon from '@msp/components/icons/CompletedStep2Icon'
+import CompletedStepTwoIcon from '@msp/components/icons/CompletedStepTwoIcon'
 import s from './Stepper.scss'
 
 interface Props {
@@ -15,9 +15,9 @@ interface Props {
 
 const renderIcon: { [key: string]: JSX.Element } = {
   completed: <CompletedStepIcon />,
-  '1-active': <ActiveStep1Icon />,
-  '2-active': <CompletedStep2Icon />,
-  '2-not-completed': <NotCompletedStep2Icon />,
+  '1-active': <ActiveStepOneIcon />,
+  '2-active': <CompletedStepTwoIcon />,
+  '2-not-completed': <NotCompletedStepTwoIcon />,
 }
 
 const Stepper = ({ steps }: Props) => {

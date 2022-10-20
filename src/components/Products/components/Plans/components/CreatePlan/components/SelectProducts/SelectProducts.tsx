@@ -6,7 +6,7 @@ import { Service } from '@msp/shared/interfaces/plans.interface'
 import Accordion from '@common/Accordion'
 import CheckboxItem from '@common/CheckboxItem'
 import InputSelect from '@common/InputSelect'
-import InputStack from '@common/InputStack'
+import InputContainer from '@common/InputContainer'
 import SimpleInput from '@common/SimpleInput'
 import s from './SelectProducts.scss'
 
@@ -48,33 +48,33 @@ const SelectProducts = () => {
             isOpen={service.selected}
             headerComponent={Header.bind(null, service)}>
             <div className={s.optionsContainer}>
-              <InputStack label="Package">
+              <InputContainer label="Package">
                 <InputSelect
                   optionsList={service.packageOptions.options}
                   setSelectedOption={changeSelectedOption}
                   selectedOption={service.packageOptions.selectedOption}
                 />
-              </InputStack>
-              <InputStack label="Policy">
+              </InputContainer>
+              <InputContainer label="Policy">
                 <InputSelect
                   optionsList={service.policies.options}
                   setSelectedOption={changeSelectedOption}
                   selectedOption={service.policies.selectedOption}
                 />
-              </InputStack>
-              <InputStack label="Seats">
+              </InputContainer>
+              <InputContainer label="Seats">
                 <SimpleInput
                   styles={s.seatsInput}
                   handler={selectSeatsHandler.bind(null, service.value)}
                 />
-              </InputStack>
+              </InputContainer>
             </div>
           </Accordion>
         ))}
       </div>
-      <InputStack label="Plan name">
+      <InputContainer label="Plan name">
         <SimpleInput handler={selectPlanHandler} defaultValue={selectedPlanName} />
-      </InputStack>
+      </InputContainer>
     </>
   )
 }

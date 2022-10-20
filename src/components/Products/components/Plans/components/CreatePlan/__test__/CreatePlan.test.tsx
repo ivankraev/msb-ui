@@ -2,7 +2,7 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { renderWithProviders } from '@msp/utils/test-utils'
 import { preloadedState } from './preloadedState'
-import New from '@msp/components/Products/components/Plans/components/New/New'
+import New from '@msp/components/Products/components/Plans/components/CreatePlan/CreatePlan'
 
 const mockedNavigator = jest.fn()
 

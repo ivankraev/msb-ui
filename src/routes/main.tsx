@@ -4,13 +4,13 @@ import CallBack from '@msp/components/CallBack'
 import CustomerManagement from '@msp/components/CustomerManagement'
 import Customers from '@msp/components/CustomerManagement/components/Customers'
 import Customer from '@msp/components/CustomerManagement/components/Customers/components/Customer'
-import NewCustomer from '@msp/components/CustomerManagement/components/Customers/components/New'
+import CreateCustomer from '@msp/components/CustomerManagement/components/Customers/components/CreateCustomer'
 import Policies from '@msp/components/CustomerManagement/components/Policies'
 import MspSettings from '@msp/components/MspSettings'
 import Overview from '@msp/components/Overview'
 import UserProfile from '@msp/components/UserProfile'
 import Reports from '@msp/components/CustomerManagement/components/Reports'
-import NewPlan from '@msp/components/Products/components/Plans/components/New'
+import CreatePlan from '@msp/components/Products/components/Plans/components/CreatePlan'
 import Products from '@msp/components/Products'
 import Plans from '@msp/components/Products/components/Plans'
 import Training from '@msp/components/Training'
@@ -34,7 +34,7 @@ const routes: RouteProps[] = [
         title: 'Customers',
         element: Customers,
         children: [
-          { path: 'new', title: 'New Customer', element: NewCustomer },
+          { path: 'new', title: 'New Customer', element: CreateCustomer },
           { path: ':name', element: Customer },
         ],
       },
@@ -61,7 +61,7 @@ const routes: RouteProps[] = [
         title: 'Plans',
         element: Plans,
         children: [
-          { path: 'new', title: 'New plan', element: NewPlan },
+          { path: 'new', title: 'New plan', element: CreatePlan },
           { path: ':name', element: Customer },
         ],
       },

@@ -4,13 +4,13 @@ import { useAppSelector } from '@msp/redux/hooks'
 import { stepsActions } from '@msp/features/steps/stepsSlice'
 import { plansActions } from '@msp/features/plans/plansSlice'
 import { links } from '@msp/routes/links'
-import SelectProducts from '@msp/components/Products/components/Plans/components/New/components/SelectProducts'
+import SelectProducts from '@msp/components/Products/components/Plans/components/CreatePlan/components/SelectProducts'
 import ProvisionedProducts from './components/ProvisionedProducts'
 import ButtonsGroup from '@common/ButtonsGroup'
 import Container from '@common/Container'
 import Stepper from '@common/Stepper'
 import Button from '@common/Button'
-import s from './New.scss'
+import s from './CreatePlan.scss'
 
 const New = () => {
   const { steps, currentStep } = useAppSelector((state) => state.steps)
@@ -26,7 +26,7 @@ const New = () => {
       <ProvisionedProducts
         services={selectedServices}
         planName={selectedPlanName}
-        changeHandler={decrementStep}
+        onChangeHandler={decrementStep}
       />
     ),
   }

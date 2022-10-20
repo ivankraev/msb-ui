@@ -1,12 +1,12 @@
 import React from 'react'
-import s from './InputStack.scss'
+import s from './InputContainer.scss'
 
 interface Props {
   children: React.ReactNode
   label: string
 }
 
-const InputStack = ({ children, label }: Props) => {
+const InputContainer = ({ children, label }: Props) => {
   return (
     <div className={s.container}>
       <strong>{label}</strong>
@@ -15,4 +15,4 @@ const InputStack = ({ children, label }: Props) => {
   )
 }
 
-export default InputStack
+export default InputContainer
