@@ -48,9 +48,15 @@ const plansSlice = createSlice({
       state.selectedPlanName = action.payload
     },
     selectSeats: (state, action: PayloadAction<Seat>) => {
-      const service = state.selectedServices.find((svc) => svc.value === action.payload.accessor)
+      const service = state.services.find((svc) => svc.value === action.payload.accessor)
       if (!service) return
       service.seats.value = action.payload.value
+
+      const selectedService = state.selectedServices.find(
+        (svc) => svc.value === action.payload.accessor,
+      )
+      if (!selectedService) return
+      selectedService.seats.value = action.payload.value
     },
     resetState: (): PlansSliceState => {
       return initialState

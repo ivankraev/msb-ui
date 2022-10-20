@@ -6,6 +6,7 @@ import { plansActions } from '@msp/features/plans/plansSlice'
 import { links } from '@msp/routes/links'
 import SelectProducts from '@msp/components/Products/components/Plans/components/CreatePlan/components/SelectProducts'
 import ProvisionedProducts from './components/ProvisionedProducts'
+import ButtonsContainer from '@common/ButtonsContainer'
 import ButtonsGroup from '@common/ButtonsGroup'
 import Container from '@common/Container'
 import Stepper from '@common/Stepper'
@@ -48,12 +49,8 @@ const New = () => {
         <Stepper steps={steps} />
         {renderSteps[currentStep]}
         <hr />
-        <div className={s.buttonsContainer}>
-          <div>
-            <Button onClick={goBackToPlans} to={links.products.plans.index}>
-              Cancel
-            </Button>
-          </div>
+        <ButtonsContainer>
+          <Button onClick={goBackToPlans}>Cancel</Button>
           <ButtonsGroup>
             <Button onClick={decrementStep} disabled={currentStep === 0}>
               Previous
@@ -65,7 +62,7 @@ const New = () => {
               {currentStep === steps.length - 1 ? 'save plan' : 'next'}
             </Button>
           </ButtonsGroup>
-        </div>
+        </ButtonsContainer>
       </div>
     </Container>
   )

@@ -14,8 +14,8 @@
     background-color: $default-background-color;
 
     &:disabled {
-      color: $disabled-grey-color;
-      border-color: $disabled-grey-color;
+      color: $primary-color-disabled;
+      border-color: $primary-color-disabled;
       cursor: default;
     }
   }
@@ -25,9 +25,8 @@
     color: $invert-color;
 
     &:disabled {
-      color: $disabled-grey-color;
-      background-color: $background-grey-color;
-      border-color: $background-grey-color;
+      background-color: $primary-color-disabled;
+      border-color: $primary-color-disabled;
       cursor: default;
     }
   }

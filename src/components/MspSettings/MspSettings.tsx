@@ -19,7 +19,7 @@ const MspSettings = () => {
     <Container label="Msp Settings" styles={s.container}>
       <InnerContainer>
         <EditableForm
-          formLabel="Profile info"
+          formLabel="Info"
           ctaText={'Edit info'}
           fields={MspSettingsFields}
           initialValues={{
