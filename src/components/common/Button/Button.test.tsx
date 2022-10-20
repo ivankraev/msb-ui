@@ -28,4 +28,9 @@ describe('Button component', () => {
     fireEvent.click(buttonComponent)
     expect(mockOnClick).toHaveBeenCalledTimes(1)
   })
+  it('Button component has correct type attribute', () => {
+    render(<Button type="submit">Click me</Button>, { wrapper: MemoryRouter })
+    const buttonComponent = screen.getByRole('button')
+    expect(buttonComponent).toHaveAttribute('type', 'submit')
+  })
 })

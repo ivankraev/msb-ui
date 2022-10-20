@@ -50,7 +50,7 @@ const New = () => {
         <hr />
         <div className={s.buttonsContainer}>
           <div>
-            <Button onClick={goBackToPlans} to="/products/plans">
+            <Button onClick={goBackToPlans} to={links.products.plans.index}>
               Cancel
             </Button>
           </div>

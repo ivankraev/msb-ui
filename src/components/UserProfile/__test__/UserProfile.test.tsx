@@ -14,9 +14,9 @@ const preloadedState = {
   },
 }
 
-describe('MsbSettings component', () => {
+describe('UserProfile component', () => {
   it('Should render the correct content provided by the store', () => {
     const { container } = renderWithProviders(<UserProfile />, { preloadedState })
-    expect(container.querySelectorAll('span')[0].textContent).toBe('Test name')
+    expect(container.querySelectorAll('input')[0].value).toBe(preloadedState.user.userInfo.name)
   })
 })

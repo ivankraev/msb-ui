@@ -12,23 +12,23 @@
   &.empty {
     color: $primary-color;
     background-color: $default-background-color;
+
+    &:disabled {
+      color: $disabled-grey-color;
+      border-color: $disabled-grey-color;
+      cursor: default;
+    }
   }
 
   &.contained {
     background-color: $primary-color;
     color: $invert-color;
-  }
 
-  &.disabledContained {
-    color: $disabled-grey-color;
-    background-color: $background-grey-color;
-    border-color: $background-grey-color;
-    cursor: default;
-  }
-
-  &.disabled {
-    color: $disabled-grey-color;
-    border-color: $disabled-grey-color;
-    cursor: default;
+    &:disabled {
+      color: $disabled-grey-color;
+      background-color: $background-grey-color;
+      border-color: $background-grey-color;
+      cursor: default;
+    }
   }
 }

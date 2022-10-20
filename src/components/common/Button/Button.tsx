@@ -9,8 +9,9 @@ interface Props {
   className?: string
   to?: string
   onClick?: () => void
-  children: React.ReactNode
+  type?: 'submit' | 'reset' | 'button' | undefined
   disabled?: boolean
+  children: React.ReactNode
 }
 
 const Button: React.FC<Props> = ({
@@ -20,6 +21,7 @@ const Button: React.FC<Props> = ({
   onClick,
   children,
   disabled = false,
+  type,
 }) => {
   const buttonClassName = cx(s.button, contained ? s.contained : s.empty, className, {
     [s.disabledContained]: disabled && contained,
@@ -33,7 +35,7 @@ const Button: React.FC<Props> = ({
     )
   }
   return (
-    <button className={buttonClassName} onClick={onClick} disabled={disabled}>
+    <button type={type} className={buttonClassName} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   )

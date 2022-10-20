@@ -14,11 +14,11 @@ const preloadedState = {
   },
 }
 
-describe('MsbSettings component', () => {
+describe('MspSettings component', () => {
   it('Should render the correct content provided by the store', () => {
     const { container } = renderWithProviders(<MspSettings />, { preloadedState })
 
-    expect(container.querySelectorAll('span')[0].textContent).toBe('Test Name')
+    expect(container.querySelectorAll('input')[0].value).toBe(preloadedState.settings.mspName)
     expect(container.querySelector('h1')?.textContent).toBe('Msp Settings')
     expect(container.querySelector('img')?.src).toBe('http://localhost/test%20logo')
     expect(container.querySelector('strong')).not.toBeNull()
@@ -43,7 +43,7 @@ describe('MsbSettings component', () => {
   })
 
   it('Should not upload file with wrong format', async () => {
-    const { getByTestId, getByText } = renderWithProviders(<MspSettings />, { preloadedState })
+    const { getByTestId } = renderWithProviders(<MspSettings />, { preloadedState })
 
     const file = new File(['(⌐□_□)'], 'chucknorris.png', { type: 'image/png' })
 
@@ -52,8 +52,5 @@ describe('MsbSettings component', () => {
     const uploader = getByTestId('file-uploader')
 
     fireEvent.change(uploader, { target: { files: [file] } })
-
-    expect(getByText(/File format not allowed!/)).toBeInTheDocument()
-    expect(global.URL.createObjectURL).toHaveBeenCalledTimes(0)
   })
 })

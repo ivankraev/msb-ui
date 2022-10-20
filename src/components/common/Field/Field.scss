@@ -1,0 +1,37 @@
+@import '../../../theme/variables.scss';
+
+.container {
+  display: grid;
+  gap: 5px;
+
+  label {
+    font-size: 0.8125rem;
+    font-weight: $bold-font-weight;
+  }
+
+  .inputField {
+    width: 100%;
+    font-size: 0.875rem;
+    color: $secondary-color;
+    padding: 0.35rem;
+    border: 1px solid $grey-color;
+    background-color: $default-background-color;
+    border-radius: 3px;
+
+    &:disabled {
+      border: none;
+      padding: 0.35rem 0;
+    }
+  }
+
+  select:disabled {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+
+    option {
+      color: inherit; // Note: will not work on OS X
+    }
+  }
+}

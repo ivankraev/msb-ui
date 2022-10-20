@@ -1,6 +1,7 @@
 export interface UserInfo {
   email: string
   email_verified?: boolean
+  phoneNumber?: string
   family_name?: string
   given_name?: string
   locale?: string

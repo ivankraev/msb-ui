@@ -1,4 +1,4 @@
-@import '../../../../theme/variables.scss';
+@import '../../../../../theme/variables.scss';
 
 .container {
   display: flex;
@@ -27,7 +27,7 @@
   background-color: $primary-color;
 }
 
-.certInfoHolder {
+.fileInfoContainer {
   padding: 0.6875rem 0.875rem;
   width: 16.75rem;
   display: flex;

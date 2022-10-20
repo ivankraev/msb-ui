@@ -1,0 +1,6 @@
+[
+  { "label": "(UTC+00:00) UTC", "value": 0 },
+  { "label": "(UTC+01:00) UTC", "value": 1 },
+  { "label": "(UTC+02:00) UTC", "value": 2 },
+  { "label": "(UTC+03:00) UTC", "value": 3 }
+]
