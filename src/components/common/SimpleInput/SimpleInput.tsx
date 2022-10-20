@@ -9,6 +9,8 @@ interface Props {
   defaultValue?: string
 }
 
+const a = 5
+
 const SimpleInput = ({ label, styles, handler, defaultValue }: Props) => {
   return (
     <span className={cx(s.container, styles)}>
