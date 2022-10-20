@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "productName": "Umbrella",
+      "shortProductName": "Umbrella",
+      "productLogoName": "umbrella"
+    },
+    {
+      "id": 2,
+      "productName": "Secure Endpoint",
+      "shortProductName": "Sec. Endpoint",
+      "productLogoName": "secure"
+    },
+    {
+      "id": 3,
+      "productName": "DUO",
+      "shortProductName": "DUO",
+      "productLogoName": "duo"
+    },
+    {
+      "id": 4,
+      "productName": "Cloud Mailbox Defense",
+      "shortProductName": "CMD",
+      "productLogoName": "cmd"
+    },
+    {
+      "id": 5,
+      "productName": "SecureX",
+      "shortProductName": "SecureX",
+      "productLogoName": "securex"
+    }
+  ]
+}

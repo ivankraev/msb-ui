@@ -2,9 +2,9 @@ import React from 'react'
 import { render, cleanup } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 
-import BigCard from './BigCard'
-import SmallCard from './SmallCard'
-import Overview from './Overview'
+import BigCard from '../components/BigCard'
+import SmallCard from '../components/SmallCard'
+import Overview from '../Overview'
 
 afterEach(cleanup)
 

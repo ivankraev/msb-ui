@@ -1,0 +1,64 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "productName": "Umbrella",
+      "videos": [
+        {
+          "id": 1,
+          "title": "How Cisco Umbrella works",
+          "youtubeID": "OFX-Gvdjgu4"
+        },
+        {
+          "id": 2,
+          "title": "Getting Started with Umbrella",
+          "youtubeID": "OFX-Gvdjgu4"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "productName": "Secure Endpoint",
+      "videos": [
+        {
+          "id": 1,
+          "title": "Secure Endpoint",
+          "youtubeID": "OFX-Gvdjgu4"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "productName": "DUO",
+      "videos": [
+        {
+          "id": 1,
+          "title": "DUO",
+          "youtubeID": "OFX-Gvdjgu4"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "productName": "Cloud Mailbox Defense",
+      "videos": [
+        {
+          "id": 1,
+          "title": "Cloud Mailbox Defense",
+          "youtubeID": "OFX-Gvdjgu4"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "productName": "SecureX",
+      "videos": [
+        {
+          "id": 1,
+          "title": "SecureX",
+          "youtubeID": "OFX-Gvdjgu4"
+        }
+      ]
+    }
+  ]
+}

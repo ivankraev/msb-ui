@@ -9,6 +9,7 @@ $blackColor: '#000000';
 .cardContainer {
   display: flex;
   gap: 15px;
+  flex-wrap: wrap;
   font-size: 17px;
   line-height: 24px;
 

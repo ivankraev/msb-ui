@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import s from './Overview.scss'
+import s from '../Overview.scss'
 
 type SmallCardProps = {
   title: string

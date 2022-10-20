@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { linkType } from './types'
-import s from './Overview.scss'
+import { linkType } from '../types'
+import s from '../Overview.scss'
 
 type BigCardProps = {
   title: string

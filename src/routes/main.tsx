@@ -13,6 +13,7 @@ import Reports from '@msp/components/CustomerManagement/components/Reports'
 import NewPlan from '@msp/components/Products/components/Plans/components/New'
 import Products from '@msp/components/Products'
 import Plans from '@msp/components/Products/components/Plans'
+import Training from '@msp/components/Training'
 
 export interface RouteProps {
   title?: string
@@ -74,6 +75,7 @@ const routes: RouteProps[] = [
   },
   { path: '/settings', element: MspSettings },
   { path: '/profile', title: 'Profile', element: UserProfile },
+  { path: '/training', title: 'Training', element: Training },
   { path: '/callback', element: CallBack },
 ]
 
