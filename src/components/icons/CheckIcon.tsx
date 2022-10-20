@@ -8,8 +8,7 @@ const CheckIcon = () => {
       viewBox="0 0 17 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      data-testid="check"
-    >
+      data-testid="check">
       <mask id="mask0_4093_13890" maskUnits="userSpaceOnUse" x="0" y="0" width="17" height="16">
         <path
           fillRule="evenodd"

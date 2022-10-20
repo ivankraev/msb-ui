@@ -29,8 +29,7 @@ const AccordionBody = ({ children, isOpen, openStyles, closedStyles }: Props) =>
     <div
       style={{ maxHeight: isOpen ? `${(bodyHeight as number) / 16}rem` : 0 }}
       ref={elRef}
-      className={classes}
-    >
+      className={classes}>
       {children}
     </div>
   )

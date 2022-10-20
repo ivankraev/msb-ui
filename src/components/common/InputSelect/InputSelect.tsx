@@ -42,8 +42,7 @@ const InputSelect = ({ optionsList, setSelectedOption, selectedOption }: Props<S
           className={cx(s.menu, { [s.hide]: !isOptionsOpen })}
           role="listbox"
           ref={menuRef}
-          aria-activedescendant={selectedOption.title}
-        >
+          aria-activedescendant={selectedOption.title}>
           <li>Select</li>
           {optionsList.map((option) => (
             <li
@@ -56,8 +55,7 @@ const InputSelect = ({ optionsList, setSelectedOption, selectedOption }: Props<S
               id={option.title}
               role="option"
               aria-selected={selectedOption.title === option.title}
-              tabIndex={0}
-            >
+              tabIndex={0}>
               <span> {option.title}</span>
             </li>
           ))}

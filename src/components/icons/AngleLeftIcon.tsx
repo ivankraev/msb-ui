@@ -11,8 +11,7 @@ const AngleLeftIcon = ({ color }: Props) => {
       width={10}
       height={16}
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+      xmlns="http://www.w3.org/2000/svg">
       <path
         fillRule="evenodd"
         clipRule="evenodd"
