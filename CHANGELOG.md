@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/ivankraev/msb-ui/compare/v0.1.3...v0.2.1) (2022-10-20)
+
+
+### ⚡️ Performance Improvements
+
+* **sdfs:** dsfs ([8777571](https://github.com/ivankraev/msb-ui/commit/87775716605ceaaf05c94784fcdb29bdb8e41dbe))
+
+
+### ✨ Features
+
+* **asd:** asda ([f09f052](https://github.com/ivankraev/msb-ui/commit/f09f0526528e48300a43c522ec773625649871a2))
+
+
+### 🐛 Bug Fixes
+
+* **plans:** adasdasda ([007059a](https://github.com/ivankraev/msb-ui/commit/007059a20f16558839e940c04ecae949ffe21c95))
+
 ### [0.1.14](https://mstfs.softserveinc.com/tfs/Cisco/MSP/_git/UI/compare/v0.1.17...v0.1.14) (2022-10-19)
 
 

@@ -46,7 +46,8 @@ const SelectProducts = () => {
           <Accordion
             key={service.title}
             isOpen={service.selected}
-            headerComponent={Header.bind(null, service)}>
+            headerComponent={Header.bind(null, service)}
+          >
             <div className={s.optionsContainer}>
               <InputStack label="Package">
                 <InputSelect
