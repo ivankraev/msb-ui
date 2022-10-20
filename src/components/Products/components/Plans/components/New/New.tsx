@@ -61,7 +61,8 @@ const New = () => {
             <Button
               onClick={incrementStep}
               contained={true}
-              disabled={selectedServices.length === 0}>
+              disabled={selectedServices.length === 0}
+            >
               {currentStep === steps.length - 1 ? 'save plan' : 'next'}
             </Button>
           </ButtonsGroup>

@@ -7,7 +7,8 @@ const CiscoUmbrellaIcon = ({ width = 60 }: { width?: number }) => {
       height={width}
       viewBox="0 0 121 120"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg">
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         d="M17.0968 58.9333C16.8312 52.2476 18.5681 45.6198 22.1049 39.909C25.9463 33.7062 31.7024 28.9224 38.5031 26.2804C45.3039 23.6384 52.7799 23.2818 59.8012 25.2645C66.3 27.0996 72.0825 30.8464 76.4075 36"
         stroke="#C6C7CA"

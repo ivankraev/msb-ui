@@ -12,7 +12,8 @@ const SvgComponent = ({ onClick }: Props) => (
     width={16}
     height={16}
     fill="none"
-    xmlns="http://www.w3.org/2000/svg">
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -28,7 +29,8 @@ const SvgComponent = ({ onClick }: Props) => (
       x={0}
       y={0}
       width={16}
-      height={16}>
+      height={16}
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"

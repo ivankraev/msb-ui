@@ -16,7 +16,8 @@ const TaxCertificateIcon = () => {
         x="0"
         y="0"
         width="20"
-        height="21">
+        height="21"
+      >
         <path
           fillRule="evenodd"
           clipRule="evenodd"
