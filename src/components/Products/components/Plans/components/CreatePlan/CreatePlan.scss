@@ -18,14 +18,14 @@
 
   hr {
     background-color: $light-border-color;
+    border: none;
     height: 1px;
     width: 100%;
-    border: none;
   }
 }
 
 .buttonsContainer {
   display: flex;
-  width: 100%;
   justify-content: space-between;
+  width: 100%;
 }

@@ -3,7 +3,7 @@ import Container from '@common/Container'
 
 import s from './CreateCustomer.scss'
 
-const New = () => {
+const CreateCustomer = () => {
   return (
     <Container label="New customer" styles={s.container}>
       <h1 />
@@ -11,4 +11,4 @@ const New = () => {
   )
 }
 
-export default New
+export default CreateCustomer

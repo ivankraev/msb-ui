@@ -120,7 +120,8 @@ const Plans = () => {
         <Button onClick={goToNewPlan} contained>
           Create new plan
         </Button>
-      }>
+      }
+    >
       <div className={s.innerContainer}>
         <div className={s.topTools}>
           <div className={s.searchBarHolder}>

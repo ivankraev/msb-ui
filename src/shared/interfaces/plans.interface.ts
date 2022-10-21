@@ -10,12 +10,12 @@ export interface Service {
   selected: boolean
   seats: Seat
   value: string
-  packageOptions: PlansOption
+  packages: PlansOption
   policies: PlansOption
 }
 
 export interface Seat {
   value: number
   accessor: string
-  error?: string | null
+  error?: string | undefined
 }

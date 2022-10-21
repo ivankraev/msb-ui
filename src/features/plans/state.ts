@@ -1,6 +1,7 @@
 import { PlansSliceState } from './plansSlice'
 
 export const initialState: PlansSliceState = {
+  error: true,
   selectedPlanName: { value: '' },
   selectedServices: [],
   services: [
@@ -9,37 +10,37 @@ export const initialState: PlansSliceState = {
       selected: false,
       seats: { value: 0, accessor: 'umbrella' },
       value: 'umbrella',
-      packageOptions: {
+      packages: {
         selectedOption: {
           title: 'DNS Essentials',
           value: 'dnsEssentials',
           accessor: 'umbrella',
-          type: 'packageOptions',
+          type: 'packages',
         },
         options: [
           {
             title: 'DNS Essentials',
             value: 'dnsEssentials',
             accessor: 'umbrella',
-            type: 'packageOptions',
+            type: 'packages',
           },
           {
             title: 'DNS Advantage',
             value: 'dnsAdvantage',
             accessor: 'umbrella',
-            type: 'packageOptions',
+            type: 'packages',
           },
           {
             title: 'SIG Essentials',
             value: 'sigEssentials',
             accessor: 'umbrella',
-            type: 'packageOptions',
+            type: 'packages',
           },
           {
             title: 'SIG Advantage',
             value: 'sigAdvantage',
             accessor: 'umbrella',
-            type: 'packageOptions',
+            type: 'packages',
           },
         ],
       },
@@ -71,37 +72,37 @@ export const initialState: PlansSliceState = {
       selected: false,
       seats: { value: 0, accessor: 'secureEndpoint' },
       value: 'secureEndpoint',
-      packageOptions: {
+      packages: {
         selectedOption: {
           title: 'DNS Essentials',
           value: 'dnsEssentials',
           accessor: 'secureEndpoint',
-          type: 'packageOptions',
+          type: 'packages',
         },
         options: [
           {
             title: 'DNS Essentials',
             value: 'dnsEssentials',
             accessor: 'secureEndpoint',
-            type: 'packageOptions',
+            type: 'packages',
           },
           {
             title: 'DNS Advantage',
             value: 'dnsAdvantage',
             accessor: 'secureEndpoint',
-            type: 'packageOptions',
+            type: 'packages',
           },
           {
             title: 'SIG Essentials',
             value: 'sigEssentials',
             accessor: 'secureEndpoint',
-            type: 'packageOptions',
+            type: 'packages',
           },
           {
             title: 'SIG Advantage',
             value: 'sigAdvantage',
             accessor: 'secureEndpoint',
-            type: 'packageOptions',
+            type: 'packages',
           },
         ],
       },
@@ -133,37 +134,37 @@ export const initialState: PlansSliceState = {
       selected: false,
       seats: { value: 0, accessor: 'duo' },
       value: 'duo',
-      packageOptions: {
+      packages: {
         selectedOption: {
           title: 'DNS Essentials',
           value: 'dnsEssentials',
           accessor: 'duo',
-          type: 'packageOptions',
+          type: 'packages',
         },
         options: [
           {
             title: 'DNS Essentials',
             value: 'dnsEssentials',
             accessor: 'duo',
-            type: 'packageOptions',
+            type: 'packages',
           },
           {
             title: 'DNS Advantage',
             value: 'dnsAdvantage',
             accessor: 'duo',
-            type: 'packageOptions',
+            type: 'packages',
           },
           {
             title: 'SIG Essentials',
             value: 'sigEssentials',
             accessor: 'duo',
-            type: 'packageOptions',
+            type: 'packages',
           },
           {
             title: 'SIG Advantage',
             value: 'sigAdvantage',
             accessor: 'duo',
-            type: 'packageOptions',
+            type: 'packages',
           },
         ],
       },
@@ -195,37 +196,37 @@ export const initialState: PlansSliceState = {
       selected: false,
       seats: { value: 0, accessor: 'cmd' },
       value: 'cmd',
-      packageOptions: {
+      packages: {
         selectedOption: {
           title: 'DNS Essentials',
           value: 'dnsEssentials',
           accessor: 'cmd',
-          type: 'packageOptions',
+          type: 'packages',
         },
         options: [
           {
             title: 'DNS Essentials',
             value: 'dnsEssentials',
             accessor: 'cmd',
-            type: 'packageOptions',
+            type: 'packages',
           },
           {
             title: 'DNS Advantage',
             value: 'dnsAdvantage',
             accessor: 'cmd',
-            type: 'packageOptions',
+            type: 'packages',
           },
           {
             title: 'SIG Essentials',
             value: 'sigEssentials',
             accessor: 'cmd',
-            type: 'packageOptions',
+            type: 'packages',
           },
           {
             title: 'SIG Advantage',
             value: 'sigAdvantage',
             accessor: 'cmd',
-            type: 'packageOptions',
+            type: 'packages',
           },
         ],
       },
@@ -257,37 +258,37 @@ export const initialState: PlansSliceState = {
       selected: false,
       seats: { value: 0, accessor: 'secureX' },
       value: 'secureX',
-      packageOptions: {
+      packages: {
         selectedOption: {
           title: 'DNS Essentials',
           value: 'dnsEssentials',
           accessor: 'secureX',
-          type: 'packageOptions',
+          type: 'packages',
         },
         options: [
           {
             title: 'DNS Essentials',
             value: 'dnsEssentials',
             accessor: 'secureX',
-            type: 'packageOptions',
+            type: 'packages',
           },
           {
             title: 'DNS Advantage',
             value: 'dnsAdvantage',
             accessor: 'secureX',
-            type: 'packageOptions',
+            type: 'packages',
           },
           {
             title: 'SIG Essentials',
             value: 'sigEssentials',
             accessor: 'secureX',
-            type: 'packageOptions',
+            type: 'packages',
           },
           {
             title: 'SIG Advantage',
             value: 'sigAdvantage',
             accessor: 'secureX',
-            type: 'packageOptions',
+            type: 'packages',
           },
         ],
       },

@@ -13,11 +13,11 @@ import Stepper from '@common/Stepper'
 import Button from '@common/Button'
 import s from './CreatePlan.scss'
 
-const New = () => {
+const CreatePlan = () => {
   const { steps, currentStep } = useAppSelector((state) => state.steps)
-  const { selectedServices, selectedPlanName } = useAppSelector((state) => state.plans)
+  const { selectedServices, selectedPlanName, error } = useAppSelector((state) => state.plans)
   const { incrementStep, decrementStep, resetState: resetStepsState } = stepsActions()
-  const { resetState: resetPlansState } = plansActions()
+  const { resetState: resetPlansState, checkForErrors } = plansActions()
 
   const navigate = useNavigate()
 
@@ -39,8 +39,18 @@ const New = () => {
     }
   }, [])
 
+  useEffect(() => {
+    checkForErrors()
+  }, [selectedServices, selectedPlanName])
+
   const goBackToPlans = () => {
     navigate(links.products.plans.index)
+  }
+
+  const goToNextStep = () => {
+    if (!error) {
+      incrementStep()
+    }
   }
 
   return (
@@ -53,12 +63,9 @@ const New = () => {
           <Button onClick={goBackToPlans}>Cancel</Button>
           <ButtonsGroup>
             <Button onClick={decrementStep} disabled={currentStep === 0}>
-              Previous
+              previous
             </Button>
-            <Button
-              onClick={incrementStep}
-              contained={true}
-              disabled={selectedServices.length === 0}>
+            <Button onClick={goToNextStep} contained={true} disabled={error}>
               {currentStep === steps.length - 1 ? 'save plan' : 'next'}
             </Button>
           </ButtonsGroup>
@@ -68,4 +75,4 @@ const New = () => {
   )
 }
 
-export default New
+export default CreatePlan

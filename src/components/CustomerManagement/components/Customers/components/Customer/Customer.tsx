@@ -19,7 +19,8 @@ const Customer = () => {
     <Container
       label={state?.data}
       headerButtons={<Button>edit customer</Button>}
-      styles={s.container}>
+      styles={s.container}
+    >
       <div className={s.infoContainer}>
         <h3>Customer information</h3>
         <InformationTable customerInfo={mockCustomerInfo} />

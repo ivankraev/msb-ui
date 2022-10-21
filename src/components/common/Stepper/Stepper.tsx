@@ -40,4 +40,4 @@ const Stepper = ({ steps }: Props) => {
   )
 }
 
-export default Stepper
+export default React.memo(Stepper)

@@ -16,7 +16,8 @@ const SearchIcon = () => {
         x="0"
         y="0"
         width="16"
-        height="16">
+        height="16"
+      >
         <path
           fillRule="evenodd"
           clipRule="evenodd"

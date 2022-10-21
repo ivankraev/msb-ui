@@ -4,15 +4,15 @@
   font-size: 0.875rem;
 
   input {
-    box-sizing: border-box;
-    padding: 0.375rem 0.75rem;
+    background: url('../../icons/OpenSelectMenuIcon.svg') no-repeat 95% center;
+    background-color: $default-background-color;
     border: 1px solid $grey-color;
     border-radius: 3px;
     box-shadow: 0 1px 0 $light-border-color;
-    outline: none;
-    background: url('../../icons/OpenSelectMenuIcon.svg') no-repeat 95% center;
-    background-color: $default-background-color;
+    box-sizing: border-box;
     cursor: pointer;
+    outline: none;
+    padding: 0.375rem 0.75rem;
 
     &::placeholder {
       color: $secondary-color;
@@ -24,12 +24,12 @@
   background-color: $default-background-color;
   border: 1px solid $grey-color;
   box-sizing: border-box;
-  position: relative;
   padding-block: 0.875rem;
+  position: relative;
 
   li {
-    padding: 0.5rem 0.875rem;
     cursor: default;
+    padding: 0.5rem 0.875rem;
 
     &:not(:first-child) {
       &:hover {

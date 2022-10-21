@@ -17,4 +17,4 @@ const HeaderComponent = ({ label, children, styles }: Props) => {
   )
 }
 
-export default HeaderComponent
+export default React.memo(HeaderComponent)

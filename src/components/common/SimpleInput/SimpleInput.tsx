@@ -24,4 +24,4 @@ const SimpleInput = ({ label, styles, handler, defaultValue, type = 'text' }: Pr
   )
 }
 
-export default SimpleInput
+export default React.memo(SimpleInput)

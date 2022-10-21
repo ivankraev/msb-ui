@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useCallback, useMemo } from 'react'
 import { debounce } from 'lodash'
 import { plansActions } from '@msp/features/plans/plansSlice'
 import { useAppSelector } from '@msp/redux/hooks'
 import { Service } from '@msp/shared/interfaces/plans.interface'
+import { SelectOption } from '@msp/shared/interfaces/select-option.interface'
 import HeaderComponent from '@common/UserSettings/components/HeaderComponent'
 import Accordion from '@common/Accordion'
 import CheckboxItem from '@common/CheckboxItem'
@@ -15,9 +16,14 @@ const SelectProducts = () => {
   const { changeSelectedServices, changeSelectedOption, selectSeats, selectPlan } = plansActions()
   const { services, selectedPlanName } = useAppSelector((state) => state.plans)
 
-  const selectServiceHandler = (service: Service) => {
-    changeSelectedServices(service)
-  }
+  const Header = (service: Service) => (
+    <CheckboxItem
+      label={service.title}
+      checked={service.selected}
+      strong={true}
+      onClick={useCallback(() => changeSelectedServices(service), [])}
+    />
+  )
 
   const selectSeatsHandler = debounce(
     (accessor: string, event: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,18 +36,12 @@ const SelectProducts = () => {
     selectPlan(event.target.value)
   }, 300)
 
-  const Header = (service: Service) => {
-    return (
-      <CheckboxItem
-        label={service.title}
-        checked={service.selected}
-        strong={true}
-        onClick={selectServiceHandler.bind(null, service)}
-      />
-    )
-  }
+  const memoSelectPlanHandler = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => selectPlanHandler(event),
+    [],
+  )
 
-  console.log(selectedPlanName)
+  const memoChangeOption = useCallback((option: SelectOption) => changeSelectedOption(option), [])
 
   return (
     <div className={s.container}>
@@ -50,26 +50,34 @@ const SelectProducts = () => {
         <Accordion
           key={service.title}
           isOpen={service.selected}
-          headerComponent={Header.bind(null, service)}>
+          headerComponent={Header.bind(null, service)}
+        >
           <div className={s.optionsContainer}>
             <InputContainer label="Package">
               <InputSelect
-                optionsList={service.packageOptions.options}
-                setSelectedOption={changeSelectedOption}
-                selectedOption={service.packageOptions.selectedOption}
+                optionsList={service.packages.options}
+                setSelectedOption={memoChangeOption}
+                selectedOption={service.packages.selectedOption}
               />
             </InputContainer>
             <InputContainer label="Policy">
               <InputSelect
                 optionsList={service.policies.options}
-                setSelectedOption={changeSelectedOption}
-                selectedOption={service.policies.selectedOption}
+                setSelectedOption={memoChangeOption}
+                selectedOption={useMemo(
+                  () => service.policies.selectedOption,
+                  [service.policies.selectedOption],
+                )}
               />
             </InputContainer>
             <InputContainer label="Seats">
               <SimpleInput
                 styles={service.seats.error ? s.seatsInputError : s.seatsInput}
-                handler={selectSeatsHandler.bind(null, service.value)}
+                handler={useCallback(
+                  (event: React.ChangeEvent<HTMLInputElement>) =>
+                    selectSeatsHandler(service.value, event),
+                  [],
+                )}
                 defaultValue={service.seats.value}
                 type="text"
               />
@@ -79,7 +87,7 @@ const SelectProducts = () => {
       ))}
       <InputContainer label="Plan name" styles={s.nameInput}>
         <SimpleInput
-          handler={selectPlanHandler}
+          handler={memoSelectPlanHandler}
           defaultValue={selectedPlanName.value}
           styles={selectedPlanName.error ? s.errorBorder : undefined}
         />

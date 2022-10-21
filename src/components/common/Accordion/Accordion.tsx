@@ -7,13 +7,10 @@ interface Props {
   children: React.ReactNode
   isOpen: boolean
   styles?: React.CSSProperties
-  openStyles?: React.CSSProperties
-  bodyStyles?: React.CSSProperties
-  bodyOpenStyles?: React.CSSProperties
   headerComponent: () => JSX.Element
 }
 
-const Accordion = ({ children, isOpen, styles, bodyOpenStyles, headerComponent }: Props) => {
+const Accordion = ({ children, isOpen, styles, headerComponent }: Props) => {
   const classes = cx({
     [s.accordionItem]: true,
     [s.accordionItemVisible]: isOpen,
@@ -23,9 +20,7 @@ const Accordion = ({ children, isOpen, styles, bodyOpenStyles, headerComponent }
   return (
     <div className={classes}>
       {headerComponent()}
-      <AccordionBody isOpen={isOpen} styles={bodyOpenStyles}>
-        {children}
-      </AccordionBody>
+      <AccordionBody isOpen={isOpen}>{children}</AccordionBody>
     </div>
   )
 }

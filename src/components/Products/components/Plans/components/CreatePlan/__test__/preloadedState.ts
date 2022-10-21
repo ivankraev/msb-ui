@@ -7,7 +7,8 @@ export const preloadedState = {
     ],
   },
   plans: {
-    selectedPlanName: '',
+    error: false,
+    selectedPlanName: { value: '' },
     selectedServices: [],
     services: [
       {
@@ -15,37 +16,37 @@ export const preloadedState = {
         selected: false,
         seats: { value: 0, accessor: 'test' },
         value: 'test',
-        packageOptions: {
+        packages: {
           selectedOption: {
             title: 'DNS Essentials',
             value: 'dnsEssentials',
             accessor: 'test',
-            type: 'packageOptions',
+            type: 'packages',
           },
           options: [
             {
               title: 'DNS Essentials',
               value: 'dnsEssentials',
               accessor: 'test',
-              type: 'packageOptions',
+              type: 'packages',
             },
             {
               title: 'DNS Advantage',
               value: 'dnsAdvantage',
               accessor: 'test',
-              type: 'packageOptions',
+              type: 'packages',
             },
             {
               title: 'SIG Essentials',
               value: 'sigEssentials',
               accessor: 'test',
-              type: 'packageOptions',
+              type: 'packages',
             },
             {
               title: 'SIG Advantage',
               value: 'sigAdvantage',
               accessor: 'test',
-              type: 'packageOptions',
+              type: 'packages',
             },
           ],
         },

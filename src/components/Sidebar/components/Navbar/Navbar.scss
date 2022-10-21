@@ -3,12 +3,12 @@
 .container {
   .menuList {
     .menuItem {
+      align-items: center;
+      border-bottom: 1px solid $dark-border-color;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
-      align-items: center;
       padding: 10px 15px 10px 20px;
-      border-bottom: 1px solid $dark-border-color;
 
       &:first-child {
         border-top: 1px solid $dark-border-color;

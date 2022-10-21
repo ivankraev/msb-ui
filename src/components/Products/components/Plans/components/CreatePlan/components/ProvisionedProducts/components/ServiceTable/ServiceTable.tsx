@@ -22,7 +22,7 @@ const ServiceTable = ({ services, planName }: Props) => {
             </tr>
             <tr>
               <td>Package</td>
-              <td>{svc.packageOptions.selectedOption.title}</td>
+              <td>{svc.packages.selectedOption.title}</td>
             </tr>
             <tr>
               <td>Policy</td>

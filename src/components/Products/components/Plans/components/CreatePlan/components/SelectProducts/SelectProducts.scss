@@ -1,9 +1,10 @@
 @import '../../../../../../../../theme/variables.scss';
+
 .container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   font-size: 0.875rem;
+  gap: 1rem;
 
   .error {
     color: $error-color;
@@ -18,8 +19,8 @@
 
 .seatsInputError {
   input {
-    width: 6.25rem;
     border-color: $error-color;
+    width: 6.25rem;
   }
 }
 

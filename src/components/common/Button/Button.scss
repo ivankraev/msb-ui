@@ -1,21 +1,21 @@
 @import '../../../theme/variables.scss';
 
 .button {
-  cursor: pointer;
-  text-transform: uppercase;
   border: 1px solid $primary-color;
   border-radius: 3px;
-  padding: 0.5rem 1.5rem;
-  font-weight: $bold-font-weight;
+  cursor: pointer;
   font-size: 0.875rem;
+  font-weight: $bold-font-weight;
+  padding: 0.5rem 1.5rem;
+  text-transform: uppercase;
 
   &.empty {
-    color: $primary-color;
     background-color: $default-background-color;
+    color: $primary-color;
 
     &:disabled {
-      color: $primary-color-disabled;
       border-color: $primary-color-disabled;
+      color: $primary-color-disabled;
       cursor: default;
     }
   }

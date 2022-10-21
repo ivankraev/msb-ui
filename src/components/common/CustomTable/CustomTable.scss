@@ -6,8 +6,8 @@
 
   table tbody {
     display: block;
-    overflow-y: auto;
     -ms-overflow-style: none; /* IE and Edge */
+    overflow-y: auto;
     scrollbar-width: none; /* Firefox */
     // Hide scrollbar in Chrome,Safari,Opera
     &::-webkit-scrollbar {
@@ -22,8 +22,8 @@
   table thead,
   table tbody tr {
     display: table;
-    width: 100%;
     table-layout: fixed;
+    width: 100%;
   }
 
   td,
@@ -34,12 +34,12 @@
 
   table {
     border-collapse: collapse;
-    white-space: nowrap;
     min-width: calc(25vh + 450px);
+    white-space: nowrap;
 
     th {
-      text-align: left;
       padding: 0 1.5rem;
+      text-align: left;
     }
 
     tr {

@@ -21,21 +21,21 @@ $error-color: #cf2030;
 $black-color: #000;
 
 :export {
+  backgroundGreyColor: $background-grey-color;
+  borderColor: $border-color;
+  darkBorderColor: $dark-border-color;
+  defaultBackgroundColor: $default-background-color;
+  defaultColor: $default-color;
+  errorColor: $error-color;
+  greyColor: $grey-color;
+  invertColor: $invert-color;
+  lightBorderColor: $light-border-color;
+  lightDarkColor: $light-dark-color;
+  lightGreyColor: $light-grey-color;
   primaryColor: $primary-color;
   primaryColorDark: $primary-color-dark;
   primaryLightColor: $primary-light-color;
   secondaryColor: $secondary-color;
-  borderColor: $border-color;
-  darkBorderColor: $dark-border-color;
-  lightBorderColor: $light-border-color;
-  defaultColor: $default-color;
-  invertColor: $invert-color;
-  defaultBackgroundColor: $default-background-color;
-  lightDarkColor: $light-dark-color;
-  greyColor: $grey-color;
-  lightGreyColor: $light-grey-color;
-  backgroundGreyColor: $background-grey-color;
-  errorColor: $error-color;
 }
 
 /*
