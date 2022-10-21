@@ -5,7 +5,7 @@ import { initialState } from '@msp/features/plans/state'
 import { useAppDispatch } from '@msp/redux/hooks'
 
 export interface PlansSliceState {
-  selectedPlanName: string
+  selectedPlanName: { value: string; error?: string }
   services: Service[]
   selectedServices: Service[]
 }
@@ -19,6 +19,7 @@ const plansSlice = createSlice({
       if (!service) return
 
       service.selected = !service.selected
+
       if (service.selected) {
         state.selectedServices.push(service)
       } else {
@@ -45,12 +46,30 @@ const plansSlice = createSlice({
       selectedService[type].selectedOption = action.payload
     },
     selectPlan: (state, action: PayloadAction<string>) => {
-      state.selectedPlanName = action.payload
+      if (action.payload.length < 1 || action.payload.length > 80) {
+        state.selectedPlanName.error = 'Please enter a valid name'
+        return
+      }
+
+      state.selectedPlanName.error = undefined
+
+      state.selectedPlanName.value = action.payload
     },
     selectSeats: (state, action: PayloadAction<Seat>) => {
-      const service = state.services.find((svc) => svc.value === action.payload.accessor)
+      const payload = action.payload
+
+      const service = state.services.find((svc) => svc.value === payload.accessor)
       if (!service) return
-      service.seats.value = action.payload.value
+
+      if (!Number.isInteger(payload.value) || payload.value < 1) {
+        service.seats.error = 'Please, enter a valid number'
+        service.seats.value = payload.value
+        return
+      }
+
+      service.seats.error = undefined
+
+      service.seats.value = payload.value
 
       const selectedService = state.selectedServices.find(
         (svc) => svc.value === action.payload.accessor,

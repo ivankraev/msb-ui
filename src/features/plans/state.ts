@@ -1,7 +1,7 @@
 import { PlansSliceState } from './plansSlice'
 
 export const initialState: PlansSliceState = {
-  selectedPlanName: '',
+  selectedPlanName: { value: '' },
   selectedServices: [],
   services: [
     {

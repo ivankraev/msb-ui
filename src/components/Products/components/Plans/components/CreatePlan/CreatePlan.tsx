@@ -26,7 +26,7 @@ const New = () => {
     1: (
       <ProvisionedProducts
         services={selectedServices}
-        planName={selectedPlanName}
+        planName={selectedPlanName.value}
         onChangeHandler={decrementStep}
       />
     ),

@@ -23,22 +23,25 @@ const SelectProducts = () => {
     (accessor: string, event: React.ChangeEvent<HTMLInputElement>) => {
       selectSeats({ accessor, value: Number(event.target.value) })
     },
-    500,
+    300,
   )
 
   const selectPlanHandler = debounce((event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value === '') return
     selectPlan(event.target.value)
-  }, 500)
+  }, 300)
 
-  const Header = (service: Service) => (
-    <CheckboxItem
-      label={service.title}
-      checked={service.selected}
-      strong={true}
-      onClick={selectServiceHandler.bind(null, service)}
-    />
-  )
+  const Header = (service: Service) => {
+    return (
+      <CheckboxItem
+        label={service.title}
+        checked={service.selected}
+        strong={true}
+        onClick={selectServiceHandler.bind(null, service)}
+      />
+    )
+  }
+
+  console.log(selectedPlanName)
 
   return (
     <div className={s.container}>
@@ -65,17 +68,22 @@ const SelectProducts = () => {
             </InputContainer>
             <InputContainer label="Seats">
               <SimpleInput
-                styles={s.seatsInput}
+                styles={service.seats.error ? s.seatsInputError : s.seatsInput}
                 handler={selectSeatsHandler.bind(null, service.value)}
                 defaultValue={service.seats.value}
-                type="number"
+                type="text"
               />
             </InputContainer>
           </div>
         </Accordion>
       ))}
       <InputContainer label="Plan name" styles={s.nameInput}>
-        <SimpleInput handler={selectPlanHandler} defaultValue={selectedPlanName} />
+        <SimpleInput
+          handler={selectPlanHandler}
+          defaultValue={selectedPlanName.value}
+          styles={selectedPlanName.error ? s.errorBorder : undefined}
+        />
+        <span className={s.error}>{selectedPlanName.error && selectedPlanName.error}</span>
       </InputContainer>
     </div>
   )

@@ -17,4 +17,5 @@ export interface Service {
 export interface Seat {
   value: number
   accessor: string
+  error?: string | null
 }
