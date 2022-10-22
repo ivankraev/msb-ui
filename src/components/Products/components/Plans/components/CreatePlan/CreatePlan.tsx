@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAppSelector } from '@msp/redux/hooks'
 import { stepsActions } from '@msp/features/steps/stepsSlice'
-import { plansActions } from '@msp/features/plans/plansSlice'
+import { productsActions } from '@msp/features/plans/productsSlice'
+import { steps } from '@msp/components/Products/components/Plans/components/CreatePlan/config'
 import { links } from '@msp/routes/links'
 import SelectProducts from '@msp/components/Products/components/Plans/components/CreatePlan/components/SelectProducts'
 import ProvisionedProducts from './components/ProvisionedProducts'
@@ -11,13 +12,15 @@ import ButtonsGroup from '@common/ButtonsGroup'
 import Container from '@common/Container'
 import Stepper from '@common/Stepper'
 import Button from '@common/Button'
+import ConfirmDialog from '@common/ConfirmDialog'
 import s from './CreatePlan.scss'
 
 const CreatePlan = () => {
-  const { steps, currentStep } = useAppSelector((state) => state.steps)
-  const { selectedServices, selectedPlanName, error } = useAppSelector((state) => state.plans)
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const { currentStep } = useAppSelector((state) => state.steps)
+  const { selectedProducts, selectedPlanName, error } = useAppSelector((state) => state.plans)
   const { incrementStep, decrementStep, resetState: resetStepsState } = stepsActions()
-  const { resetState: resetPlansState, checkForErrors } = plansActions()
+  const { resetState: resetPlansState, checkForErrors } = productsActions()
 
   const navigate = useNavigate()
 
@@ -25,7 +28,7 @@ const CreatePlan = () => {
     0: <SelectProducts />,
     1: (
       <ProvisionedProducts
-        services={selectedServices}
+        products={selectedProducts}
         planName={selectedPlanName.value}
         onChangeHandler={decrementStep}
       />
@@ -41,10 +44,18 @@ const CreatePlan = () => {
 
   useEffect(() => {
     checkForErrors()
-  }, [selectedServices, selectedPlanName])
+  }, [selectedProducts, selectedPlanName])
 
-  const goBackToPlans = () => {
+  const goToPlans = () => {
     navigate(links.products.plans.index)
+  }
+
+  const cancelHandler = () => {
+    if (selectedPlanName.value !== '' || selectedProducts.length > 0) {
+      setIsDialogOpen(true)
+      return
+    }
+    goToPlans()
   }
 
   const goToNextStep = () => {
@@ -53,14 +64,25 @@ const CreatePlan = () => {
     }
   }
 
+  const closeDialogHandler = () => {
+    setIsDialogOpen(false)
+  }
+
   return (
     <Container label="New plan" styles={s.container}>
+      <ConfirmDialog
+        isOpen={isDialogOpen}
+        closeHandler={closeDialogHandler}
+        headerText="Discard changes"
+        contentText="Changes won't be saved"
+        confirmHandler={goToPlans}
+      />
       <div className={s.innerContainer}>
         <Stepper steps={steps} />
         {renderSteps[currentStep]}
         <hr />
         <ButtonsContainer>
-          <Button onClick={goBackToPlans}>Cancel</Button>
+          <Button onClick={cancelHandler}>Cancel</Button>
           <ButtonsGroup>
             <Button onClick={decrementStep} disabled={currentStep === 0}>
               previous

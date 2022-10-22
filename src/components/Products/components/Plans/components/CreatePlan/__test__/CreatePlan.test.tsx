@@ -38,10 +38,12 @@ describe('New Plan page', () => {
   })
 
   it('Should go back to plans list if cancel button is clicked', () => {
-    const { getByText } = renderWithProviders(<CreatePlan />, {
+    const { getByText, getAllByRole } = renderWithProviders(<CreatePlan />, {
       preloadedState,
     })
+    userEvent.click(getAllByRole('checkbox')[0])
     userEvent.click(getByText('Cancel'))
+    userEvent.click(getByText('Confirm'))
     expect(mockedNavigator).toHaveBeenCalledTimes(1)
   })
 })

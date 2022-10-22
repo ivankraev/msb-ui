@@ -5,7 +5,7 @@ export interface PlansOption {
   options: SelectOption[]
 }
 
-export interface Service {
+export interface Product {
   title: string
   selected: boolean
   seats: Seat

@@ -9,8 +9,8 @@ export const preloadedState = {
   plans: {
     error: false,
     selectedPlanName: { value: '' },
-    selectedServices: [],
-    services: [
+    selectedProducts: [],
+    products: [
       {
         title: 'Test plan',
         selected: false,

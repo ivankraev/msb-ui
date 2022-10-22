@@ -1,13 +1,13 @@
 import React from 'react'
-import { Service } from '@msp/shared/interfaces/plans.interface'
-import s from './ServiceTable.scss'
+import { Product } from '@msp/shared/interfaces/plans.interface'
+import s from './ProductsTable.scss'
 
 interface Props {
-  services: Service[]
+  products: Product[]
   planName: string
 }
 
-const ServiceTable = ({ services, planName }: Props) => {
+const ProductsTable = ({ products, planName }: Props) => {
   return (
     <table className={s.container}>
       <tbody>
@@ -15,22 +15,22 @@ const ServiceTable = ({ services, planName }: Props) => {
           <td>Plan</td>
           <td>{planName}</td>
         </tr>
-        {services.map((svc) => (
-          <React.Fragment key={svc.value}>
+        {products.map((prod) => (
+          <React.Fragment key={prod.value}>
             <tr>
-              <td className={s.strong}>{svc.title}</td>
+              <td className={s.strong}>{prod.title}</td>
             </tr>
             <tr>
               <td>Package</td>
-              <td>{svc.packages.selectedOption.title}</td>
+              <td>{prod.packages.selectedOption.title}</td>
             </tr>
             <tr>
               <td>Policy</td>
-              <td>{svc.policies.selectedOption.title}</td>
+              <td>{prod.policies.selectedOption.title}</td>
             </tr>
             <tr>
               <td>Seats</td>
-              <td>{svc.seats.value}</td>
+              <td>{prod.seats.value}</td>
             </tr>
           </React.Fragment>
         ))}
@@ -39,4 +39,4 @@ const ServiceTable = ({ services, planName }: Props) => {
   )
 }
 
-export default ServiceTable
+export default ProductsTable

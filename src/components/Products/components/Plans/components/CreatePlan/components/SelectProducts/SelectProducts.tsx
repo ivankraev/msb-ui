@@ -1,9 +1,10 @@
 import React, { useCallback, useMemo } from 'react'
 import { debounce } from 'lodash'
-import { plansActions } from '@msp/features/plans/plansSlice'
+import { productsActions } from '@msp/features/plans/productsSlice'
 import { useAppSelector } from '@msp/redux/hooks'
-import { Service } from '@msp/shared/interfaces/plans.interface'
+import { Product } from '@msp/shared/interfaces/plans.interface'
 import { SelectOption } from '@msp/shared/interfaces/select-option.interface'
+import ProductsContainer from '@msp/components/Products/components/Plans/components/CreatePlan/components/SelectProducts/components/ProductsContainer'
 import HeaderComponent from '@common/UserSettings/components/HeaderComponent'
 import Accordion from '@common/Accordion'
 import CheckboxItem from '@common/CheckboxItem'
@@ -12,16 +13,21 @@ import InputContainer from '@common/InputContainer'
 import SimpleInput from '@common/SimpleInput'
 import s from './SelectProducts.scss'
 
-const SelectProducts = () => {
-  const { changeSelectedServices, changeSelectedOption, selectSeats, selectPlan } = plansActions()
-  const { services, selectedPlanName } = useAppSelector((state) => state.plans)
+interface Props {
+  headerButton?: React.ReactNode
+}
 
-  const Header = (service: Service) => (
+const SelectProducts = ({ headerButton }: Props) => {
+  const { changeSelectedProducts, changeSelectedOption, selectSeats, selectPlan } =
+    productsActions()
+  const { products, selectedPlanName } = useAppSelector((state) => state.plans)
+
+  const Header = (product: Product) => (
     <CheckboxItem
-      label={service.title}
-      checked={service.selected}
+      label={product.title}
+      checked={product.selected}
       strong={true}
-      onClick={useCallback(() => changeSelectedServices(service), [])}
+      onClick={useCallback(() => changeSelectedProducts(product), [])}
     />
   )
 
@@ -45,44 +51,46 @@ const SelectProducts = () => {
 
   return (
     <div className={s.container}>
-      <HeaderComponent label="Select products" styles={s.headerComponent} />
-      {services.map((service) => (
+      <HeaderComponent label="Select products" styles={s.headerComponent}>
+        {headerButton}
+      </HeaderComponent>
+      {products.map((product) => (
         <Accordion
-          key={service.title}
-          isOpen={service.selected}
-          headerComponent={Header.bind(null, service)}
+          key={product.title}
+          isOpen={product.selected}
+          headerComponent={Header.bind(null, product)}
         >
-          <div className={s.optionsContainer}>
+          <ProductsContainer>
             <InputContainer label="Package">
               <InputSelect
-                optionsList={service.packages.options}
+                optionsList={product.packages.options}
                 setSelectedOption={memoChangeOption}
-                selectedOption={service.packages.selectedOption}
+                selectedOption={product.packages.selectedOption}
               />
             </InputContainer>
             <InputContainer label="Policy">
               <InputSelect
-                optionsList={service.policies.options}
+                optionsList={product.policies.options}
                 setSelectedOption={memoChangeOption}
                 selectedOption={useMemo(
-                  () => service.policies.selectedOption,
-                  [service.policies.selectedOption],
+                  () => product.policies.selectedOption,
+                  [product.policies.selectedOption],
                 )}
               />
             </InputContainer>
             <InputContainer label="Seats">
               <SimpleInput
-                styles={service.seats.error ? s.seatsInputError : s.seatsInput}
+                styles={product.seats.error ? s.seatsInputError : s.seatsInput}
                 handler={useCallback(
                   (event: React.ChangeEvent<HTMLInputElement>) =>
-                    selectSeatsHandler(service.value, event),
+                    selectSeatsHandler(product.value, event),
                   [],
                 )}
-                defaultValue={service.seats.value}
+                defaultValue={product.seats.value}
                 type="text"
               />
             </InputContainer>
-          </div>
+          </ProductsContainer>
         </Accordion>
       ))}
       <InputContainer label="Plan name" styles={s.nameInput}>
