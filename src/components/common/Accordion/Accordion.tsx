@@ -7,7 +7,7 @@ interface Props {
   children: React.ReactNode
   isOpen: boolean
   styles?: React.CSSProperties
-  headerComponent: () => JSX.Element
+  headerComponent: React.ReactNode
 }
 
 const Accordion = ({ children, isOpen, styles, headerComponent }: Props) => {
@@ -19,7 +19,7 @@ const Accordion = ({ children, isOpen, styles, headerComponent }: Props) => {
 
   return (
     <div className={classes}>
-      {headerComponent()}
+      {headerComponent}
       <AccordionBody isOpen={isOpen}>{children}</AccordionBody>
     </div>
   )

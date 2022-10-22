@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAppSelector } from '@msp/redux/hooks'
 import { stepsActions } from '@msp/features/steps/stepsSlice'
-import { productsActions } from '@msp/features/plans/productsSlice'
-import { steps } from '@msp/components/Products/components/Plans/components/CreatePlan/config'
+import {
+  steps as planSteps,
+  validationSchema,
+} from '@msp/components/Products/components/Plans/components/CreatePlan/config'
 import { links } from '@msp/routes/links'
+import { useFormik } from 'formik'
+import { filterProducts } from '@msp/utils/filter-products'
+import { initialValues } from '@msp/components/Products/components/Plans/components/CreatePlan/config'
 import SelectProducts from '@msp/components/Products/components/Plans/components/CreatePlan/components/SelectProducts'
 import ProvisionedProducts from './components/ProvisionedProducts'
 import ButtonsContainer from '@common/ButtonsContainer'
@@ -18,55 +23,72 @@ import s from './CreatePlan.scss'
 const CreatePlan = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const { currentStep } = useAppSelector((state) => state.steps)
-  const { selectedProducts, selectedPlanName, error } = useAppSelector((state) => state.plans)
+
   const { incrementStep, decrementStep, resetState: resetStepsState } = stepsActions()
-  const { resetState: resetPlansState, checkForErrors } = productsActions()
 
   const navigate = useNavigate()
 
+  const formik = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit: (values) => {
+      const isAtLeastOneProductSelected = filterProducts(values.products).length > 0
+      if (!isAtLeastOneProductSelected) return
+
+      if (currentStep === 0) {
+        incrementStep()
+      } else {
+        // TODO Send api call here
+      }
+    },
+  })
+
+  const {
+    handleSubmit,
+    errors,
+    dirty,
+    isValid,
+    validateForm,
+    values: { products, plan },
+  } = formik
+
+  const provisionedProducts = filterProducts(products)
+
   const renderSteps: { [key: number]: JSX.Element | null } = {
-    0: <SelectProducts />,
+    0: <SelectProducts formikInstance={formik} />,
     1: (
       <ProvisionedProducts
-        products={selectedProducts}
-        planName={selectedPlanName.value}
+        products={provisionedProducts}
+        planName={plan}
         onChangeHandler={decrementStep}
       />
     ),
   }
 
   useEffect(() => {
+    validateForm()
     return () => {
-      resetPlansState()
       resetStepsState()
     }
   }, [])
 
-  useEffect(() => {
-    checkForErrors()
-  }, [selectedProducts, selectedPlanName])
-
-  const goToPlans = () => {
+  const goBackToPlans = () => {
     navigate(links.products.plans.index)
   }
 
   const cancelHandler = () => {
-    if (selectedPlanName.value !== '' || selectedProducts.length > 0) {
+    if (dirty) {
       setIsDialogOpen(true)
-      return
-    }
-    goToPlans()
-  }
-
-  const goToNextStep = () => {
-    if (!error) {
-      incrementStep()
+    } else {
+      goBackToPlans()
     }
   }
 
   const closeDialogHandler = () => {
     setIsDialogOpen(false)
   }
+
+  const steps = useMemo(() => planSteps, [])
 
   return (
     <Container label="New plan" styles={s.container}>
@@ -75,23 +97,27 @@ const CreatePlan = () => {
         closeHandler={closeDialogHandler}
         headerText="Discard changes"
         contentText="Changes won't be saved"
-        confirmHandler={goToPlans}
+        confirmHandler={goBackToPlans}
       />
       <div className={s.innerContainer}>
         <Stepper steps={steps} />
-        {renderSteps[currentStep]}
-        <hr />
-        <ButtonsContainer>
-          <Button onClick={cancelHandler}>Cancel</Button>
-          <ButtonsGroup>
-            <Button onClick={decrementStep} disabled={currentStep === 0}>
-              previous
+        <form onSubmit={handleSubmit}>
+          {renderSteps[currentStep]}
+          <hr />
+          <ButtonsContainer>
+            <Button onClick={cancelHandler} type="button">
+              Cancel
             </Button>
-            <Button onClick={goToNextStep} contained={true} disabled={error}>
-              {currentStep === steps.length - 1 ? 'save plan' : 'next'}
-            </Button>
-          </ButtonsGroup>
-        </ButtonsContainer>
+            <ButtonsGroup>
+              <Button onClick={decrementStep} disabled={currentStep === 0}>
+                previous
+              </Button>
+              <Button contained={true} type="submit" disabled={!isValid}>
+                {currentStep === 1 ? 'save plan' : 'next'}
+              </Button>
+            </ButtonsGroup>
+          </ButtonsContainer>
+        </form>
       </div>
     </Container>
   )

@@ -22,15 +22,15 @@ const ProductsTable = ({ products, planName }: Props) => {
             </tr>
             <tr>
               <td>Package</td>
-              <td>{prod.packages.selectedOption.title}</td>
+              <td>{prod.package.title}</td>
             </tr>
             <tr>
               <td>Policy</td>
-              <td>{prod.policies.selectedOption.title}</td>
+              <td>{prod.policy.title}</td>
             </tr>
             <tr>
               <td>Seats</td>
-              <td>{prod.seats.value}</td>
+              <td>{prod.seats}</td>
             </tr>
           </React.Fragment>
         ))}

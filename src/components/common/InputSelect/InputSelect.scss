@@ -2,6 +2,9 @@
 
 .container {
   font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 
   input {
     background: url('../../icons/OpenSelectMenuIcon.svg') no-repeat 95% center;

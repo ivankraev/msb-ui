@@ -1,17 +1,17 @@
 import React, { LegacyRef, useRef, useState } from 'react'
 import cx from 'classnames'
-import { ActionCreatorWithPayload } from '@reduxjs/toolkit'
 import useClickOutside from '@msp/hooks/useClickOutside'
-import { SelectOption } from '@msp/shared/interfaces/select-option.interface'
+import { SelectOption } from '@msp/shared/interfaces/plans.interface'
 import s from './InputSelect.scss'
 
 interface Props<T> {
-  optionsList: T[]
-  setSelectedOption: ActionCreatorWithPayload<T> | ((option: T) => void)
-  selectedOption: T
+  options: T[]
+  onChangeHandler: (option: T) => void
+  value: T
+  label: string
 }
 
-const InputSelect = ({ optionsList, setSelectedOption, selectedOption }: Props<SelectOption>) => {
+const InputSelect = ({ options, onChangeHandler, value, label }: Props<SelectOption>) => {
   const [isOptionsOpen, setOptionsOpen] = useState(false)
 
   const toggleOptions = () => {
@@ -26,10 +26,11 @@ const InputSelect = ({ optionsList, setSelectedOption, selectedOption }: Props<S
 
   return (
     <div className={s.container}>
+      <strong>{label}</strong>
       <div className={s.innerContainer}>
         <input
           data-testid="select"
-          placeholder={selectedOption.title}
+          placeholder={value.title}
           onClick={toggleOptions}
           ref={ignoredElement}
           type="text"
@@ -42,20 +43,20 @@ const InputSelect = ({ optionsList, setSelectedOption, selectedOption }: Props<S
           className={cx(s.menu, { [s.hide]: !isOptionsOpen })}
           role="listbox"
           ref={menuRef}
-          aria-activedescendant={selectedOption.title}
+          aria-activedescendant={value.title}
         >
           <li>Select</li>
-          {optionsList.map((option) => (
+          {options.map((option) => (
             <li
               onClick={() => {
                 setOptionsOpen(false)
-                if (option.value === selectedOption.value) return
-                setSelectedOption(option)
+                if (option.value === value.value) return
+                onChangeHandler(option)
               }}
-              key={option.title}
-              id={option.title}
+              key={option.value}
+              id={option.value}
               role="option"
-              aria-selected={selectedOption.title === option.title}
+              aria-selected={value.title === option.title}
               tabIndex={0}
             >
               <span> {option.title}</span>

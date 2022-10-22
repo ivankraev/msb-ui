@@ -1,9 +1,10 @@
 @import '../../../theme/variables.scss';
 
 .container {
-  align-items: center;
   font-size: 0.875rem;
-  gap: 0.625rem;
+  display: flex;
+  gap: 0.25rem;
+  flex-direction: column;
 
   input {
     border: 1px solid $grey-color;

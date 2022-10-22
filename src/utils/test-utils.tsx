@@ -10,7 +10,6 @@ import AppStore, { RootState } from '../redux/store'
 // As a basic setup, import your same slice reducers
 import userReducer from '@msp/features/user/userSlice'
 import settingsReducer from '@msp/features/settings/settingsSlice'
-import productsSlice from '@msp/features/plans/productsSlice'
 import stepsSlice from '@msp/features/steps/stepsSlice'
 import trainingsSlice from '@msp/features/trainings/trainingsSlice'
 
@@ -30,7 +29,6 @@ export function renderWithProviders(
       reducer: {
         user: userReducer,
         settings: settingsReducer,
-        plans: productsSlice,
         steps: stepsSlice,
         trainings: trainingsSlice,
       },
