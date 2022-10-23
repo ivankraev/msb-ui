@@ -41,6 +41,7 @@ const SelectProducts = ({ headerButton, formikInstance }: Props) => {
           <Accordion
             key={title}
             isOpen={products[typedValue].selected}
+            styles={s.accordionItem}
             headerComponent={
               <ProductHeader product={product} products={products} onClick={setFieldValue} />
             }
@@ -65,7 +66,6 @@ const SelectProducts = ({ headerButton, formikInstance }: Props) => {
               <SimpleInput
                 label="Seats"
                 name={`products.${typedValue}.seats`}
-                styles={s.seatsInput}
                 onChangeHandler={(e) =>
                   setFieldValue(`products.${typedValue}.seats`, Number(e.target.value))
                 }

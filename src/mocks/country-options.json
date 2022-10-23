@@ -1,0 +1,38 @@
+{
+  "countryOptions": [
+    {
+      "title": "Bulgaria",
+      "value": "bg"
+    },
+    {
+      "title": "Ukraine",
+      "value": "ukr"
+    },
+    {
+      "title": "Poland",
+      "value": "pl"
+    },
+    {
+      "title": "United States",
+      "value": "usa"
+    }
+  ],
+  "stateOptions": [
+    {
+      "title": "California",
+      "value": "cf"
+    },
+    {
+      "title": "Alaska",
+      "value": "al"
+    },
+    {
+      "title": "Arizona",
+      "value": "arz"
+    },
+    {
+      "title": "Florida",
+      "value": "fd"
+    }
+  ]
+}

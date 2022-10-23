@@ -11,6 +11,7 @@ import { useFormik } from 'formik'
 import { filterProducts } from '@msp/utils/filter-products'
 import { initialValues } from '@msp/components/Products/components/Plans/components/CreatePlan/config'
 import SelectProducts from '@msp/components/Products/components/Plans/components/CreatePlan/components/SelectProducts'
+import FormContainer from '@msp/components/Products/components/Plans/components/CreatePlan/components/SelectProducts/components/FormContainer'
 import ProvisionedProducts from './components/ProvisionedProducts'
 import ButtonsContainer from '@common/ButtonsContainer'
 import ButtonsGroup from '@common/ButtonsGroup'
@@ -98,7 +99,7 @@ const CreatePlan = () => {
         contentText="Changes won't be saved"
         confirmHandler={goBackToPlans}
       />
-      <div className={s.innerContainer}>
+      <FormContainer styles={s.formContainer}>
         <Stepper steps={steps} />
         <form onSubmit={handleSubmit}>
           {renderSteps[currentStep]}
@@ -117,7 +118,7 @@ const CreatePlan = () => {
             </ButtonsGroup>
           </ButtonsContainer>
         </form>
-      </div>
+      </FormContainer>
     </Container>
   )
 }

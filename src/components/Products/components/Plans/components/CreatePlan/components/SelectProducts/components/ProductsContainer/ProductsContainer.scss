@@ -1,5 +1,6 @@
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
   gap: 1rem;
   margin-top: 1.5rem;
 }
