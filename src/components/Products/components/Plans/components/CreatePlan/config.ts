@@ -1,8 +1,6 @@
 import { Product } from '@msp/shared/interfaces/plans.interface'
 import * as Yup from 'yup'
 
-const BAD_NUMBER_MESSAGE = 'Must be a valid number'
-
 export const steps = [
   { title: 'Products', completed: false, active: true },
   { title: 'Summary', completed: false, active: false },
@@ -61,35 +59,35 @@ export const validationSchema = Yup.object().shape({
       selected: Yup.boolean(),
       seats: Yup.number().when('selected', {
         is: true,
-        then: Yup.number().positive().integer().required(BAD_NUMBER_MESSAGE),
+        then: Yup.number().positive().integer().required(),
       }),
     }),
     secureEndpoint: Yup.object().shape({
       selected: Yup.boolean(),
       seats: Yup.number().when('selected', {
         is: true,
-        then: Yup.number().positive().integer().required(BAD_NUMBER_MESSAGE),
+        then: Yup.number().positive().integer().required(),
       }),
     }),
     duo: Yup.object().shape({
       selected: Yup.boolean(),
       seats: Yup.number().when('selected', {
         is: true,
-        then: Yup.number().positive().integer().required(BAD_NUMBER_MESSAGE),
+        then: Yup.number().positive().integer().required(),
       }),
     }),
     cmd: Yup.object().shape({
       selected: Yup.boolean(),
       seats: Yup.number().when('selected', {
         is: true,
-        then: Yup.number().positive().integer().required(BAD_NUMBER_MESSAGE),
+        then: Yup.number().positive().integer().required(),
       }),
     }),
     secureX: Yup.object().shape({
       selected: Yup.boolean(),
       seats: Yup.number().when('selected', {
         is: true,
-        then: Yup.number().positive().integer().required(BAD_NUMBER_MESSAGE),
+        then: Yup.number().positive().integer().required(),
       }),
     }),
   }),

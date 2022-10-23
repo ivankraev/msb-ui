@@ -45,7 +45,6 @@ const CreatePlan = () => {
 
   const {
     handleSubmit,
-    errors,
     dirty,
     isValid,
     validateForm,
@@ -106,7 +105,7 @@ const CreatePlan = () => {
           <hr />
           <ButtonsContainer>
             <Button onClick={cancelHandler} type="button">
-              Cancel
+              cancel
             </Button>
             <ButtonsGroup>
               <Button onClick={decrementStep} disabled={currentStep === 0}>

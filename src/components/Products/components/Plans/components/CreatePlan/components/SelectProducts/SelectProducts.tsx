@@ -43,7 +43,8 @@ const SelectProducts = ({ headerButton, formikInstance }: Props) => {
             isOpen={products[typedValue].selected}
             headerComponent={
               <ProductHeader product={product} products={products} onClick={setFieldValue} />
-            }>
+            }
+          >
             <ProductsContainer>
               <InputSelect
                 label="Package"

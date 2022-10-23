@@ -34,9 +34,9 @@ const ConfigmDialog = ({
         <ButtonsContainer>
           <div />
           <ButtonsGroup>
-            <Button onClick={closeHandler}>Cancel</Button>
+            <Button onClick={closeHandler}>cancel</Button>
             <Button contained={true} onClick={confirmHandler}>
-              Confirm
+              confirm
             </Button>
           </ButtonsGroup>
         </ButtonsContainer>
