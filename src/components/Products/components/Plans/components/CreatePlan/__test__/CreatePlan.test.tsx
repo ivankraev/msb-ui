@@ -44,6 +44,8 @@ describe('New Plan page', () => {
     getByText(/20/i)
     getByText(/test plan/i)
     getByText(/provisioned products/i)
+    userEvent.click(getByText(/PREVIOUS/i))
+    getByText(/NEXT/i)
   })
 
   it('Should go back to plans without confirming dialog if the form is not dirty', () => {
