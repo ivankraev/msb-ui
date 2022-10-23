@@ -16,7 +16,8 @@ const TabsCard = ({ onSelectTabHandler, selectedProductName }: Props) => {
         <div
           className={selectedProductName === product ? cx(s.tab, s.active) : s.tab}
           key={product}
-          onClick={() => onSelectTabHandler(product)}>
+          onClick={() => onSelectTabHandler(product)}
+        >
           {product}
         </div>
       ))}

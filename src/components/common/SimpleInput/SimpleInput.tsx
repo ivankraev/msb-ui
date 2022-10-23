@@ -9,6 +9,8 @@ interface Props {
   onChangeHandler: ChangeEventHandler<HTMLInputElement>
   styles?: React.CSSProperties
   name?: string
+  error?: string
+  skipErrorMessage?: boolean
   onBlur?: {
     (e: React.FocusEvent): void
     <T>(fieldOrEvent: T): T extends string
@@ -25,6 +27,8 @@ const SimpleInput = ({
   styles,
   name,
   onBlur,
+  error,
+  skipErrorMessage,
 }: Props) => {
   return (
     <span className={cx(s.container, styles)}>
@@ -36,9 +40,11 @@ const SimpleInput = ({
         onBlur={onBlur}
         data-testid="simple-input"
         name={name}
+        className={error && s.error}
       />
+      <span className={s.error}>{!skipErrorMessage && error}</span>
     </span>
   )
 }
 
-export default React.memo(SimpleInput)
+export default SimpleInput

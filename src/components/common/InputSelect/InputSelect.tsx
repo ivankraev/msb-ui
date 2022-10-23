@@ -43,7 +43,8 @@ const InputSelect = ({ options, onChangeHandler, value, label }: Props<SelectOpt
           className={cx(s.menu, { [s.hide]: !isOptionsOpen })}
           role="listbox"
           ref={menuRef}
-          aria-activedescendant={value.title}>
+          aria-activedescendant={value.title}
+        >
           <li>Select</li>
           {options.map((option) => (
             <li
@@ -56,7 +57,8 @@ const InputSelect = ({ options, onChangeHandler, value, label }: Props<SelectOpt
               id={option.value}
               role="option"
               aria-selected={value.title === option.title}
-              tabIndex={0}>
+              tabIndex={0}
+            >
               <span> {option.title}</span>
             </li>
           ))}
@@ -66,4 +68,4 @@ const InputSelect = ({ options, onChangeHandler, value, label }: Props<SelectOpt
   )
 }
 
-export default React.memo(InputSelect)
+export default InputSelect

@@ -22,6 +22,7 @@ const SelectProducts = ({ headerButton, formikInstance }: Props) => {
   const {
     values: { products, plan },
     touched,
+    errors,
     handleBlur,
     setFieldValue,
   } = formikInstance
@@ -34,6 +35,7 @@ const SelectProducts = ({ headerButton, formikInstance }: Props) => {
       {data.map((product) => {
         const { value, title } = product
         const typedValue = value as keyof typeof products
+        const productValue = products[typedValue]
 
         return (
           <Accordion
@@ -49,7 +51,7 @@ const SelectProducts = ({ headerButton, formikInstance }: Props) => {
                 onChangeHandler={(value) => {
                   setFieldValue(`products.${typedValue}.package`, value)
                 }}
-                value={products[typedValue].package}
+                value={productValue.package}
               />
               <InputSelect
                 label="Policy"
@@ -57,7 +59,7 @@ const SelectProducts = ({ headerButton, formikInstance }: Props) => {
                 onChangeHandler={(value) => {
                   setFieldValue(`products.${typedValue}.policy`, value)
                 }}
-                value={products[typedValue].policy}
+                value={productValue.policy}
               />
               <SimpleInput
                 label="Seats"
@@ -66,8 +68,14 @@ const SelectProducts = ({ headerButton, formikInstance }: Props) => {
                 onChangeHandler={(e) =>
                   setFieldValue(`products.${typedValue}.seats`, Number(e.target.value))
                 }
-                defaultValue={products[typedValue].seats}
+                defaultValue={productValue.seats}
                 onBlur={handleBlur}
+                skipErrorMessage={true}
+                error={
+                  touched.products?.[typedValue]?.seats && errors.products?.[typedValue]?.seats
+                    ? errors.products?.[typedValue]?.seats
+                    : undefined
+                }
               />
             </ProductsContainer>
           </Accordion>
@@ -80,6 +88,7 @@ const SelectProducts = ({ headerButton, formikInstance }: Props) => {
         onChangeHandler={(e) => setFieldValue('plan', e.target.value)}
         defaultValue={plan}
         onBlur={handleBlur}
+        error={touched.plan && errors.plan ? errors.plan : undefined}
       />
     </div>
   )
