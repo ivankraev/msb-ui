@@ -8,8 +8,7 @@ const SecurityEndpointIcon = ({ width = 50 }: { width?: number }) => {
       viewBox="0 0 86 90"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      xlinkHref="http://www.w3.org/1999/xlink"
-    >
+      xlinkHref="http://www.w3.org/1999/xlink">
       <rect y="0.313477" width="86" height="89.3726" fill="url(#pattern0)" />
       <defs>
         <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">

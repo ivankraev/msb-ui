@@ -23,8 +23,7 @@ const NavbarPeriod = ({ periods }: Props) => {
             onClick={() => {
               if (period.value === activeItem) return
               setActiveItem(period.value)
-            }}
-          >
+            }}>
             <span>
               {<period.icon />}
               <p>{period.label}</p>

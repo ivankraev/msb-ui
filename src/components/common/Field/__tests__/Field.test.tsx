@@ -14,8 +14,7 @@ describe('Field component ', () => {
         }}
         onSubmit={() => {
           return
-        }}
-      >
+        }}>
         <Field type="text" name="name" label="Name" />
       </Formik>,
     )
@@ -30,8 +29,7 @@ describe('Field component ', () => {
         }}
         onSubmit={() => {
           return
-        }}
-      >
+        }}>
         <Field type="text" name="name" label="Name" required />
       </Formik>,
     )

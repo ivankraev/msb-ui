@@ -39,8 +39,7 @@ const Header: React.FC = () => {
           <div
             className={s.userDetails}
             onClick={() => setMenuShown(!isMenuShown)}
-            ref={ignoredElement}
-          >
+            ref={ignoredElement}>
             <Logo link={userInfo!.logo!} />
             <span className={s.name}>{userInfo!.name}</span>
             <UserIcon />

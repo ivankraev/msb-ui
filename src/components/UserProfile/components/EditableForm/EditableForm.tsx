@@ -26,16 +26,14 @@ const EditableForm: React.FC<Props> = ({ formLabel, ctaText, initialValues, fiel
       initialValues={initialValues}
       onSubmit={(values) => {
         console.log(values, 'values')
-      }}
-    >
+      }}>
       {(props) => (
         <form onSubmit={props.handleSubmit}>
           <div className={s.container}>
             <HeaderComponent label={formLabel} styles={s.header}>
               <Button
                 onClick={() => setAllowEdit(!allowEdit)}
-                type={!allowEdit ? 'submit' : 'button'}
-              >
+                type={!allowEdit ? 'submit' : 'button'}>
                 {allowEdit ? 'Save' : ctaText}
               </Button>
             </HeaderComponent>
