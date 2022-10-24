@@ -19,4 +19,4 @@ const PageHeader = ({ label, children }: Props) => {
   )
 }
 
-export default PageHeader
+export default React.memo(PageHeader)

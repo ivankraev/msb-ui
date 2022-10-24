@@ -1,22 +1,21 @@
 @import '../../../theme/variables.scss';
 
 .button {
-  cursor: pointer;
-  text-transform: uppercase;
-  white-space: nowrap;
   border: 1px solid $primary-color;
   border-radius: 3px;
-  padding: 0.5rem 1.5rem;
-  font-weight: $bold-font-weight;
+  cursor: pointer;
   font-size: 0.875rem;
+  font-weight: $bold-font-weight;
+  padding: 0.5rem 1.5rem;
+  text-transform: uppercase;
 
   &.empty {
-    color: $primary-color;
     background-color: $default-background-color;
+    color: $primary-color;
 
     &:disabled {
-      color: $disabled-grey-color;
-      border-color: $disabled-grey-color;
+      border-color: $primary-color-disabled;
+      color: $primary-color-disabled;
       cursor: default;
     }
   }
@@ -26,10 +25,15 @@
     color: $invert-color;
 
     &:disabled {
-      color: $disabled-grey-color;
-      background-color: $background-grey-color;
-      border-color: $background-grey-color;
+      background-color: $primary-color-disabled;
+      border-color: $primary-color-disabled;
       cursor: default;
     }
+  }
+
+  &.textOnly {
+    background-color: $default-background-color;
+    border: none;
+    padding-inline: 0;
   }
 }

@@ -1,0 +1,53 @@
+@import '../../../theme/variables.scss';
+
+.container {
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  .modal {
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .content {
+    background-color: $default-background-color;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.14), 0 1px 1px rgba(0, 0, 0, 0.2),
+      0 1px 5px rgba(0, 0, 0, 0.12);
+    display: grid;
+
+    gap: 2.5rem;
+    left: 0;
+    margin: 0 auto;
+    padding: 2rem;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transform: translateY(-50%);
+    transform: translateY(-50%);
+    transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 27.675rem;
+    z-index: 2;
+
+    h2 {
+      font-weight: $normal-font-weight;
+      margin: 0 0 1rem;
+    }
+
+    span {
+      font-size: 0.875rem;
+    }
+  }
+}

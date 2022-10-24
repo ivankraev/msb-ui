@@ -3,38 +3,38 @@
 $menu-shadow: 0 3px 6px rgba(85, 85, 85, 0.24);
 
 .container {
+  background-color: $default-background-color;
+  box-shadow: $menu-shadow;
+  font-size: 0.875rem;
+  min-width: 360px;
+  padding: 1.5rem;
   position: absolute;
   right: 0;
-  min-width: 360px;
-  box-shadow: $menu-shadow;
-  background-color: $default-background-color;
-  padding: 1.5rem;
-  font-size: 0.875rem;
 
   .userName {
     font-size: 1.25rem;
   }
 
   .userEmail {
-    margin-top: 0.5rem;
     color: $grey-color;
+    margin-top: 0.5rem;
   }
 
   hr {
-    border-color: $light-grey-color;
     border-bottom: none;
+    border-color: $light-grey-color;
     margin: 12px 0 22px;
   }
 
   .linksList {
-    margin: 20px 0;
     display: grid;
     gap: 15px;
+    margin: 20px 0;
   }
 
   .ctaLabel {
-    text-align: center;
     margin: 1.5rem 0 0.5rem;
+    text-align: center;
   }
 
   .fullWidthCta {
