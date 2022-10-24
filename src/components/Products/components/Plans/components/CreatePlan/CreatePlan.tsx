@@ -14,11 +14,11 @@ import SelectProducts from '@msp/components/Products/components/Plans/components
 import FormContainer from '@msp/components/Products/components/Plans/components/CreatePlan/components/SelectProducts/components/FormContainer'
 import ProvisionedProducts from './components/ProvisionedProducts'
 import ButtonsContainer from '@common/ButtonsContainer'
+import ConfirmDialog from '@common/ConfirmDialog'
 import ButtonsGroup from '@common/ButtonsGroup'
 import Container from '@common/Container'
 import Stepper from '@common/Stepper'
 import Button from '@common/Button'
-import ConfirmDialog from '@common/ConfirmDialog'
 import s from './CreatePlan.scss'
 
 const CreatePlan = () => {
