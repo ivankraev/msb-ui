@@ -25,7 +25,6 @@ export const links = {
       new: 'new',
     },
   },
-
   billing: {
     index: BILLING,
     invoices: {

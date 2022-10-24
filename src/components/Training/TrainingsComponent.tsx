@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react'
-import { useAppDispatch, useAppSelector } from '@msp/redux/hooks'
+import { useAppDispatch } from '@msp/redux/hooks'
+import { useAppSelector } from '@msp/redux/hooks'
 import { trainingsActions, getVideos } from '@msp/features/trainings/trainingsSlice'
 import Container from '@common/Container'
 import InnerContainer from '@common/UserSettings/components/Container'

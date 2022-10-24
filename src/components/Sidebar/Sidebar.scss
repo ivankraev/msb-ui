@@ -1,14 +1,14 @@
 @import '../../theme/variables.scss';
 
 .container {
-  position: sticky;
-  min-width: 280px;
   background-color: $secondary-color;
   color: $invert-color;
+  min-width: 280px;
+  position: sticky;
 
   .organizationContainer {
-    display: flex;
     align-items: center;
+    display: flex;
     gap: 1rem;
     padding: 24px 24px 34px;
 

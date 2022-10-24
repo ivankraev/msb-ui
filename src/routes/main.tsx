@@ -1,6 +1,6 @@
 import React from 'react'
 import Invoices from '@msp/components/Billing/Invoices'
-import PaymentMethods from '@msp/components/Billing/PaymentMethods'
+import CallBack from '@msp/components/CallBack'
 import CustomerManagement from '@msp/components/CustomerManagement'
 import Customers from '@msp/components/CustomerManagement/components/Customers'
 import Customer from '@msp/components/CustomerManagement/components/Customers/components/Customer'
@@ -14,6 +14,7 @@ import CreatePlan from '@msp/components/Products/components/Plans/components/Cre
 import Products from '@msp/components/Products'
 import Plans from '@msp/components/Products/components/Plans'
 import Training from '@msp/components/Training'
+import PaymentMethods from '@msp/components/Billing/PaymentMethods'
 import Billing from '@msp/components/Billing'
 
 export interface RouteProps {
@@ -68,6 +69,7 @@ const routes: RouteProps[] = [
       },
     ],
   },
+
   {
     path: '/billing',
     title: 'Billing',
@@ -85,10 +87,10 @@ const routes: RouteProps[] = [
       },
     ],
   },
-
   { path: '/settings', element: MspSettings },
   { path: '/profile', title: 'Profile', element: UserProfile },
   { path: '/training', title: 'Training', element: Training },
+  { path: '/callback', element: CallBack },
 ]
 
 export default routes

@@ -6,6 +6,7 @@ import s from './Button.scss'
 
 interface Props {
   contained?: boolean
+  textOnly?: boolean
   className?: string
   to?: string
   onClick?: () => void
@@ -16,6 +17,7 @@ interface Props {
 
 const Button: React.FC<Props> = ({
   contained = false,
+  textOnly = false,
   to = '',
   className,
   onClick,
@@ -26,6 +28,7 @@ const Button: React.FC<Props> = ({
   const buttonClassName = cx(s.button, contained ? s.contained : s.empty, className, {
     [s.disabledContained]: disabled && contained,
     [s.disabled]: disabled && !contained,
+    [s.textOnly]: textOnly,
   })
   if (to) {
     return (

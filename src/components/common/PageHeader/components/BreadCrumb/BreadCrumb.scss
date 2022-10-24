@@ -1,17 +1,17 @@
 @import '../../../../../theme/variables.scss';
 
 .container {
+  color: $grey-color;
   justify-self: start;
   margin-top: 1.5rem;
-  color: $grey-color;
 
   ul {
     display: flex;
     font-size: 0.875rem;
 
     li::after {
-      padding: 0.25rem;
       content: '/\00a0';
+      padding: 0.25rem;
     }
   }
 }

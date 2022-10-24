@@ -1,13 +1,13 @@
 @import '../../../../../theme/variables.scss';
 
 .container {
-  display: flex;
   align-items: center;
+  border: 1px solid $primary-color;
+  border-radius: 2px;
+  display: flex;
   justify-content: space-between;
   min-height: 3.625rem;
   width: 25.75rem;
-  border-radius: 2px;
-  border: 1px solid $primary-color;
 
   svg:nth-child(3) {
     padding: 1.313rem 1.5rem;
@@ -19,25 +19,25 @@
 }
 
 .iconHolder {
-  min-width: 4rem;
-  height: 100%;
-  display: flex;
-  justify-content: center;
   align-items: center;
   background-color: $primary-color;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  min-width: 4rem;
 }
 
 .fileInfoContainer {
-  padding: 0.6875rem 0.875rem;
-  width: 16.75rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  padding: 0.6875rem 0.875rem;
+  width: 16.75rem;
 
   span {
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   span:nth-child(2) {

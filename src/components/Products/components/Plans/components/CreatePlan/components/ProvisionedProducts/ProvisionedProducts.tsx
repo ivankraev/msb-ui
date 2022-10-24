@@ -1,21 +1,23 @@
 import React from 'react'
 import Button from '@common/Button'
+import { Product } from '@msp/shared/interfaces/plans.interface'
+
 import HeaderComponent from '@common/UserSettings/components/HeaderComponent'
-import ServiceTable from '@msp/components/Products/components/Plans/components/CreatePlan/components/ProvisionedProducts/components/ServiceTable'
-import { Service } from '@msp/shared/interfaces/plans.interface'
+import s from './ProvisionedProducts.scss'
+import ProductsTable from '@msp/components/Products/components/Plans/components/CreatePlan/components/ProvisionedProducts/components/ProductsTable'
 
 interface Props {
-  services: Service[]
+  products: Product[]
   planName: string
   onChangeHandler: () => void
 }
-const ProvisionedProducts = ({ services, planName, onChangeHandler: changeHandler }: Props) => {
+const ProvisionedProducts = ({ products, planName, onChangeHandler }: Props) => {
   return (
     <>
-      <HeaderComponent label="Provisioned products">
-        <Button onClick={changeHandler}>change</Button>
+      <HeaderComponent label="Provisioned products" styles={s.header}>
+        <Button onClick={onChangeHandler}>change</Button>
       </HeaderComponent>
-      <ServiceTable planName={planName} services={services} />
+      <ProductsTable planName={planName} products={products} />
     </>
   )
 }

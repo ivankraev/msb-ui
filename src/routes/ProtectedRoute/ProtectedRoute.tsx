@@ -20,12 +20,12 @@ const ProtectedRoute: React.FC = () => {
   const handleLogin = async () => {
     window.location.href = oktaLink
   }
-  if (!userToken) {
-    handleLogin()
-  }
-  if (!userInfo) {
-    return <>Loading</>
-  }
+  // if (!userToken) {
+  //   handleLogin()
+  // }
+  // if (!userInfo) {
+  //   return <>Loading</>
+  // }
   // returns child route elements
   return (
     <React.Fragment>

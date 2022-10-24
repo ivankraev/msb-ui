@@ -6,28 +6,28 @@
   }
 
   .tabsCard {
-    display: flex;
-    gap: 10px;
-    width: 790px;
-    height: 55px;
-    padding: 0 30px;
-    margin-top: 1rem;
-    font-size: 0.75rem;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), 0 1px 5px rgba(0, 0, 0, 0.12),
       0 2px 2px rgba(0, 0, 0, 0.14);
+    display: flex;
+    font-size: 0.75rem;
+    gap: 10px;
+    height: 55px;
+    margin-top: 1rem;
+    padding: 0 30px;
+    width: 790px;
   }
 
   .tab {
-    padding: 0 25px;
-    display: flex;
     align-items: center;
-    justify-content: center;
     border-bottom: 3px solid #fff;
+    display: flex;
+    justify-content: center;
+    padding: 0 25px;
 
     &:hover,
     &.active {
-      color: $primary-color;
       border-bottom: 3px solid $primary-color;
+      color: $primary-color;
       cursor: pointer;
       text-decoration: none;
       text-shadow: 0 0 1px;
@@ -38,8 +38,8 @@
     width: 850px;
 
     h3 {
-      margin-top: 1.2rem;
       font-weight: $light-font-weight;
+      margin-top: 1.2rem;
       text-transform: capitalize;
     }
 

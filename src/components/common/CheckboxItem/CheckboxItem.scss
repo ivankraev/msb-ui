@@ -1,31 +1,31 @@
 @import '../../../theme/variables.scss';
 
 .container {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: 0.625rem;
 
   strong {
-    font-size: 0.875rem;
     cursor: pointer;
+    font-size: 0.875rem;
   }
 
   input {
     /* removing default appearance */
-    -webkit-appearance: none;
     appearance: none;
+    appearance: none;
+    border: 2px solid #9e9ea2;
+    border-radius: 3px;
+    cursor: pointer;
+    height: 1rem;
     /* creating a custom design */
     width: 1rem;
-    height: 1rem;
-    border-radius: 3px;
-    border: 2px solid #9e9ea2;
-    cursor: pointer;
   }
 }
 
 input.checked::before {
-  content: '\2714';
   color: #fff;
+  content: '\2714';
   margin-left: 0.0675rem;
 }
 
