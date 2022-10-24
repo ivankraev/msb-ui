@@ -42,7 +42,9 @@ const SimpleInput = ({
         name={name}
         className={error && s.error}
       />
-      <span className={s.error}>{!skipErrorMessage && error}</span>
+      <span className={s.error}>
+        <span>{!skipErrorMessage && error}</span>
+      </span>
     </span>
   )
 }

@@ -2,24 +2,19 @@ import React from 'react'
 import GeneralInformation from '@msp/components/CustomerManagement/components/Customers/components/CreateCustomer/components/CustomerInformation/components/GeneralInformation'
 import BillingAddress from '@msp/components/CustomerManagement/components/Customers/components/CreateCustomer/components/CustomerInformation/components/BillingAddress'
 import s from './CustomerInformation.scss'
-import ButtonsContainer from '@common/ButtonsContainer'
-import Button from '@common/Button'
-import ButtonsGroup from '@common/ButtonsGroup'
+import { useFormik } from 'formik'
+import { initialValues } from '@msp/components/CustomerManagement/components/Customers/components/CreateCustomer/config'
 
-const CustomerInformation = () => {
+interface Props {
+  formikInstance: ReturnType<typeof useFormik<typeof initialValues>>
+}
+
+const CustomerInformation = ({ formikInstance }: Props) => {
   return (
     <div className={s.container}>
-      <GeneralInformation />
+      <GeneralInformation formikInstance={formikInstance} />
       <hr />
-      <BillingAddress />
-      <hr />
-      <ButtonsContainer>
-        <Button>cancel</Button>
-        <ButtonsGroup>
-          <Button>previous</Button>
-          <Button contained={true}>next</Button>
-        </ButtonsGroup>
-      </ButtonsContainer>
+      <BillingAddress formikInstance={formikInstance} />
     </div>
   )
 }

@@ -30,4 +30,10 @@
       cursor: default;
     }
   }
+
+  &.textOnly {
+    background-color: $default-background-color;
+    border: none;
+    padding-inline: 0;
+  }
 }

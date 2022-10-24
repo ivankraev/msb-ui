@@ -26,5 +26,12 @@
     border-color: $error-color;
     box-shadow: none;
     color: $error-color;
+    position: relative;
+
+    span {
+      font-size: 0.75rem;
+      position: absolute;
+      top: -0.25rem;
+    }
   }
 }

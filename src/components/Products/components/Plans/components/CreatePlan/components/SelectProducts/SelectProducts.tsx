@@ -71,7 +71,6 @@ const SelectProducts = ({ headerButton, formikInstance }: Props) => {
                 }
                 defaultValue={productValue.seats}
                 onBlur={handleBlur}
-                skipErrorMessage={true}
                 error={
                   touched.products?.[typedValue]?.seats && errors.products?.[typedValue]?.seats
                     ? errors.products?.[typedValue]?.seats

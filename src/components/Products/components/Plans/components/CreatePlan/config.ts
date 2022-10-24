@@ -1,6 +1,11 @@
 import { Product } from '@msp/shared/interfaces/plans.interface'
 import * as Yup from 'yup'
 
+const REQUIRED_ERROR_MESSAGE = 'required'
+const POSITIVE_ERROR_MESSAGE = 'must be positive'
+const INTEGER_ERROR_MESSAGE = 'must be integer'
+const NUMBER_ERROR_MESSAGE = 'must be number'
+
 export const steps = [
   { title: 'Products', completed: false, active: true },
   { title: 'Summary', completed: false, active: false },
@@ -53,41 +58,61 @@ export const initialValues = {
 }
 
 export const validationSchema = Yup.object().shape({
-  plan: Yup.string().required('Field is required'),
+  plan: Yup.string().required(REQUIRED_ERROR_MESSAGE),
   products: Yup.object().shape({
     umbrella: Yup.object().shape({
       selected: Yup.boolean(),
       seats: Yup.number().when('selected', {
         is: true,
-        then: Yup.number().positive().integer().required(),
+        then: Yup.number()
+          .typeError(NUMBER_ERROR_MESSAGE)
+          .positive(POSITIVE_ERROR_MESSAGE)
+          .integer(INTEGER_ERROR_MESSAGE)
+          .required(),
       }),
     }),
     secureEndpoint: Yup.object().shape({
       selected: Yup.boolean(),
       seats: Yup.number().when('selected', {
         is: true,
-        then: Yup.number().positive().integer().required(),
+        then: Yup.number()
+          .typeError(NUMBER_ERROR_MESSAGE)
+          .positive(POSITIVE_ERROR_MESSAGE)
+          .integer(INTEGER_ERROR_MESSAGE)
+          .required(),
       }),
     }),
     duo: Yup.object().shape({
       selected: Yup.boolean(),
       seats: Yup.number().when('selected', {
         is: true,
-        then: Yup.number().positive().integer().required(),
+        then: Yup.number()
+          .typeError(NUMBER_ERROR_MESSAGE)
+          .positive(POSITIVE_ERROR_MESSAGE)
+          .integer(INTEGER_ERROR_MESSAGE)
+          .required(),
       }),
     }),
     cmd: Yup.object().shape({
       selected: Yup.boolean(),
       seats: Yup.number().when('selected', {
         is: true,
-        then: Yup.number().positive().integer().required(),
+        then: Yup.number()
+          .typeError(NUMBER_ERROR_MESSAGE)
+          .positive(POSITIVE_ERROR_MESSAGE)
+          .integer(INTEGER_ERROR_MESSAGE)
+          .required(),
       }),
     }),
     secureX: Yup.object().shape({
       selected: Yup.boolean(),
       seats: Yup.number().when('selected', {
         is: true,
-        then: Yup.number().positive().integer().required(),
+        then: Yup.number()
+          .typeError(NUMBER_ERROR_MESSAGE)
+          .positive(POSITIVE_ERROR_MESSAGE)
+          .integer(INTEGER_ERROR_MESSAGE)
+          .required(),
       }),
     }),
   }),
