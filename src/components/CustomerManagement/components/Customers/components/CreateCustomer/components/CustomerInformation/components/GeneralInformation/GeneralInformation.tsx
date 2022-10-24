@@ -18,8 +18,8 @@ const GeneralInformation = ({ formikInstance }: Props) => {
   } = values
 
   const isError = (value: keyof typeof values.generalInformation) => {
-    return touched?.generalInformation?.[value as keyof typeof values.generalInformation] &&
-      errors.generalInformation?.[value]
+    return touched?.generalInformation?.[value as keyof typeof values.generalInformation] ||
+      (touched?.[value as keyof typeof values] && errors.generalInformation?.[value])
       ? (errors.generalInformation?.[value] as string)
       : undefined
   }
