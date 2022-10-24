@@ -19,4 +19,4 @@ const CheckboxItem = ({ label, checked = true, onClick, styles, strong = false }
   )
 }
 
-export default React.memo(CheckboxItem)
+export default CheckboxItem

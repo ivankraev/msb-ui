@@ -1,96 +1,82 @@
 import React from 'react'
-import { useFormik } from 'formik'
-import {
-  initialValues,
-  products as data,
-} from '@msp/components/Products/components/Plans/components/CreatePlan/config'
-import options from '@msp/mocks/products-options.json'
-import ProductsContainer from '@msp/components/Products/components/Plans/components/CreatePlan/components/SelectProducts/components/ProductsContainer'
-import HeaderComponent from '@common/UserSettings/components/HeaderComponent'
+import { debounce } from 'lodash'
+import { plansActions } from '@msp/features/plans/plansSlice'
+import { useAppSelector } from '@msp/redux/hooks'
+import { Service } from '@msp/shared/interfaces/plans.interface'
 import Accordion from '@common/Accordion'
+import CheckboxItem from '@common/CheckboxItem'
 import InputSelect from '@common/InputSelect'
-import ProductHeader from '@msp/components/Products/components/Plans/components/CreatePlan/components/SelectProducts/components/ProductHeader'
+import InputContainer from '@common/InputContainer'
 import SimpleInput from '@common/SimpleInput'
 import s from './SelectProducts.scss'
 
-interface Props {
-  headerButton?: React.ReactNode
-  formikInstance: ReturnType<typeof useFormik<typeof initialValues>>
-}
+const SelectProducts = () => {
+  const { changeSelectedServices, changeSelectedOption, selectSeats, selectPlan } = plansActions()
+  const { services, selectedPlanName } = useAppSelector((state) => state.plans)
 
-const SelectProducts = ({ headerButton, formikInstance }: Props) => {
-  const {
-    values: { products, plan },
-    touched,
-    errors,
-    handleBlur,
-    setFieldValue,
-  } = formikInstance
+  const selectServiceHandler = (service: Service) => {
+    changeSelectedServices(service)
+  }
+
+  const selectSeatsHandler = debounce(
+    (accessor: string, event: React.ChangeEvent<HTMLInputElement>) => {
+      selectSeats({ accessor, value: Number(event.target.value) })
+    },
+    500,
+  )
+
+  const selectPlanHandler = debounce((event: React.ChangeEvent<HTMLInputElement>) => {
+    selectPlan(event.target.value)
+  }, 500)
+
+  const Header = (service: Service) => (
+    <CheckboxItem
+      label={service.title}
+      checked={service.selected}
+      strong={true}
+      onClick={selectServiceHandler.bind(null, service)}
+    />
+  )
 
   return (
-    <div className={s.container}>
-      <HeaderComponent label="Select products" styles={s.headerComponent}>
-        {headerButton}
-      </HeaderComponent>
-      {data.map((product) => {
-        const { value, title } = product
-        const typedValue = value as keyof typeof products
-        const productValue = products[typedValue]
-
-        return (
+    <>
+      <h3>Select products</h3>
+      <div className={s.container}>
+        {services.map((service) => (
           <Accordion
-            key={title}
-            isOpen={products[typedValue].selected}
-            styles={s.accordionItem}
-            headerComponent={
-              <ProductHeader product={product} products={products} onClick={setFieldValue} />
-            }
+            key={service.title}
+            isOpen={service.selected}
+            headerComponent={Header.bind(null, service)}
           >
-            <ProductsContainer>
-              <InputSelect
-                label="Package"
-                options={options.packageOptions}
-                onChangeHandler={(value) => {
-                  setFieldValue(`products.${typedValue}.package`, value)
-                }}
-                value={productValue.package}
-              />
-              <InputSelect
-                label="Policy"
-                options={options.policyOptions}
-                onChangeHandler={(value) => {
-                  setFieldValue(`products.${typedValue}.policy`, value)
-                }}
-                value={productValue.policy}
-              />
-              <SimpleInput
-                label="Seats"
-                name={`products.${typedValue}.seats`}
-                onChangeHandler={(e) =>
-                  setFieldValue(`products.${typedValue}.seats`, Number(e.target.value))
-                }
-                defaultValue={productValue.seats}
-                onBlur={handleBlur}
-                error={
-                  touched.products?.[typedValue]?.seats && errors.products?.[typedValue]?.seats
-                    ? errors.products?.[typedValue]?.seats
-                    : undefined
-                }
-              />
-            </ProductsContainer>
+            <div className={s.optionsContainer}>
+              <InputContainer label="Package">
+                <InputSelect
+                  optionsList={service.packageOptions.options}
+                  setSelectedOption={changeSelectedOption}
+                  selectedOption={service.packageOptions.selectedOption}
+                />
+              </InputContainer>
+              <InputContainer label="Policy">
+                <InputSelect
+                  optionsList={service.policies.options}
+                  setSelectedOption={changeSelectedOption}
+                  selectedOption={service.policies.selectedOption}
+                />
+              </InputContainer>
+              <InputContainer label="Seats">
+                <SimpleInput
+                  styles={s.seatsInput}
+                  handler={selectSeatsHandler.bind(null, service.value)}
+                />
+              </InputContainer>
+            </div>
           </Accordion>
-        )
-      })}
-      <SimpleInput
-        name="plan"
-        styles={s.nameInput}
-        label="Plan name"
-        onChangeHandler={(e) => setFieldValue('plan', e.target.value)}
-        defaultValue={plan}
-        onBlur={handleBlur}
-        error={touched.plan && errors.plan ? errors.plan : undefined}
-      />
-    </div>
+        ))}
+      </div>
+      <InputContainer label="Plan name">
+        <SimpleInput handler={selectPlanHandler} defaultValue={selectedPlanName} />
+      </InputContainer>
+    </>
   )
 }
 

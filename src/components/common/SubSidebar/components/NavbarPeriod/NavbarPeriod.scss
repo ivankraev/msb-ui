@@ -2,15 +2,15 @@
 
 .container {
   li {
-    cursor: pointer;
     width: 100%;
+    cursor: pointer;
 
     span {
-      align-items: center;
       display: flex;
+      align-items: center;
+      padding: 8px;
       gap: 10px;
       height: 20px;
-      padding: 8px;
     }
   }
 }

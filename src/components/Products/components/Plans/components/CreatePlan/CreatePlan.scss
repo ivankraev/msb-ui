@@ -5,10 +5,27 @@
   padding-bottom: 2rem;
 }
 
-.formContainer {
-  form {
-    hr {
-      margin: 1.5rem 0 0.875rem;
-    }
+.innerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 37.5rem;
+
+  h3 {
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
   }
+
+  hr {
+    background-color: $light-border-color;
+    height: 1px;
+    width: 100%;
+    border: none;
+  }
+}
+
+.buttonsContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }

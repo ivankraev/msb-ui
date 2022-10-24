@@ -1,20 +1,18 @@
 import React from 'react'
-import cx from 'classnames'
 import s from './HeaderComponent.scss'
 
 interface Props {
   label: string
-  children?: React.ReactNode
-  styles?: React.CSSProperties
+  children: React.ReactNode
 }
 
-const HeaderComponent = ({ label, children, styles }: Props) => {
+const HeaderComponent = ({ label, children }: Props) => {
   return (
-    <div className={cx(s.container, styles)}>
+    <div className={s.container}>
       <h3>{label}</h3>
       {children}
     </div>
   )
 }
 
-export default React.memo(HeaderComponent)
+export default HeaderComponent

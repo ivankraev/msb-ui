@@ -1,0 +1,53 @@
+@import '../../../../../theme/variables.scss';
+
+.cardWrapper {
+  flex: 1 1 500px;
+  max-width: 600px;
+  min-width: 500px;
+}
+
+.container {
+  display: grid;
+  gap: 1.5rem;
+  font-size: 0.875rem;
+
+  .headerContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+
+    .cardLogoAndNumber {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.25rem;
+
+      .paymentMethodLogo {
+        width: 40px;
+        height: 32px;
+      }
+
+      .cardNumber {
+        .extraSpace {
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+
+  .cardDetailsList {
+    display: grid;
+    gap: 1.5rem;
+
+    li {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-columns: 3fr 5fr;
+      gap: 1rem;
+
+      .detailLabel {
+        color: $grey-color;
+      }
+    }
+  }
+}

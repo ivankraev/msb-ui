@@ -11,10 +11,10 @@
 }
 
 .deselectButton {
-  color: $primary-color;
-  cursor: pointer;
   font-size: 0.875rem;
   position: absolute;
-  right: 0;
   top: 0;
+  right: 0;
+  color: $primary-color;
+  cursor: pointer;
 }

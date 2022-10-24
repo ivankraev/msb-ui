@@ -10,7 +10,7 @@ import Header from '@msp/components/Header'
 import Sidebar from '@msp/components/Sidebar'
 
 const ProtectedRoute: React.FC = () => {
-  const { userInfo } = useAppSelector((state) => state.user)
+  const { userInfo, userToken } = useAppSelector((state) => state.user)
   const scopes = 'openid profile email'
   const state = 'test'
   const guid = uuidv4()
@@ -20,8 +20,11 @@ const ProtectedRoute: React.FC = () => {
   const handleLogin = async () => {
     window.location.href = oktaLink
   }
-  if (!userInfo) {
+  if (!userToken) {
     handleLogin()
+  }
+  if (!userInfo) {
+    return <>Loading</>
   }
   // returns child route elements
   return (

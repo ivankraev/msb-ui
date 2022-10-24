@@ -1,25 +1,17 @@
-@import '../../../../../../../../theme/variables.scss';
-
 .container {
   display: flex;
   flex-direction: column;
-  font-size: 0.875rem;
   gap: 1rem;
 }
 
-.headerComponent {
-  padding-bottom: 1rem;
-
-  h3 {
-    margin-bottom: 0 !important;
+.seatsInput {
+  input {
+    width: 6.25rem;
   }
 }
 
-.nameInput {
-  margin-top: 0.5rem;
-  width: 50%;
-}
-
-.accordionItem {
-  padding-bottom: 1.25rem;
+.optionsContainer {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
