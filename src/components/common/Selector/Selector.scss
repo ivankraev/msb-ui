@@ -2,17 +2,17 @@
 $icon-img: url('./icon.png');
 
 .container {
-  appearance: none;
-  appearance: none;
-  background-image: $icon-img;
-  background-position-x: 95%;
-  background-position-y: 0.5rem;
-  background-repeat: no-repeat;
+  width: 100%;
+  box-sizing: border-box;
   border: 1px solid $grey-color;
   border-radius: 3px;
   box-shadow: 0 1px 0 $light-border-color;
-  box-sizing: border-box;
-  font-size: 0.875rem;
   outline: none;
-  width: 100%;
+  font-size: 0.875rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: $icon-img;
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 0.5rem;
 }

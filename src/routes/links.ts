@@ -1,5 +1,6 @@
 const CUSTOMER_MANAGEMENT = '/customer-management'
 const PRODUCTS = '/products'
+const BILLING = '/billing'
 
 export const links = {
   index: '/',
@@ -21,6 +22,17 @@ export const links = {
     index: PRODUCTS,
     plans: {
       index: `${PRODUCTS}/plans`,
+      new: 'new',
+    },
+  },
+
+  billing: {
+    index: BILLING,
+    invoices: {
+      index: `${BILLING}/invoices`,
+    },
+    paymentMethods: {
+      index: `${BILLING}/payment-methods`,
       new: 'new',
     },
   },

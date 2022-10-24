@@ -2,15 +2,15 @@
 
 .container {
   .activeOrganizationContainer {
-    align-items: center;
     display: flex;
+    align-items: center;
     gap: 20px;
     margin-bottom: 20px;
   }
 
   .organizationsListDescription {
-    color: $grey-color;
     margin: 20px 0;
+    color: $grey-color;
   }
 
   .linksList {
@@ -20,8 +20,8 @@
   }
 
   .ctaLabel {
-    margin: 0.5rem 0 1.5rem;
     text-align: center;
+    margin: 0.5rem 0 1.5rem;
   }
 
   .fullWidthCta {

@@ -3,15 +3,15 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   justify-content: space-between;
+  gap: 1rem;
   width: 100%;
 
   hr {
     background-color: $light-border-color;
-    border: none;
     height: 1px;
-    margin: 0;
     width: 100%;
+    border: none;
+    margin: 0;
   }
 }

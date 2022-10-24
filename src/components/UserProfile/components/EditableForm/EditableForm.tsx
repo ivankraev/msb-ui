@@ -31,7 +31,7 @@ const EditableForm: React.FC<Props> = ({ formLabel, ctaText, initialValues, fiel
       {(props) => (
         <form onSubmit={props.handleSubmit}>
           <div className={s.container}>
-            <HeaderComponent label={formLabel} styles={s.header}>
+            <HeaderComponent label={formLabel}>
               <Button
                 onClick={() => setAllowEdit(!allowEdit)}
                 type={!allowEdit ? 'submit' : 'button'}

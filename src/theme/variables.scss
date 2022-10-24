@@ -4,7 +4,6 @@
 $primary-color: #049fd9;
 $primary-color-dark: #03688e;
 $primary-light-color: #ebfaff;
-$primary-color-disabled: #a3e2ff;
 $secondary-color: #39393b;
 $border-color: #d1d1d1;
 $dark-border-color: #626469;
@@ -21,21 +20,21 @@ $error-color: #cf2030;
 $black-color: #000;
 
 :export {
-  backgroundGreyColor: $background-grey-color;
-  borderColor: $border-color;
-  darkBorderColor: $dark-border-color;
-  defaultBackgroundColor: $default-background-color;
-  defaultColor: $default-color;
-  errorColor: $error-color;
-  greyColor: $grey-color;
-  invertColor: $invert-color;
-  lightBorderColor: $light-border-color;
-  lightDarkColor: $light-dark-color;
-  lightGreyColor: $light-grey-color;
   primaryColor: $primary-color;
   primaryColorDark: $primary-color-dark;
   primaryLightColor: $primary-light-color;
   secondaryColor: $secondary-color;
+  borderColor: $border-color;
+  darkBorderColor: $dark-border-color;
+  lightBorderColor: $light-border-color;
+  defaultColor: $default-color;
+  invertColor: $invert-color;
+  defaultBackgroundColor: $default-background-color;
+  lightDarkColor: $light-dark-color;
+  greyColor: $grey-color;
+  lightGreyColor: $light-grey-color;
+  backgroundGreyColor: $background-grey-color;
+  errorColor: $error-color;
 }
 
 /*

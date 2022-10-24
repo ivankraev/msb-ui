@@ -9,7 +9,10 @@ export interface StepsSliceState {
 
 export const initialState: StepsSliceState = {
   currentStep: 0,
-  steps: [],
+  steps: [
+    { title: 'Products', completed: false, active: true },
+    { title: 'Summary', completed: false, active: false },
+  ],
 }
 
 const StepsSLice = createSlice({

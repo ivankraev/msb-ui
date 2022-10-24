@@ -3,48 +3,22 @@ import cx from 'classnames'
 import s from './SimpleInput.scss'
 
 interface Props {
-  label: string
-  type?: string
-  defaultValue?: string | number
-  onChangeHandler: ChangeEventHandler<HTMLInputElement>
+  label?: string
   styles?: React.CSSProperties
-  name?: string
-  error?: string
-  skipErrorMessage?: boolean
-  onBlur?: {
-    (e: React.FocusEvent): void
-    <T>(fieldOrEvent: T): T extends string
-      ? (e: React.FocusEvent<HTMLInputElement, Element>) => void
-      : void
-  }
+  handler: ChangeEventHandler<HTMLInputElement>
+  defaultValue?: string
 }
 
-const SimpleInput = ({
-  label,
-  type = 'text',
-  defaultValue,
-  onChangeHandler,
-  styles,
-  name,
-  onBlur,
-  error,
-  skipErrorMessage,
-}: Props) => {
+const SimpleInput = ({ label, styles, handler, defaultValue }: Props) => {
   return (
     <span className={cx(s.container, styles)}>
-      <strong>{label}</strong>
       <input
-        type={type}
-        onChange={onChangeHandler}
+        type="text"
+        placeholder={label}
+        onChange={handler}
         defaultValue={defaultValue}
-        onBlur={onBlur}
         data-testid="simple-input"
-        name={name}
-        className={error && s.error}
       />
-      <span className={s.error}>
-        <span>{!skipErrorMessage && error}</span>
-      </span>
     </span>
   )
 }

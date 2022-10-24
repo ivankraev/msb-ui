@@ -1,13 +1,20 @@
-export interface SelectOption {
-  value: string
-  title: string
+import { SelectOption } from './select-option.interface'
+
+export interface PlansOption {
+  selectedOption: SelectOption
+  options: SelectOption[]
 }
 
-export interface Product {
+export interface Service {
   title: string
-  value: string
   selected: boolean
-  seats: number
-  package: SelectOption
-  policy: SelectOption
+  seats: Seat
+  value: string
+  packageOptions: PlansOption
+  policies: PlansOption
+}
+
+export interface Seat {
+  value: number
+  accessor: string
 }
