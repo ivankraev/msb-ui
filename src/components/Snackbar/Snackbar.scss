@@ -1,0 +1,39 @@
+@import '../../theme/variables.scss';
+
+.container {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 75px;
+  right: 25px;
+  padding: 15px;
+  border-radius: 5px;
+  z-index: 5;
+  background-color: $green-color;
+  min-width: 200px;
+  font-size: 0.9rem;
+  color: #fff;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+
+  .innerContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .close {
+    font-size: 1.5rem;
+    padding-bottom: 5px;
+    margin-left: 1rem;
+
+    &:hover {
+      color: $primary-color-dark;
+      cursor: pointer;
+    }
+  }
+}

@@ -5,10 +5,7 @@ import {
   initialValues as generalInformationInitialValues,
   validationSchema as generalInformationValidationSchema,
 } from '@msp/components/CustomerManagement/components/Customers/components/CreateCustomer/config'
-import {
-  initialValues as productsInitialValues,
-  validationSchema as productsValidationSchema,
-} from '@msp/components/Products/components/Plans/components/CreatePlan/config'
+import { useInitialProductsValues } from '@msp/components/Products/components/Plans/components/CreatePlan/config'
 import { steps } from '@msp/components/CustomerManagement/components/Customers/components/CreateCustomer/config'
 import s from './CreateCustomer.scss'
 import FormContainer from '@msp/components/Products/components/Plans/components/CreatePlan/components/SelectProducts/components/FormContainer'
@@ -25,6 +22,9 @@ const CreateCustomer = () => {
   const { currentStep } = useAppSelector((state) => state.steps)
   const { incrementStep, decrementStep, resetState: resetStepsState } = stepsActions()
 
+  const { validationSchema: productsValidationSchema, initialValues: productsInitialValues } =
+    useInitialProductsValues()
+
   const goToNextStep = () => {
     incrementStep()
   }
@@ -32,6 +32,7 @@ const CreateCustomer = () => {
   const productsIntance = useFormik({
     initialValues: productsInitialValues,
     validationSchema: productsValidationSchema,
+    enableReinitialize: true,
     onSubmit: goToNextStep,
   })
 
@@ -43,21 +44,18 @@ const CreateCustomer = () => {
 
   const {
     handleSubmit: submitProducts,
-    values: productsValues,
     validateForm: validateProductsForm,
     isValid: isProductsDataValid,
   } = productsIntance
 
-  const {
-    handleSubmit: submitGeneralInformation,
-    values: generalInformationValues,
-    validateForm: validateGeneralInformationForm,
-  } = generalInformationInstance
+  const { handleSubmit: submitGeneralInformation, validateForm: validateGeneralInformationForm } =
+    generalInformationInstance
 
   const renderSteps: { [key: number]: JSX.Element | null } = {
     0: <CustomerInformation formikInstance={generalInformationInstance} />,
     1: (
       <SelectProducts
+        initialValues={productsInitialValues}
         formikInstance={productsIntance}
         headerButton={
           <Button type="button" textOnly={true}>

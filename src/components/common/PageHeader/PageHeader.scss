@@ -1,13 +1,13 @@
 .container {
   align-items: flex-end;
   display: flex;
-  height: 5.75rem;
   justify-content: space-between;
   position: relative;
 
   .headersHolder {
     display: flex;
     flex-direction: column;
+    gap: 0.25rem;
     height: 100%;
 
     h1 {

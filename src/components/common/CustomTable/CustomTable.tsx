@@ -1,16 +1,26 @@
 import React from 'react'
-import { Column, useTable } from 'react-table'
 import cx from 'classnames'
+import { Column, useTable } from 'react-table'
+import { PaginationProps } from './types'
 import Pagination from '@common/CustomTable/components/Pagination'
 import s from './CustomTable.scss'
+import LoadingSkeleton from './components/LoadingSkeleton'
 
 interface Props<T extends Record<string, unknown>> {
   data: T[]
   columns: readonly Column<T>[]
   styles?: React.CSSProperties
+  paginationProps: PaginationProps
+  isLoading?: boolean
 }
 
-const CustomTable = <T extends Record<string, unknown>>({ columns, data, styles }: Props<T>) => {
+const CustomTable = <T extends Record<string, unknown>>({
+  columns,
+  data = [],
+  styles,
+  paginationProps,
+  isLoading = false,
+}: Props<T>) => {
   const tableInstance = useTable({ columns, data })
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance
@@ -28,19 +38,22 @@ const CustomTable = <T extends Record<string, unknown>>({ columns, data, styles 
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row) => {
-            prepareRow(row)
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                })}
-              </tr>
-            )
-          })}
+          <>
+            {isLoading && <LoadingSkeleton />}
+            {rows.map((row) => {
+              prepareRow(row)
+              return (
+                <tr {...row.getRowProps()}>
+                  {row.cells.map((cell) => {
+                    return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                  })}
+                </tr>
+              )
+            })}
+          </>
         </tbody>
       </table>
-      <Pagination />
+      <Pagination {...paginationProps} />
     </div>
   )
 }

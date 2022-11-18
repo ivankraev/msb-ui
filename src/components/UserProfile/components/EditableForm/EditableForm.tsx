@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import * as Yup from 'yup'
+import { AnyObject } from 'yup/lib/types'
 import { Formik, FormikValues } from 'formik'
 import Button from '@common/Button'
 import HeaderComponent from '@common/UserSettings/components/HeaderComponent'
@@ -17,27 +19,42 @@ interface Props {
   ctaText: string
   initialValues: FormikValues
   fields: FieldInterface[]
+  validationSchema?: Yup.ObjectSchema<AnyObject>
+  onSubmit: (values: FormikValues) => Promise<unknown>
 }
 
-const EditableForm: React.FC<Props> = ({ formLabel, ctaText, initialValues, fields }) => {
+const EditableForm: React.FC<Props> = ({
+  formLabel,
+  ctaText,
+  initialValues,
+  fields,
+  validationSchema,
+  onSubmit,
+}) => {
   const [allowEdit, setAllowEdit] = useState(false)
+  const handleSubmit = (values: FormikValues) => {
+    onSubmit(values).then(() => setAllowEdit(false))
+  }
   return (
     <Formik
+      enableReinitialize={true}
       initialValues={initialValues}
-      onSubmit={(values) => {
-        console.log(values, 'values')
-      }}
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
     >
       {(props) => (
         <form onSubmit={props.handleSubmit}>
           <div className={s.container}>
             <HeaderComponent label={formLabel} styles={s.header}>
-              <Button
-                onClick={() => setAllowEdit(!allowEdit)}
-                type={!allowEdit ? 'submit' : 'button'}
-              >
-                {allowEdit ? 'Save' : ctaText}
-              </Button>
+              {allowEdit ? (
+                <Button type="button" onClick={props.handleSubmit}>
+                  Save
+                </Button>
+              ) : (
+                <Button onClick={() => setAllowEdit(true)} type={'button'}>
+                  {ctaText}
+                </Button>
+              )}
             </HeaderComponent>
             <div className={s.fieldsContainer}>
               {fields.map(({ label, ...fieldAttributes }) => (

@@ -1,6 +1,18 @@
 [
-  { "label": "(UTC+00:00) UTC", "value": 0 },
-  { "label": "(UTC+01:00) UTC", "value": 1 },
-  { "label": "(UTC+02:00) UTC", "value": 2 },
-  { "label": "(UTC+03:00) UTC", "value": 3 }
+  {
+    "label": "(UTC+00:00) UTC",
+    "value": "00"
+  },
+  {
+    "label": "(UTC+01:00) UTC",
+    "value": "01"
+  },
+  {
+    "label": "(UTC+02:00) UTC",
+    "value": "02"
+  },
+  {
+    "label": "(UTC+03:00) UTC",
+    "value": "03"
+  }
 ]

@@ -19,6 +19,8 @@ $background-grey-color: #f2f2f2;
 $disabled-grey-color: #c6c7ca;
 $error-color: #cf2030;
 $black-color: #000;
+$green-color: #6cc04a;
+$orange-color: #f5b755;
 
 :export {
   backgroundGreyColor: $background-grey-color;
@@ -36,6 +38,9 @@ $black-color: #000;
   primaryColorDark: $primary-color-dark;
   primaryLightColor: $primary-light-color;
   secondaryColor: $secondary-color;
+  errorColor: $error-color;
+  greenColor: $green-color;
+  orangeColor: $orange-color;
 }
 
 /*

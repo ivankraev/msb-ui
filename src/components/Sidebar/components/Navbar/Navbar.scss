@@ -2,35 +2,72 @@
 
 .container {
   .menuList {
-    .menuItem {
-      align-items: center;
-      border-bottom: 1px solid $dark-border-color;
+    li {
+      position: relative;
+    }
+
+    .menuItemContainer {
       cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 15px 10px 20px;
+      border-bottom: 1px solid $dark-border-color;
+
+      .menuItem {
+        font-size: 0.875rem;
+        padding: 10px 0 10px 20px;
+      }
 
       &:first-child {
         border-top: 1px solid $dark-border-color;
       }
 
-      &:hover {
-        background-color: $light-dark-color;
+      .expandableItemContainer {
+        padding-right: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
-      // TODO: uncomment after routing implemented
-      // &.selected {
-      //   border-left: 5px solid $primary-color;
-      // }
 
-      .menuItemDetails {
-        .menuItemLabel {
-          padding-left: 1rem;
-        }
+      .menuItemLabel {
+        padding-left: 1rem;
       }
 
       svg {
         vertical-align: middle;
       }
+
+      a {
+        display: block;
+        color: inherit;
+      }
     }
+
+    .hidden {
+      display: none;
+    }
+
+    .shown {
+      display: block;
+    }
+
+    .categoryIdent {
+      .menuItemContainer {
+        .menuItem {
+          font-size: 0.75rem;
+        }
+      }
+    }
+  }
+}
+
+.selected {
+  background-color: $light-dark-color;
+
+  &::before {
+    width: 5px;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: $primary-color;
+    height: 100%;
   }
 }

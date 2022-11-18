@@ -7,6 +7,7 @@ import './App.scss'
 import routes, { RouteProps } from '@msp/routes/main'
 import ErrorBoundary from '../ErrorBoundary'
 import ProtectedRoute from '@msp/routes/ProtectedRoute'
+import CallBack from '../CallBack'
 
 const renderRoutes = (routes: RouteProps[]): React.ReactElement[] => {
   return routes.map(
@@ -27,6 +28,7 @@ const App: React.FC = () => {
             {renderRoutes(routes)}
             <Route path="*" element={<Navigate to="/" />} />
           </Route>
+          <Route path="/callback" element={<CallBack />} />
         </Routes>
       </ErrorBoundary>
     </Router>

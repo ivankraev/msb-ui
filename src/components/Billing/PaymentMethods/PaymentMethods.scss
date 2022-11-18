@@ -2,7 +2,8 @@
 
 .container {
   flex: 1;
-  margin: 3rem 0;
+  gap: 3rem;
+  padding-bottom: 3rem;
 
   .cardsContainer {
     display: flex;

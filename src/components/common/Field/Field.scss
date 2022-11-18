@@ -25,7 +25,8 @@
   }
 
   select:disabled {
-    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
     text-indent: 1px;
     text-overflow: '';
@@ -33,5 +34,10 @@
     option {
       color: inherit; // Note: will not work on OS X
     }
+  }
+
+  .error {
+    color: $error-color;
+    font-size: 0.75rem;
   }
 }

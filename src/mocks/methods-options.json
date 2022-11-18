@@ -1,0 +1,16 @@
+{
+  "methodOptions": [
+    {
+      "title": "Card",
+      "value": "card"
+    },
+    {
+      "title": "Apple Pay",
+      "value": "applePay"
+    },
+    {
+      "title": "Direct Debit (SEPA)",
+      "value": "directDebitSepa"
+    }
+  ]
+}

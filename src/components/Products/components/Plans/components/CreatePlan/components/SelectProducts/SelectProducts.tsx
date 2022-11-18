@@ -1,9 +1,6 @@
-import React from 'react'
-import { useFormik } from 'formik'
-import {
-  initialValues,
-  products as data,
-} from '@msp/components/Products/components/Plans/components/CreatePlan/config'
+import React, { useEffect } from 'react'
+import { Product } from '@msp/shared/interfaces/plans.interface'
+import { FormikValues, useFormik } from 'formik'
 import options from '@msp/mocks/products-options.json'
 import ProductsContainer from '@msp/components/Products/components/Plans/components/CreatePlan/components/SelectProducts/components/ProductsContainer'
 import HeaderComponent from '@common/UserSettings/components/HeaderComponent'
@@ -11,85 +8,102 @@ import Accordion from '@common/Accordion'
 import InputSelect from '@common/InputSelect'
 import ProductHeader from '@msp/components/Products/components/Plans/components/CreatePlan/components/SelectProducts/components/ProductHeader'
 import SimpleInput from '@common/SimpleInput'
+import LoadingSkeleton from './components/LoadingSkeleton'
 import s from './SelectProducts.scss'
 
 interface Props {
   headerButton?: React.ReactNode
-  formikInstance: ReturnType<typeof useFormik<typeof initialValues>>
+  formikInstance: FormikValues
+  initialValues: { plan: string; products: Product[]; id?: string }
 }
 
-const SelectProducts = ({ headerButton, formikInstance }: Props) => {
+const SelectProducts = ({ headerButton, formikInstance, initialValues }: Props) => {
   const {
     values: { products, plan },
     touched,
     errors,
     handleBlur,
     setFieldValue,
-  } = formikInstance
+    setTouched,
+  } = formikInstance as ReturnType<typeof useFormik<typeof initialValues>>
+
+  useEffect(() => {
+    setTouched({})
+  }, [])
 
   return (
     <div className={s.container}>
       <HeaderComponent label="Select products" styles={s.headerComponent}>
         {headerButton}
       </HeaderComponent>
-      {data.map((product) => {
-        const { value, title } = product
-        const typedValue = value as keyof typeof products
-        const productValue = products[typedValue]
+      {initialValues.products === undefined || initialValues.plan === undefined ? (
+        <LoadingSkeleton />
+      ) : (
+        <>
+          {products?.map((product, i) => {
+            const { title, policy, package: pckg, seats } = product
 
-        return (
-          <Accordion
-            key={title}
-            isOpen={products[typedValue].selected}
-            styles={s.accordionItem}
-            headerComponent={
-              <ProductHeader product={product} products={products} onClick={setFieldValue} />
+            const checkSeatsForError = () => {
+              if (!touched.products?.[i] || !errors.products?.[i]) return
+              const isError = touched.products[i]?.seats && errors.products[i]
+              if (isError) {
+                // @ts-ignore
+                return errors.products[i].seats as string
+              }
+              return undefined
             }
-          >
-            <ProductsContainer>
-              <InputSelect
-                label="Package"
-                options={options.packageOptions}
-                onChangeHandler={(value) => {
-                  setFieldValue(`products.${typedValue}.package`, value)
-                }}
-                value={productValue.package}
-              />
-              <InputSelect
-                label="Policy"
-                options={options.policyOptions}
-                onChangeHandler={(value) => {
-                  setFieldValue(`products.${typedValue}.policy`, value)
-                }}
-                value={productValue.policy}
-              />
-              <SimpleInput
-                label="Seats"
-                name={`products.${typedValue}.seats`}
-                onChangeHandler={(e) =>
-                  setFieldValue(`products.${typedValue}.seats`, Number(e.target.value))
+
+            return (
+              <Accordion
+                key={title}
+                isOpen={products[i].selected}
+                styles={s.accordionItem}
+                headerComponent={
+                  <ProductHeader product={product} index={i} onClick={setFieldValue} />
                 }
-                defaultValue={productValue.seats}
-                onBlur={handleBlur}
-                error={
-                  touched.products?.[typedValue]?.seats && errors.products?.[typedValue]?.seats
-                    ? errors.products?.[typedValue]?.seats
-                    : undefined
-                }
-              />
-            </ProductsContainer>
-          </Accordion>
-        )
-      })}
-      <SimpleInput
-        name="plan"
-        styles={s.nameInput}
-        label="Plan name"
-        onChangeHandler={(e) => setFieldValue('plan', e.target.value)}
-        defaultValue={plan}
-        onBlur={handleBlur}
-        error={touched.plan && errors.plan ? errors.plan : undefined}
-      />
+              >
+                <ProductsContainer>
+                  <InputSelect
+                    label="Package"
+                    options={options.packageOptions}
+                    onChangeHandler={(value) => {
+                      setFieldValue(`products[${i}].package`, value)
+                    }}
+                    value={pckg}
+                  />
+                  <InputSelect
+                    label="Policy"
+                    options={options.policyOptions}
+                    onChangeHandler={(value) => {
+                      setFieldValue(`products[${i}].policy`, value)
+                    }}
+                    value={policy}
+                  />
+                  <SimpleInput
+                    label="Seats"
+                    name={`products.${i}.seats`}
+                    onChangeHandler={(e) =>
+                      setFieldValue(`products[${i}].seats`, Number(e.target.value))
+                    }
+                    defaultValue={seats}
+                    onBlur={handleBlur}
+                    error={checkSeatsForError()}
+                  />
+                </ProductsContainer>
+              </Accordion>
+            )
+          })}
+          <SimpleInput
+            name="plan"
+            styles={s.nameInput}
+            label="Plan name"
+            onChangeHandler={(e) => setFieldValue('plan', e.target.value)}
+            defaultValue={plan}
+            onBlur={handleBlur}
+            error={touched.plan && errors.plan ? errors.plan : undefined}
+          />
+        </>
+      )}
     </div>
   )
 }

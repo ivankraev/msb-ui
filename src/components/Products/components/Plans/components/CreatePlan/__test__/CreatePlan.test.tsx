@@ -11,6 +11,26 @@ jest.mock('react-router-dom', () => ({
   useNavigate: () => mockedNavigator,
 }))
 
+jest.mock('../config', () => ({
+  ...jest.requireActual('../config'),
+  useInitialProductsValues: jest.fn(() => ({
+    initialValues: {
+      plan: '',
+      products: [
+        {
+          id: '99c7b00c-9a84-4616-a9c0-3cf062eca5d0',
+          package: { value: 'dnsEssentials', title: 'DNS Essentials' },
+          policy: { value: 'defaultPolicy', title: 'Default Policy' },
+          seats: 0,
+          selected: false,
+          title: 'Umbrella',
+          value: 'umbrella',
+        },
+      ],
+    },
+  })),
+}))
+
 describe('New Plan page', () => {
   it('Should fill the form and display correct data on the review page', async () => {
     const { getByText, getByRole } = renderWithProviders(<CreatePlan />)

@@ -9,10 +9,11 @@ import { Provider } from 'react-redux'
 import AppStore, { RootState } from '../redux/store'
 // As a basic setup, import your same slice reducers
 import userReducer from '@msp/features/user/userSlice'
-import settingsReducer from '@msp/features/settings/settingsSlice'
 import stepsSlice from '@msp/features/steps/stepsSlice'
 import trainingsSlice from '@msp/features/trainings/trainingsSlice'
+import uiComponents from '@msp/features/uiComponents/uiComponentsSlice'
 import paymentMethodsSettingsSlice from '@msp/features/paymentMethods/paymentMethodsSettingsSlice'
+import plansSlice from '@msp/features/plans/plansSlice'
 
 // This type interface extends the default options for render from RTL, as well
 // as allows the user to specify other things such as initialState, store.
@@ -29,10 +30,11 @@ export function renderWithProviders(
     store = configureStore({
       reducer: {
         user: userReducer,
-        settings: settingsReducer,
         steps: stepsSlice,
         trainings: trainingsSlice,
-        paymentMethodsSettings:paymentMethodsSettingsSlice
+        uiComponents: uiComponents,
+        paymentMethodsSettings: paymentMethodsSettingsSlice,
+        plans: plansSlice,
       },
       preloadedState,
     }),

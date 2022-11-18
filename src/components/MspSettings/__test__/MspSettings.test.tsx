@@ -3,14 +3,19 @@ import { fireEvent } from '@testing-library/react'
 import { renderWithProviders } from '@msp/utils/test-utils'
 import MspSettings from '@msp/components/MspSettings/MspSettings'
 
+const mockedUserInfo = {
+  name: 'Rebecca Rogers',
+  email: 'rebecca@mail.com',
+  organization: 'Dev Inc.',
+  availableOrganizations: ['Deployment Ltd.'],
+  sub: 'random sub',
+  zoneinfo: 'LA',
+  logo: 'randomLogo.png',
+}
+
 const preloadedState = {
-  settings: {
-    mspName: 'Test Name',
-    logo: 'test logo',
-    certificate: {
-      file: null,
-      error: null,
-    },
+  user: {
+    userInfo: mockedUserInfo,
   },
 }
 
@@ -18,9 +23,6 @@ describe('MspSettings component', () => {
   it('Should render the correct content provided by the store', () => {
     const { container } = renderWithProviders(<MspSettings />, { preloadedState })
 
-    expect(container.querySelectorAll('input')[0].value).toBe(preloadedState.settings.mspName)
-    expect(container.querySelector('h1')?.textContent).toBe('Msp Settings')
-    expect(container.querySelector('img')?.src).toBe('http://localhost/test%20logo')
     expect(container.querySelector('strong')).not.toBeNull()
   })
 

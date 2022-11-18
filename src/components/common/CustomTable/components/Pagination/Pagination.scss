@@ -2,13 +2,42 @@
 
 .container {
   display: flex;
-  height: 60px;
+  height: 3.75rem;
   justify-content: flex-end;
-  padding-right: 20px;
+  padding-right: 1.5rem;
+  user-select: none;
 
   div {
     align-items: center;
     display: flex;
-    gap: 20px;
+    gap: 2rem;
+
+    .resultsPerPage {
+      gap: 0.5rem;
+      position: relative;
+
+      ul {
+        border-radius: 3px;
+        position: absolute;
+        bottom: 100%;
+        right: 0;
+        border: 1px solid $grey-color;
+        background-color: $default-background-color;
+
+        li {
+          padding: 0.5rem 0.875rem;
+          cursor: default;
+          text-align: center;
+
+          &:hover {
+            background-color: $primary-light-color;
+          }
+        }
+      }
+    }
+
+    .arrowsHolder {
+      gap: 2rem;
+    }
   }
 }

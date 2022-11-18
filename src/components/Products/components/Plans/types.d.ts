@@ -1,5 +1,6 @@
 export type Plan = {
-  id: number
+  id: string
+  updatedAt: Date
   plan: string
   umbrella: boolean
   'secure endpoints': boolean
@@ -7,4 +8,5 @@ export type Plan = {
   duo: boolean
   secureX: boolean
   subscribers: number
+  actionsOpen: boolean
 }

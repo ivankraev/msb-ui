@@ -1,6 +1,6 @@
 {
   "name": "msp-hub-front",
-  "version": "0.2.1",
+  "version": "0.2.5",
   "private": true,
   "homepage": "/",
   "dependencies": {
@@ -28,6 +28,7 @@
     "lint": "eslint . --fix --ext=ts,tsx",
     "lint:styles": "stylelint **.scss --fix",
     "format": "prettier --write ./src",
+    "pre-commit": "yarn lint && yarn lint:styles && yarn format",
     "commit": "cz",
     "release:patch": "standard-version --release-as patch",
     "release:minor": "standard-version --release-as minor",
@@ -108,12 +109,12 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js}": [
-      "yarn run lint"
+      "yarn lint"
     ],
+    "*.scss": "yarn lint:styles",
     "*.{ts,tsx,js,json}": [
-      "yarn run format"
-    ],
-    "*.scss": "yarn run lint:styles"
+      "yarn format"
+    ]
   },
   "config": {
     "commitizen": {

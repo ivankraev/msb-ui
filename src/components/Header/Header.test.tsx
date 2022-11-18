@@ -1,9 +1,17 @@
 import React from 'react'
-import { cleanup, screen, fireEvent } from '@testing-library/react'
+import { screen, fireEvent } from '@testing-library/react'
 import Header from './Header'
 import { renderWithProviders } from '@msp/utils/test-utils'
 
-afterEach(cleanup)
+jest.mock('@msp/features/api/hubApiSlice', () => ({
+  _esModule: true,
+  useGetHubQuery: jest.fn(() => ({
+    data: {
+      id: 'fakeId',
+      logoUrl: 'random-logo.png',
+    },
+  })),
+}))
 
 const mockedUserInfo = {
   name: 'Rebecca Rogers',
@@ -12,13 +20,12 @@ const mockedUserInfo = {
   availableOrganizations: ['Deployment Ltd.'],
   sub: 'random sub',
   zoneinfo: 'LA',
-  logo: 'randomLogo.png',
 }
 
 const preloadedState = {
   user: {
     userInfo: mockedUserInfo,
-    userToken: null,
+    token: null,
   },
 }
 

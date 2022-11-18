@@ -1,16 +1,14 @@
+import { Customer } from './customer.interface'
+
 export interface UserInfo {
+  id?: string
   email: string
-  email_verified?: boolean
-  phoneNumber?: string
-  family_name?: string
-  given_name?: string
-  locale?: string
   name: string
-  preffered_username?: string
+  phone?: string
+  timeZone: string
+  language: string
   sub: string
-  updated_at?: number
-  zoneinfo: string
-  logo?: string
-  organization?: string
-  availableOrganizations?: string[]
+  customer: Customer
+  updatedAt?: string
+  createdAt?: string
 }

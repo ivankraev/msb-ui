@@ -1,0 +1,16 @@
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 10% auto;
+  justify-content: center;
+
+  h3 {
+    font-size: 1.5rem;
+    padding-top: 1.2rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+  }
+}

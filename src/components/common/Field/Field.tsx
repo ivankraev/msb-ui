@@ -6,7 +6,7 @@ import { FIELD_TYPES } from './config'
 
 import s from './Field.scss'
 import Button from '@common/Button'
-import TaxCertificate from '@common/Field/components/UploadedFile'
+import UploadedFile from '@common/Field/components/UploadedFile'
 
 interface Option {
   label: string
@@ -75,14 +75,15 @@ const CustomField: React.FC<CustomFieldProps> = ({
           ref={hiddenFileInput}
           name={name}
           className={className}
+          required={required}
           onChange={(event) => {
             form.setFieldValue(name, event.currentTarget.files?.[0])
           }}
         />
         {field.value ? (
-          <TaxCertificate file={field.value} />
+          <UploadedFile file={field.value} />
         ) : (
-          <Button disabled={disabled} onClick={handleClick}>
+          <Button type="button" disabled={disabled} onClick={handleClick}>
             Upload new file
           </Button>
         )}
@@ -105,7 +106,9 @@ const CustomField: React.FC<CustomFieldProps> = ({
           <label htmlFor={name}>{label}</label>
           {inputRenderer?.(field, form)}
           {form.errors[name] && form.touched[name] ? (
-            <div data-testid={`errors-${name}`}>{form.errors[name]?.toLocaleString()}</div>
+            <div data-testid={`errors-${name}`} className={s.error}>
+              {form.errors[name]?.toLocaleString()}
+            </div>
           ) : null}
         </div>
       )}

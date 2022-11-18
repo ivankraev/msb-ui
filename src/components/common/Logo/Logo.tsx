@@ -5,10 +5,13 @@ import s from './Logo.scss'
 
 interface Props {
   className?: string
-  link: string
+  link?: string
 }
 
 const Logo: React.FC<Props> = ({ className, link }) => {
+  if (!link) {
+    return null
+  }
   return <img className={cx(s.logo, className)} src={link} alt="logo" />
 }
 

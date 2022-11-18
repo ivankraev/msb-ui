@@ -2,6 +2,19 @@ import React from 'react'
 import { renderWithProviders } from '@msp/utils/test-utils'
 import PaymentMethods from '../PaymentMethods'
 import { PaymentMethod as PaymentMethodInterface } from '@msp/features/paymentMethods/paymentMethodsSettingsSlice'
+import { links } from '@msp/routes/links'
+
+const mockUseLocationValue = {
+  pathname: links.billing.paymentMethods.index,
+  search: '',
+  hash: '',
+  state: null,
+}
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: jest.fn(() => mockUseLocationValue),
+}))
 
 const mockedPaymentMethods: PaymentMethodInterface[] = [
   {

@@ -4,6 +4,7 @@ export interface SelectOption {
 }
 
 export interface Product {
+  id: string
   title: string
   value: string
   selected: boolean

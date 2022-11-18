@@ -1,0 +1,28 @@
+@import '../../../../../../theme/variables.scss';
+
+.container {
+  position: relative;
+
+  ul {
+    border-radius: 3px;
+    position: absolute;
+    right: 100%;
+
+    border: 1px solid $grey-color;
+    background-color: $default-background-color;
+
+    li {
+      padding: 0.5rem 0.875rem;
+      cursor: pointer;
+      text-align: center;
+
+      &:hover {
+        background-color: $primary-light-color;
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}

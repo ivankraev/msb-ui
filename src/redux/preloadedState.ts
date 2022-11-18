@@ -2,8 +2,9 @@ import { initialState as initialUserState, UserSliceState } from '../features/us
 
 export const getUserPreloadedState = (): UserSliceState => {
   const userInfo = localStorage?.getItem('userInfo')
-  if (userInfo) {
-    return { ...initialUserState, userInfo: JSON.parse(userInfo) }
+  const token = localStorage?.getItem('token')
+  if (token && userInfo) {
+    return { ...initialUserState, userInfo: JSON.parse(userInfo), token: JSON.parse(token) }
   }
   return initialUserState
 }

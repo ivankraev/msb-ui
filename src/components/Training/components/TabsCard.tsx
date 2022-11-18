@@ -1,24 +1,24 @@
 import React from 'react'
 import cx from 'classnames'
 import s from '../Training.scss'
-import MOCK_DATA from '@msp/mocks/products.json'
+import { ProductResult } from '@msp/features/api/types'
 
 interface Props {
-  onSelectTabHandler: (productName: string) => void
-  selectedProductName: string
+  onSelectTabHandler: (productValue: string) => void
+  selectedProductValue: string
+  products: Pick<ProductResult, 'name' | 'value'>[]
 }
 
-const TabsCard = ({ onSelectTabHandler, selectedProductName }: Props) => {
-  const products = MOCK_DATA.data.map((p) => p.productName)
+const TabsCard = ({ products, selectedProductValue, onSelectTabHandler }: Props) => {
   return (
     <div className={s.tabsCard} data-testid="tabs-card">
       {products.map((product) => (
         <div
-          className={selectedProductName === product ? cx(s.tab, s.active) : s.tab}
-          key={product}
-          onClick={() => onSelectTabHandler(product)}
+          className={selectedProductValue === product.value ? cx(s.tab, s.active) : s.tab}
+          key={product.value}
+          onClick={() => onSelectTabHandler(product.value)}
         >
-          {product}
+          {product.name}
         </div>
       ))}
     </div>

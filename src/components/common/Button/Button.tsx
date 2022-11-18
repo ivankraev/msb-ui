@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import cx from 'classnames'
-
 import s from './Button.scss'
 
 interface Props {
@@ -13,6 +12,7 @@ interface Props {
   type?: 'submit' | 'reset' | 'button' | undefined
   disabled?: boolean
   children: React.ReactNode
+  isSubmitting?: boolean
 }
 
 const Button: React.FC<Props> = ({
@@ -23,10 +23,12 @@ const Button: React.FC<Props> = ({
   onClick,
   children,
   disabled = false,
+  isSubmitting = false,
   type,
 }) => {
   const buttonClassName = cx(s.button, contained ? s.contained : s.empty, className, {
     [s.disabledContained]: disabled && contained,
+    [s.submitting]: isSubmitting,
     [s.disabled]: disabled && !contained,
     [s.textOnly]: textOnly,
   })

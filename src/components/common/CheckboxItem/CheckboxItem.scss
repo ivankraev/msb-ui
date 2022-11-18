@@ -8,11 +8,11 @@
   strong {
     cursor: pointer;
     font-size: 0.875rem;
+    user-select: none;
   }
 
   input {
     /* removing default appearance */
-    appearance: none;
     appearance: none;
     border: 2px solid #9e9ea2;
     border-radius: 3px;

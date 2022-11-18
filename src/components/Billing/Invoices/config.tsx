@@ -3,7 +3,7 @@ import { CellProps, Column } from 'react-table'
 import { Invoice } from './types'
 import DownloadIcon from '@msp/components/icons/DownloadIcon'
 import ArrowDownIcon from '@msp/components/icons/ArrowDownIcon'
-import ClockIcon from '@msp/components/icons/Calendar'
+import ClockIcon from '@msp/components/icons/CalendarIcon'
 import s from '@msp/components/Billing/Invoices/Invoices.scss'
 
 type CellComponent<T> = React.FC<CellProps<Invoice, T>>

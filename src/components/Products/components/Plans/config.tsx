@@ -1,10 +1,22 @@
 import React from 'react'
-import { CellProps, Column } from 'react-table'
+import { Column } from 'react-table'
 import { Plan } from './types'
 import ArrowDownIcon from '@msp/components/icons/ArrowDownIcon'
 import CheckIcon from '@msp/components/icons/CheckIcon'
 import UncheckIcon from '@msp/components/icons/UncheckIcon'
 import s from './Plans.scss'
+import ActionsComponent from './components/ActionsComponent'
+
+export const filterOptions = [
+  { title: 'Filter by name', value: 'name' },
+  { title: 'Filter by products', value: 'product' },
+]
+
+export const sortOptions = [
+  { title: 'Show latest', value: 'latest' },
+  { title: 'Sort by Name, A to Z', value: 'asc' },
+  { title: 'Sort by Name, Z to A', value: 'desc' },
+]
 
 const sortableHeader = () => {
   return (
@@ -13,10 +25,6 @@ const sortableHeader = () => {
       <ArrowDownIcon />
     </div>
   )
-}
-
-const onEditHandler = (id: number) => {
-  console.log(id, 'id')
 }
 
 export const COLUMNS: Column<Plan>[] = [
@@ -126,16 +134,8 @@ export const COLUMNS: Column<Plan>[] = [
     accessor: 'subscribers',
   },
   {
-    Header: '',
+    Header: 'Actions',
     id: 'edit',
-    Cell: ({ cell }: CellProps<Plan>) => {
-      return (
-        <div className={s.dotColumnContainer}>
-          <button className={s.dotsButton} onClick={() => onEditHandler(cell.row.original.id)}>
-            ...
-          </button>
-        </div>
-      )
-    },
+    Cell: ActionsComponent,
   },
 ]

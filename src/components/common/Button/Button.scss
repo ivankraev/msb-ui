@@ -8,6 +8,10 @@
   font-weight: $bold-font-weight;
   padding: 0.5rem 1.5rem;
   text-transform: uppercase;
+  white-space: nowrap;
+  position: relative;
+  display: flex;
+  justify-content: center;
 
   &.empty {
     background-color: $default-background-color;
@@ -28,6 +32,10 @@
       background-color: $primary-color-disabled;
       border-color: $primary-color-disabled;
       cursor: default;
+    }
+
+    &.submitting {
+      color: $primary-color-disabled;
     }
   }
 

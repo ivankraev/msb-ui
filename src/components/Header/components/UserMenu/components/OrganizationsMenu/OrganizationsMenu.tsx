@@ -6,17 +6,20 @@ import s from './OrganizationsMenu.scss'
 import Logo from '@msp/components/common/Logo'
 import { UserInfo } from '@msp/shared/interfaces/user.interface'
 import Button from '@msp/components/common/Button'
+import { useGetHubQuery } from '@msp/features/api/hubApiSlice'
+import Tooltip from '@common/Tooltip'
 
 interface Props {
   userInfo: UserInfo
 }
 
 const OrganizationsMenu: React.FC<Props> = ({ userInfo }) => {
-  const { logo, organization, availableOrganizations } = userInfo
+  const { organization, availableOrganizations } = userInfo
+  const { data: settingsData } = useGetHubQuery(userInfo!.customer?.hubId)
   return (
     <div className={s.container}>
       <div className={s.activeOrganizationContainer}>
-        <Logo link={logo!} />
+        <Logo link={settingsData?.logoUrl} />
         <div className={s.activeOrganizationInfo}>
           <div>
             <strong>{organization}</strong>
@@ -38,7 +41,9 @@ const OrganizationsMenu: React.FC<Props> = ({ userInfo }) => {
           </ul>
         </div>
       )}
-      <Button className={s.fullWidthCta}>Create New MSP</Button>
+      <Tooltip text="Coming soon..." fullWidth>
+        <Button className={s.fullWidthCta}>Create New MSP</Button>
+      </Tooltip>
     </div>
   )
 }

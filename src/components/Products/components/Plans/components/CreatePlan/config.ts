@@ -1,4 +1,7 @@
+import { useGetProductsQuery } from '@msp/features/api/productApiSlice'
 import { Product } from '@msp/shared/interfaces/plans.interface'
+import { productsIntoInitialValues } from '@msp/utils/products-into-initial-values'
+import { useMemo } from 'react'
 import * as Yup from 'yup'
 
 const REQUIRED_ERROR_MESSAGE = 'required'
@@ -11,152 +14,33 @@ export const steps = [
   { title: 'Summary', completed: false, active: false },
 ]
 
-export const initialValues = {
-  plan: '',
-  products: {
-    umbrella: {
-      title: 'Umbrella',
-      value: 'umbrella',
-      seats: 0,
-      selected: false,
-      package: { value: 'dnsEssentials', title: 'DNS Essentials' },
-      policy: { value: 'defaultPolicy', title: 'Default Policy' },
-    },
-    secureEndpoint: {
-      title: 'Secure Endpoint',
-      value: 'secureEndpoint',
-      seats: 0,
-      selected: false,
-      package: { value: 'dnsEssentials', title: 'DNS Essentials' },
-      policy: { value: 'defaultPolicy', title: 'Default Policy' },
-    },
-    duo: {
-      title: 'DUO',
-      value: 'duo',
-      seats: 0,
-      selected: false,
-      package: { value: 'dnsEssentials', title: 'DNS Essentials' },
-      policy: { value: 'defaultPolicy', title: 'Default Policy' },
-    },
-    cmd: {
-      title: 'Cloud Mailbox Defense',
-      value: 'cmd',
-      seats: 0,
-      selected: false,
-      package: { value: 'dnsEssentials', title: 'DNS Essentials' },
-      policy: { value: 'defaultPolicy', title: 'Default Policy' },
-    },
-    secureX: {
-      title: 'SecureX',
-      value: 'secureX',
-      seats: 0,
-      selected: false,
-      package: { value: 'dnsEssentials', title: 'DNS Essentials' },
-      policy: { value: 'defaultPolicy', title: 'Default Policy' },
-    },
-  },
+export const useInitialProductsValues = () => {
+  const { data: products } = useGetProductsQuery()
+
+  const initialProductsValues = useMemo(
+    () => productsIntoInitialValues(products),
+    [products],
+  ) as Product[]
+
+  const validationSchema = Yup.object().shape({
+    plan: Yup.string().required(REQUIRED_ERROR_MESSAGE).max(50),
+    products: Yup.array().of(
+      Yup.object().shape({
+        selected: Yup.boolean(),
+        seats: Yup.number().when('selected', {
+          is: true,
+          then: Yup.number()
+            .typeError(NUMBER_ERROR_MESSAGE)
+            .positive(POSITIVE_ERROR_MESSAGE)
+            .integer(INTEGER_ERROR_MESSAGE)
+            .required(),
+        }),
+      }),
+    ),
+  })
+
+  return {
+    initialValues: { plan: '', products: initialProductsValues },
+    validationSchema,
+  }
 }
-
-export const validationSchema = Yup.object().shape({
-  plan: Yup.string().required(REQUIRED_ERROR_MESSAGE),
-  products: Yup.object().shape({
-    umbrella: Yup.object().shape({
-      selected: Yup.boolean(),
-      seats: Yup.number().when('selected', {
-        is: true,
-        then: Yup.number()
-          .typeError(NUMBER_ERROR_MESSAGE)
-          .positive(POSITIVE_ERROR_MESSAGE)
-          .integer(INTEGER_ERROR_MESSAGE)
-          .required(),
-      }),
-    }),
-    secureEndpoint: Yup.object().shape({
-      selected: Yup.boolean(),
-      seats: Yup.number().when('selected', {
-        is: true,
-        then: Yup.number()
-          .typeError(NUMBER_ERROR_MESSAGE)
-          .positive(POSITIVE_ERROR_MESSAGE)
-          .integer(INTEGER_ERROR_MESSAGE)
-          .required(),
-      }),
-    }),
-    duo: Yup.object().shape({
-      selected: Yup.boolean(),
-      seats: Yup.number().when('selected', {
-        is: true,
-        then: Yup.number()
-          .typeError(NUMBER_ERROR_MESSAGE)
-          .positive(POSITIVE_ERROR_MESSAGE)
-          .integer(INTEGER_ERROR_MESSAGE)
-          .required(),
-      }),
-    }),
-    cmd: Yup.object().shape({
-      selected: Yup.boolean(),
-      seats: Yup.number().when('selected', {
-        is: true,
-        then: Yup.number()
-          .typeError(NUMBER_ERROR_MESSAGE)
-          .positive(POSITIVE_ERROR_MESSAGE)
-          .integer(INTEGER_ERROR_MESSAGE)
-          .required(),
-      }),
-    }),
-    secureX: Yup.object().shape({
-      selected: Yup.boolean(),
-      seats: Yup.number().when('selected', {
-        is: true,
-        then: Yup.number()
-          .typeError(NUMBER_ERROR_MESSAGE)
-          .positive(POSITIVE_ERROR_MESSAGE)
-          .integer(INTEGER_ERROR_MESSAGE)
-          .required(),
-      }),
-    }),
-  }),
-})
-
-export const products: Product[] = [
-  {
-    title: 'Umbrella',
-    value: 'umbrella',
-    seats: 0,
-    selected: false,
-    package: { value: 'dnsEssentials', title: 'DNS Essentials' },
-    policy: { value: 'defaultPolicy', title: 'Default Policy' },
-  },
-  {
-    title: 'Secure Endpoint',
-    value: 'secureEndpoint',
-    seats: 0,
-    selected: false,
-    package: { value: 'dnsEssentials', title: 'DNS Essentials' },
-    policy: { value: 'defaultPolicy', title: 'Default Policy' },
-  },
-  {
-    title: 'DUO',
-    value: 'duo',
-    seats: 0,
-    selected: false,
-    package: { value: 'dnsEssentials', title: 'DNS Essentials' },
-    policy: { value: 'defaultPolicy', title: 'Default Policy' },
-  },
-  {
-    title: 'Cloud Mailbox Defense',
-    value: 'cmd',
-    seats: 0,
-    selected: false,
-    package: { value: 'dnsEssentials', title: 'DNS Essentials' },
-    policy: { value: 'defaultPolicy', title: 'Default Policy' },
-  },
-  {
-    title: 'SecureX',
-    value: 'secureX',
-    seats: 0,
-    selected: false,
-    package: { value: 'dnsEssentials', title: 'DNS Essentials' },
-    policy: { value: 'defaultPolicy', title: 'Default Policy' },
-  },
-]

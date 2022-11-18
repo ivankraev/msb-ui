@@ -2,22 +2,25 @@ import React from 'react'
 import Button from '@common/Button'
 import ButtonsContainer from '@common/ButtonsContainer'
 import ButtonsGroup from '@common/ButtonsGroup'
+import SubmitButton from '@msp/components/SubmitButton'
 import s from './ConfirmDialog.scss'
 
 interface Props {
-  isOpen?: boolean
-  confirmHandler?: () => void
-  headerText?: string
-  contentText?: string
-  closeHandler?: () => void
+  isOpen: boolean
+  confirmHandler: () => void
+  headerText: string
+  contentText: string
+  closeHandler: () => void
+  isSubmitting?: boolean
 }
 
 const ConfigmDialog = ({
-  isOpen = true,
+  isOpen,
   confirmHandler,
   closeHandler,
   headerText,
   contentText,
+  isSubmitting = false,
 }: Props) => {
   if (!isOpen) {
     return null
@@ -35,9 +38,14 @@ const ConfigmDialog = ({
           <div />
           <ButtonsGroup>
             <Button onClick={closeHandler}>cancel</Button>
-            <Button contained={true} onClick={confirmHandler}>
+            <SubmitButton
+              contained={true}
+              onClick={confirmHandler}
+              disabled={isSubmitting}
+              isSubmitting={isSubmitting}
+            >
               confirm
-            </Button>
+            </SubmitButton>
           </ButtonsGroup>
         </ButtonsContainer>
       </div>

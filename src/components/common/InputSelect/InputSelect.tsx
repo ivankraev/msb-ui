@@ -1,7 +1,9 @@
 import React, { LegacyRef, useRef, useState } from 'react'
 import cx from 'classnames'
-import useClickOutside from '@msp/hooks/useClickOutside'
 import { SelectOption } from '@msp/shared/interfaces/plans.interface'
+import useClickOutside from '@msp/hooks/useClickOutside'
+import variables from '@msp/theme/variables.scss'
+import AngleDownIcon from '@msp/components/icons/AngleDownIcon'
 import s from './InputSelect.scss'
 
 interface Props<T> {
@@ -9,35 +11,39 @@ interface Props<T> {
   onChangeHandler: (option: T) => void
   value: T
   label: string
+  styles?: React.CSSProperties
 }
 
-const InputSelect = ({ options, onChangeHandler, value, label }: Props<SelectOption>) => {
+const InputSelect = ({ options, onChangeHandler, value, label, styles }: Props<SelectOption>) => {
   const [isOptionsOpen, setOptionsOpen] = useState(false)
 
   const toggleOptions = () => {
     setOptionsOpen(!isOptionsOpen)
   }
 
-  const ignoredElement = useRef<HTMLInputElement | null>(null)
+  const ignoredElement = useRef<HTMLDivElement | null>(null)
 
   const menuRef = useClickOutside(toggleOptions, isOptionsOpen, ignoredElement) as
     | LegacyRef<HTMLUListElement>
     | undefined
 
   return (
-    <div className={s.container}>
+    <div className={cx(s.container, styles)}>
       <strong>{label}</strong>
-      <div className={s.innerContainer}>
-        <input
-          data-testid="select"
-          placeholder={value.title}
-          onClick={toggleOptions}
-          ref={ignoredElement}
-          type="text"
-          readOnly
-          aria-haspopup="listbox"
-          aria-expanded={isOptionsOpen}
-        />
+      <div>
+        <div onClick={toggleOptions} className={s.inputContainer} ref={ignoredElement}>
+          <input
+            data-testid="select"
+            placeholder={value.title}
+            type="text"
+            readOnly
+            aria-haspopup="listbox"
+            aria-expanded={isOptionsOpen}
+          />
+          <div className={s.icon}>
+            <AngleDownIcon color={variables.secondaryColor} />
+          </div>
+        </div>
 
         <ul
           className={cx(s.menu, { [s.hide]: !isOptionsOpen })}

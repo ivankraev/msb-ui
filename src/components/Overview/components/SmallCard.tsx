@@ -6,9 +6,9 @@ type SmallCardProps = {
   title: string
   count?: number
   linkAddress?: string
-  icon?: () => JSX.Element
   bgColor?: string
   isActive?: boolean
+  logoUrl?: string
 }
 
 const SmallCard = ({
@@ -17,12 +17,12 @@ const SmallCard = ({
   linkAddress,
   bgColor = s.greyColor,
   isActive,
-  icon,
+  logoUrl,
 }: SmallCardProps) => {
   return (
     <Link to={linkAddress || '/'} style={{ textDecoration: 'none' }}>
       <div className={s.smallCard} style={{ borderTop: `4px solid ${bgColor}` }}>
-        <div>{icon && React.createElement(icon)}</div>
+        <img src={logoUrl} alt={'product logo'} />
         <div className={isActive === false ? s.notActive : 'active'}>
           <div className={s.title}>
             <strong>{title} customers</strong>

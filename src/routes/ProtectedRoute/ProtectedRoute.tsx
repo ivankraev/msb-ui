@@ -1,34 +1,34 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import { v4 as uuidv4 } from 'uuid'
-import pkceChallenge from 'pkce-challenge'
+import oktaLink from '@msp/utils/okta-helper'
 
 import s from './ProtectedRoute.scss'
 
 import { useAppSelector } from '@msp/redux/hooks'
 import Header from '@msp/components/Header'
 import Sidebar from '@msp/components/Sidebar'
+import Snackbar from '@msp/components/Snackbar'
+import LoadingComponent from '@common/LoadingComponent'
+import { useGetHubQuery } from '@msp/features/api/hubApiSlice'
 
 const ProtectedRoute: React.FC = () => {
-  const { userInfo, userToken } = useAppSelector((state) => state.user)
-  const scopes = 'openid profile email'
-  const state = 'test'
-  const guid = uuidv4()
-  const pkce = pkceChallenge(43).code_challenge
-  const oktaLink = `${process.env.REACT_URL}/oauth2/v1/authorize?client_id=${process.env.REACT_CLIENT_ID}&response_type=code token&response_mode=fragment&scope=${scopes}&redirect_uri=${process.env.REACT_REDIRECT_URI}&state=${state}&nonce=${guid}&code_challenge_method=S256&code_challenge=${pkce}`
-
+  const { userInfo, token } = useAppSelector((state) => state.user)
+  if (userInfo?.customer?.hubId) {
+    useGetHubQuery(userInfo.customer.hubId)
+  }
   const handleLogin = async () => {
     window.location.href = oktaLink
   }
-  // if (!userToken) {
-  //   handleLogin()
-  // }
-  // if (!userInfo) {
-  //   return <>Loading</>
-  // }
+  if (!token) {
+    handleLogin()
+  }
+  if (!userInfo) {
+    return <LoadingComponent message="We are logging you in" />
+  }
   // returns child route elements
   return (
     <React.Fragment>
+      <Snackbar />
       <Header />
       <div className={s.container}>
         <Sidebar />

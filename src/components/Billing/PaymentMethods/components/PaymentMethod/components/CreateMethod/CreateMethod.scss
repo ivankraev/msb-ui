@@ -1,0 +1,58 @@
+@import '../../../../../../../theme/variables.scss';
+
+.container {
+  gap: 2rem;
+  padding-bottom: 2rem;
+
+  .headerComponent {
+    padding: 0;
+  }
+}
+
+form {
+  display: grid;
+  gap: 1.5rem;
+  width: 40.625rem;
+
+  .selectContainer {
+    width: 40%;
+  }
+
+  hr {
+    background-color: $light-border-color;
+    border: none;
+    height: 1px;
+    margin: 0;
+    width: 100%;
+  }
+
+  .formContainer {
+    gap: 1rem;
+  }
+
+  .buttonHolder {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    strong {
+      opacity: 0;
+    }
+  }
+
+  .addNewButton {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .buttonsGroup {
+    gap: 0.5rem;
+  }
+
+  .buttonsHolder {
+    hr {
+      margin: 1.5rem 0 0.875rem;
+    }
+  }
+}

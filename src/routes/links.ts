@@ -1,12 +1,26 @@
 const CUSTOMER_MANAGEMENT = '/customer-management'
 const PRODUCTS = '/products'
 const BILLING = '/billing'
+const INTEGRATIONS = '/integrations'
+const TRAINING = '/training'
 
 export const links = {
   index: '/',
   invoices: '/invoices',
   settings: '/settings',
   profile: '/profile',
+  trials: '/trials',
+  training: {
+    index: TRAINING,
+    mspHubVideos: `${TRAINING}/msp-hub-videos`,
+  },
+  users: '/users',
+  resources: '/resources',
+  integrations: {
+    index: INTEGRATIONS,
+    psaAndRmm: `${INTEGRATIONS}/pss-and-rmm`,
+    webex: `${INTEGRATIONS}/webex`,
+  },
   customer_management: {
     index: CUSTOMER_MANAGEMENT,
     customers: {
@@ -23,6 +37,7 @@ export const links = {
     plans: {
       index: `${PRODUCTS}/plans`,
       new: 'new',
+      plan: (slug: string) => `${PRODUCTS}/plans/${slug}/edit`,
     },
   },
   billing: {

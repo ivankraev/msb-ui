@@ -1,37 +1,17 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
+import { useAppDispatch } from '@msp/redux/hooks'
+import { createSlice, bindActionCreators } from '@reduxjs/toolkit'
+import { userApiSlice } from '../api/userApiSlice'
 
 import { UserInfo } from '@msp/shared/interfaces/user.interface'
 export interface UserSliceState {
   userInfo: UserInfo | null
-  userToken: string | null
+  token: string | null
 }
 
 export const initialState: UserSliceState = {
   userInfo: null,
-  userToken: null,
+  token: null,
 }
-
-const handleUserInfo = async (receivedToken: string) => {
-  let userInfo
-  try {
-    const response = await axios.get(`${process.env.REACT_URL}/oauth2/v1/userinfo`, {
-      headers: {
-        Accept: 'application/json',
-        Authorization: `Bearer ${receivedToken}`,
-      },
-    })
-    userInfo = response.data
-  } catch (error) {
-    console.error(error)
-  }
-  return userInfo
-}
-
-export const getUserInfo = createAsyncThunk('user/getInfo', async (userToken: string) => {
-  const response = await handleUserInfo(userToken)
-  return response
-})
 
 const userSlice = createSlice({
   name: 'user',
@@ -39,21 +19,40 @@ const userSlice = createSlice({
   reducers: {
     login: (state, action): UserSliceState => {
       localStorage.setItem('token', JSON.stringify(action.payload))
-      return { ...state, userToken: action.payload }
+      return { ...state, token: action.payload }
+    },
+    setUserInfo: (state, action): UserSliceState => {
+      const userInfo = {
+        ...state.userInfo,
+        ...action.payload,
+      }
+      state.userInfo = userInfo
+      localStorage.setItem('userInfo', JSON.stringify(userInfo))
+      return state
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(getUserInfo.fulfilled, (state, action) => {
-      state.userInfo = {
-        ...action.payload,
-        organization: 'Acme Widgets',
-        logo: './company-logo.png',
-      }
-      localStorage.setItem('userInfo', JSON.stringify(state.userInfo))
-      return state
-    })
+    builder.addMatcher(userApiSlice.endpoints.logout.matchPending, (state) => {
+      localStorage.removeItem('token')
+      localStorage.removeItem('userInfo')
+      return { ...state, token: null, userInfo: null }
+    }),
+      builder.addMatcher(userApiSlice.endpoints.loginApi.matchFulfilled, (state, action) => {
+        const userInfo = {
+          ...state.userInfo,
+          ...action.payload,
+        }
+        state.userInfo = userInfo
+        localStorage.setItem('userInfo', JSON.stringify(userInfo))
+        return state
+      })
   },
 })
 
 export default userSlice.reducer
-export const { login } = userSlice.actions
+export const actions = userSlice.actions
+
+export const userSliceActions = () => {
+  const dispatch = useAppDispatch()
+  return bindActionCreators({ ...actions }, dispatch)
+}

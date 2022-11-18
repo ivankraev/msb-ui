@@ -9,9 +9,11 @@ import Logo from '@msp/components/common/Logo'
 import UserMenu from './components/UserMenu'
 
 import s from './Header.scss'
+import { useGetHubQuery } from '@msp/features/api/hubApiSlice'
 
 const Header: React.FC = () => {
   const { userInfo } = useAppSelector((state) => state.user)
+  const { data } = useGetHubQuery(userInfo!.customer?.hubId)
 
   const [isMenuShown, setMenuShown] = useState(false)
   // close the menu on navigation
@@ -41,7 +43,7 @@ const Header: React.FC = () => {
             onClick={() => setMenuShown(!isMenuShown)}
             ref={ignoredElement}
           >
-            <Logo link={userInfo!.logo!} />
+            <Logo link={data?.logoUrl} />
             <span className={s.name}>{userInfo!.name}</span>
             <UserIcon />
           </div>

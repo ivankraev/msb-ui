@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, memo } from 'react'
 import { stepsActions } from '@msp/features/steps/stepsSlice'
 import { useAppSelector } from '@msp/redux/hooks'
 import NotCompletedStepTwoIcon from '@msp/components/icons/NotCompletedStepTwoIcon'
@@ -53,4 +53,4 @@ const Stepper = ({ steps: data }: Props) => {
   )
 }
 
-export default React.memo(Stepper)
+export default memo(Stepper)

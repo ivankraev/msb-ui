@@ -1,3 +1,4 @@
+import { links } from '@msp/routes/links'
 import BookIcon from '@msp/components/icons/BookIcon'
 import BookmarkIcon from '@msp/components/icons/BookmarkIcon'
 import BuildingIcon from '@msp/components/icons/BuildingIcon'
@@ -9,13 +10,56 @@ import ProductIcon from '@msp/components/icons/ProductIcon'
 import PuzzleIcon from '@msp/components/icons/PuzzleIcon'
 
 export const menuItems = [
-  { label: 'Overview', icon: OverviewIcon },
-  { label: 'Customer Management', icon: BuildingIcon, showArrowIcon: true },
-  { label: 'Trials Management', icon: LikeIcon },
-  { label: 'Products', icon: ProductIcon, showArrowIcon: true },
-  { label: 'Training', icon: BookIcon, showArrowIcon: true },
-  { label: 'Users', icon: PeopleIcon },
-  { label: 'Integrations', icon: PuzzleIcon, showArrowIcon: true },
-  { label: 'Billing', icon: MoneyIcon, showArrowIcon: true },
-  { label: 'Resources', icon: BookmarkIcon, showArrowIcon: true },
+  { label: 'Overview', link: links.index, icon: OverviewIcon },
+  {
+    label: 'Customer Management',
+    icon: BuildingIcon,
+    link: '#',
+    upcoming: true,
+  },
+  {
+    label: 'Trials Management',
+    icon: LikeIcon,
+    link: '#',
+    upcoming: true,
+  },
+  {
+    label: 'Products',
+    icon: ProductIcon,
+    link: '#',
+    upcoming: true,
+  },
+  {
+    label: 'Training',
+    icon: BookIcon,
+    link: '#',
+    upcoming: true,
+  },
+  {
+    label: 'Users',
+    icon: PeopleIcon,
+    link: '#',
+    upcoming: true,
+  },
+  {
+    label: 'Integrations',
+    icon: PuzzleIcon,
+    link: '#',
+    upcoming: true,
+  },
+  {
+    label: 'Billing',
+    icon: MoneyIcon,
+    link: links.billing.index,
+    innerItems: [
+      { label: 'Payment methods', link: links.billing.paymentMethods.index },
+      { label: 'Invoicing history', link: links.billing.invoices.index },
+    ],
+  },
+  {
+    label: 'Resources',
+    icon: BookmarkIcon,
+    link: '#',
+    upcoming: true,
+  },
 ]

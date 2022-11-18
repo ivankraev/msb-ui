@@ -6,21 +6,24 @@ $greyColor: '#9E9EA2';
 $lightBlue: '#00ACC1';
 $blackColor: '#000000';
 
+.container {
+  gap: 1rem;
+  padding-bottom: 2rem;
+}
+
 .cardContainer {
   display: flex;
   flex-wrap: wrap;
-  font-size: 17px;
-  gap: 15px;
-  line-height: 24px;
+  gap: 1rem;
+  line-height: 1.5rem;
 
   .bigCard {
     box-shadow: -1px 2px 2px rgba(0, 0, 0, 0.25);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    height: 120px;
-    padding: 12px 14px;
-    width: 260px;
+    padding: 0.75rem 0.875rem;
+    width: 16.25rem;
 
     .count {
       font-size: 1.3rem;
@@ -28,8 +31,8 @@ $blackColor: '#000000';
 
     .link {
       color: $primary-color;
-      font-size: 0.8rem;
-      margin-top: 15px;
+
+      margin-top: 0.875rem;
       text-decoration: none;
       text-transform: uppercase;
     }
@@ -40,20 +43,18 @@ $blackColor: '#000000';
     box-sizing: border-box;
     display: flex;
     font-size: 0.7rem;
-    gap: 10px;
-    height: 67px;
-    margin-top: 25px;
-    padding: 5px;
-    width: 260px;
+    gap: 0.625rem;
+
+    margin-top: 1.5rem;
+    padding: 0.25rem 0.5rem;
+    width: 16.25rem;
 
     .title {
       color: $primary-color;
-      font-size: 0.8rem;
     }
 
     .count {
       color: $secondary-color;
-      font-size: 0.9rem;
     }
 
     .notActive {

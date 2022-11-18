@@ -1,0 +1,36 @@
+@import '../../../theme/variables.scss';
+
+.container {
+  position: relative;
+  display: inline-block;
+
+  .tooltipHolder {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 130%;
+    width: 100%;
+    transition: all 0.09s ease-out;
+
+    .tooltipText {
+      background-color: $light-dark-color;
+      color: $default-background-color;
+      border-radius: 6px;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.875rem;
+      font-weight: $normal-font-weight;
+      white-space: nowrap;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -0.25rem;
+        border-width: 0.25rem;
+        border-style: solid;
+        border-color: $light-dark-color transparent transparent transparent;
+      }
+    }
+  }
+}

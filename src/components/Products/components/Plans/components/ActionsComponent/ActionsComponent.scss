@@ -1,0 +1,15 @@
+$lightBlue: '#03688E';
+$lightGrey: '#F2F2F2';
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+
+  .dotsButton {
+    background: none;
+    border: none;
+    color: unquote($lightBlue);
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+}

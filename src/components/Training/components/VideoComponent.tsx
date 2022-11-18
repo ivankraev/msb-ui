@@ -3,10 +3,10 @@ import s from '../Training.scss'
 
 interface Props {
   title: string
-  youtubeID: string
+  srcUrl: string
 }
 
-const VideoComponent = ({ title, youtubeID }: Props) => {
+const VideoComponent = ({ title, srcUrl }: Props) => {
   return (
     <div className={s.videoContainer} data-testid="video-component">
       <h3>{title}</h3>
@@ -15,7 +15,8 @@ const VideoComponent = ({ title, youtubeID }: Props) => {
         frameBorder="0"
         height="435"
         width="850"
-        src={`https://youtube.com/embed/${youtubeID}?autoplay=0`}
+        data-testid="video-frame"
+        src={srcUrl}
       />
     </div>
   )

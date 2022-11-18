@@ -1,10 +1,9 @@
 import React from 'react'
 import Button from '@common/Button'
 import { Product } from '@msp/shared/interfaces/plans.interface'
-
 import HeaderComponent from '@common/UserSettings/components/HeaderComponent'
-import s from './ProvisionedProducts.scss'
 import ProductsTable from '@msp/components/Products/components/Plans/components/CreatePlan/components/ProvisionedProducts/components/ProductsTable'
+import s from './ProvisionedProducts.scss'
 
 interface Props {
   products: Product[]

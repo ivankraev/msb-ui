@@ -15,7 +15,7 @@ const ProductsTable = ({ products, planName }: Props) => {
           <td>Plan</td>
           <td>{planName}</td>
         </tr>
-        {products.map((prod) => (
+        {products?.map((prod) => (
           <React.Fragment key={prod.value}>
             <tr>
               <td className={s.strong}>{prod.title}</td>
