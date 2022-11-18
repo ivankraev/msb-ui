@@ -43,8 +43,16 @@
   }
 }
 
-.input {
+.inputHolder {
+  input {
+    background-image: url(../../../public/user.svg);
+    background-repeat: no-repeat;
+    background-position: 0.5rem center;
+    background-size: 0.875rem 0.875rem;
+    padding: 0.75rem 0.5rem 0.75rem 2rem;
+  }
+
   strong {
-    margin-bottom: 0.175rem;
+    margin-bottom: 0.225rem;
   }
 }

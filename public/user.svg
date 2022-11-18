@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>username - con</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M13.5863636,11.3590909 C13.5545455,11.2318182 13.4590909,11.0727273 13.3318182,11.0090909 L9.29090909,8.65454545 C9.19545455,8.59090909 9.03636364,8.43181818 9.00454545,8.30454545 L8.52727273,7.25454545 C9.19545455,6.77727273 9.54545455,5.21818182 9.54545455,4.35909091 L9.54545455,2.60909091 C9.54545455,1.17727273 8.46363636,0 7,0 C5.56818182,0 4.45454545,1.17727273 4.45454545,2.60909091 L4.45454545,4.35909091 C4.45454545,5.25 4.80454545,6.77727273 5.47272727,7.25454545 L4.99545455,8.30454545 C4.96363636,8.43181818 4.83636364,8.59090909 4.70909091,8.65454545 L0.668181818,11.0090909 C0.572727273,11.0727273 0.445454545,11.2318182 0.413636364,11.3590909 L0,14 L14,14 L13.5863636,11.3590909 L13.5863636,11.3590909 Z" id="path-1"></path>
+    </defs>
+    <g id="final" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1" transform="translate(-590.000000, -373.000000)">
+            <g id="Group" transform="translate(491.000000, 133.000000)">
+                <g id="Group-3" transform="translate(89.000000, 44.000000)">
+                    <g id="Group-2" transform="translate(0.000000, 159.000000)">
+                        <g id="Form/Text-Field/Regular">
+                            <g id="Text-Box-State" transform="translate(0.000000, 26.000000)">
+                                <g id="Icons/Contacts" transform="translate(10.000000, 11.000000)">
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#path-1"></use>
+                                    </mask>
+                                    <use id="shape" fill="#333333" fill-rule="evenodd" xlink:href="#path-1"></use>
+                                    <g id="color/p2" mask="url(#mask-2)" fill="#666666" fill-rule="evenodd">
+                                        <rect id="p2" x="0" y="0" width="14" height="14"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
