@@ -1,9 +1,11 @@
 {
+  "endOfLine": "auto",
   "singleQuote": true,
   "bracketSpacing": true,
   "semi": false,
   "trailingComma": "all",
   "printWidth": 100,
-  "jsxBracketSameLine": true,
+  "bracketSameLine": false,
+  "jsxBracketSameLine": false,
   "arrowParens": "always"
 }

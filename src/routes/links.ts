@@ -4,6 +4,8 @@ const BILLING = '/billing'
 const INTEGRATIONS = '/integrations'
 const TRAINING = '/training'
 
+export const UMBRELLA_DASHBOARD_LINK = 'https://dashboard.umbrella.com'
+
 export const links = {
   index: '/',
   invoices: '/invoices',

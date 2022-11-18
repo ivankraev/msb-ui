@@ -1,4 +1,4 @@
-import { links } from '@msp/routes/links'
+import { links, UMBRELLA_DASHBOARD_LINK } from '@msp/routes/links'
 import BookIcon from '@msp/components/icons/BookIcon'
 import BookmarkIcon from '@msp/components/icons/BookmarkIcon'
 import BuildingIcon from '@msp/components/icons/BuildingIcon'
@@ -26,8 +26,8 @@ export const menuItems = [
   {
     label: 'Products',
     icon: ProductIcon,
-    link: '#',
-    upcoming: true,
+    innerItems: [{ label: 'Umbrella', link: UMBRELLA_DASHBOARD_LINK }],
+    link: links.products.index,
   },
   {
     label: 'Training',

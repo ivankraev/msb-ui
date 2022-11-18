@@ -24,11 +24,14 @@ const NavigationLink: React.FC<Props> = ({ navigationItem, isSelected, onClick }
   } else {
     NavigationItemWrapper = React.Fragment
   }
+
+  const isRedirectLink = navigationItem.link.startsWith('https')
+
   return (
     <li key={navigationItem.label} className={cx(s.menuItemContainer, isSelected && s.selected)}>
       <NavigationItemWrapper {...navigationItemWrapperProps}>
         <Link
-          onClick={onClick}
+          onClick={!isRedirectLink ? onClick : () => window.open(navigationItem.link, '_blank')}
           className={s.menuItem}
           to={navigationItem.link}
           data-testid="category-link"

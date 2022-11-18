@@ -1,19 +1,34 @@
-import React from 'react'
-import { v4 as uuidv4 } from 'uuid'
-import pkceChallenge from 'pkce-challenge'
+import React, { useState } from 'react'
+import { createOktaLink } from '@msp/utils/okta-helper'
+import CiscoIcon from '@msp/components/icons/CiscoIcon'
+import SimpleInput from '@common/SimpleInput'
+import Button from '@common/Button'
+import s from './Login.scss'
 
-const Login: React.FC = () => {
-  const scopes = 'openid profile email'
-  const state = 'test'
-  const guid = uuidv4()
-  const pkce = pkceChallenge(43).code_challenge
-  const oktaLink = `${process.env.REACT_URL}/oauth2/v1/authorize?client_id=${process.env.REACT_CLIENT_ID}&response_type=code token&response_mode=fragment&scope=${scopes}&redirect_uri=${process.env.REACT_REDIRECT_URI}&state=${state}&nonce=${guid}&code_challenge_method=S256&code_challenge=${pkce}`
+const Login = () => {
+  const [credentials, setCredentials] = useState('')
 
   const handleLogin = async () => {
-    window.location.href = oktaLink
+    window.location.href = createOktaLink(credentials)
   }
 
-  return <button onClick={handleLogin}>Login</button>
+  return (
+    <div className={s.container}>
+      <div className={s.form}>
+        <CiscoIcon />
+        <h1>MSP Hub</h1>
+        <SimpleInput
+          name="email"
+          label="Email or Username"
+          onChangeHandler={(e) => setCredentials(e.target.value)}
+          styles={s.input}
+        />
+        <Button contained onClick={handleLogin} className={s.buttonHover}>
+          log in
+        </Button>
+      </div>
+    </div>
+  )
 }
 
 export default Login

@@ -10,6 +10,7 @@ import PaymentMethods from '@msp/components/Billing/PaymentMethods'
 import Billing from '@msp/components/Billing'
 import CreateMethod from '@msp/components/Billing/PaymentMethods/components/PaymentMethod/components/CreateMethod'
 import EditPlan from '@msp/components/Products/components/Plans/components/EditPlan'
+import Login from '@msp/components/Login'
 
 export interface RouteProps {
   title?: string
@@ -62,6 +63,7 @@ const routes: RouteProps[] = [
     ],
   },
   { path: '/settings', element: MspSettings },
+  { path: '/login', element: Login },
   { path: '/profile', title: 'Profile', element: UserProfile },
 ]
 

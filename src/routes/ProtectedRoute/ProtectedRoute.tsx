@@ -1,27 +1,24 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import oktaLink from '@msp/utils/okta-helper'
-
-import s from './ProtectedRoute.scss'
-
 import { useAppSelector } from '@msp/redux/hooks'
+import { useGetHubQuery } from '@msp/features/api/hubApiSlice'
 import Header from '@msp/components/Header'
 import Sidebar from '@msp/components/Sidebar'
 import Snackbar from '@msp/components/Snackbar'
 import LoadingComponent from '@common/LoadingComponent'
-import { useGetHubQuery } from '@msp/features/api/hubApiSlice'
+import Login from '@msp/components/Login'
+import s from './ProtectedRoute.scss'
 
 const ProtectedRoute: React.FC = () => {
   const { userInfo, token } = useAppSelector((state) => state.user)
   if (userInfo?.customer?.hubId) {
     useGetHubQuery(userInfo.customer.hubId)
   }
-  const handleLogin = async () => {
-    window.location.href = oktaLink
-  }
+
   if (!token) {
-    handleLogin()
+    return <Login />
   }
+
   if (!userInfo) {
     return <LoadingComponent message="We are logging you in" />
   }
