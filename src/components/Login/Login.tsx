@@ -22,6 +22,7 @@ const Login = () => {
           label="Email or Username"
           onChangeHandler={(e) => setCredentials(e.target.value)}
           styles={s.inputHolder}
+          onPressEnter={handleLogin}
         />
         <Button contained onClick={handleLogin} className={s.buttonHover}>
           log in

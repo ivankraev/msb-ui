@@ -11,6 +11,7 @@ interface Props {
   name?: string
   error?: string
   skipErrorMessage?: boolean
+  onPressEnter?: () => void
   onBlur?: {
     (e: React.FocusEvent): void
     <T>(fieldOrEvent: T): T extends string
@@ -29,11 +30,17 @@ const SimpleInput = ({
   onBlur,
   error,
   skipErrorMessage,
+  onPressEnter,
 }: Props) => {
   return (
     <span className={cx(s.container, styles)}>
       <strong>{label}</strong>
       <input
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' && onPressEnter) {
+            onPressEnter()
+          }
+        }}
         type={type}
         onChange={onChangeHandler}
         defaultValue={defaultValue}

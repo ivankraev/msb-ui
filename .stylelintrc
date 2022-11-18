@@ -10,6 +10,7 @@
     "order/properties-alphabetical-order": null,
     "selector-max-compound-selectors": null,
     "property-no-unknown": null,
-    "scss/dollar-variable-pattern": null
+    "scss/dollar-variable-pattern": null,
+    "function-url-quotes": null
   }
 }
