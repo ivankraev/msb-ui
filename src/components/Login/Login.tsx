@@ -9,7 +9,9 @@ const Login = () => {
   const [credentials, setCredentials] = useState('')
 
   const handleLogin = async () => {
-    window.location.href = createOktaLink(credentials)
+    if (credentials) {
+      window.location.href = createOktaLink(credentials)
+    }
   }
 
   return (
