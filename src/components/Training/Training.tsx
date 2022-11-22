@@ -9,7 +9,7 @@ const Training = () => {
     return <Outlet />
   }
 
-  return <Navigate replace to={links.training.productTrainings} />
+  return <Navigate replace to={links.training.mspHubVideos} />
 }
 
 export default Training

@@ -4,8 +4,9 @@ const BILLING = '/billing'
 const INTEGRATIONS = '/integrations'
 const TRAINING = '/training'
 
-export const UMBRELLA_DASHBOARD_LINK = 'https://dashboard.umbrella.com'
-export const SKILLJAR_LINK = 'https://dashboard.skilljar.com/login'
+export const UMBRELLA_DASHBOARD_LINK =
+  process.env.REACT_UMBRELLA_DASHBOARD_LINK || 'https://dashboard.umbrella.com'
+export const SKILLJAR_LINK = process.env.SKILLJAR_LINK || 'https://dashboard.skilljar.com/login'
 
 export const links = {
   index: '/',
