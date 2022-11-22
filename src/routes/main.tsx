@@ -11,6 +11,7 @@ import Billing from '@msp/components/Billing'
 import CreateMethod from '@msp/components/Billing/PaymentMethods/components/PaymentMethod/components/CreateMethod'
 import EditPlan from '@msp/components/Products/components/Plans/components/EditPlan'
 import Login from '@msp/components/Login'
+import Training from '@msp/components/Training/Training'
 
 export interface RouteProps {
   title?: string
@@ -61,6 +62,11 @@ const routes: RouteProps[] = [
         element: Invoices,
       },
     ],
+  },
+  {
+    path: '/training',
+    title: 'Training',
+    element: Training,
   },
   { path: '/settings', element: MspSettings },
   { path: '/login', element: Login },

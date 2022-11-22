@@ -1,4 +1,4 @@
-import { links, UMBRELLA_DASHBOARD_LINK } from '@msp/routes/links'
+import { links, UMBRELLA_DASHBOARD_LINK, SKILLJAR_LINK } from '@msp/routes/links'
 import BookIcon from '@msp/components/icons/BookIcon'
 import BookmarkIcon from '@msp/components/icons/BookmarkIcon'
 import BuildingIcon from '@msp/components/icons/BuildingIcon'
@@ -33,7 +33,10 @@ export const menuItems = [
     label: 'Training',
     icon: BookIcon,
     link: '#',
-    upcoming: true,
+    innerItems: [
+      { label: 'Secure MSP Hub Videos', link: '#', upcoming: true },
+      { label: 'Product trainings', link: SKILLJAR_LINK },
+    ],
   },
   {
     label: 'Users',

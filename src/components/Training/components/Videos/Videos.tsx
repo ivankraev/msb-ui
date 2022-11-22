@@ -7,7 +7,7 @@ import InnerContainer from '@common/UserSettings/components/Container'
 import VideoComponent from './components/VideoComponent'
 import TabsCard from './components/TabsCard'
 import EmptyStateComponent from '@common/EmptyState'
-import s from './Training.scss'
+import s from './Videos.scss'
 import LoadingComponent from '@common/LoadingComponent'
 
 const TrainingsComponent = () => {
@@ -38,7 +38,7 @@ const TrainingsComponent = () => {
     )
   }
 
-  if (!products || !productsWithTrainings?.length === 0) {
+  if (!products || !productsWithTrainings?.length) {
     return (
       <Container label="Secure MSP Hub YouTube" styles={s.container}>
         <EmptyStateComponent message="You don't have any trainings" />

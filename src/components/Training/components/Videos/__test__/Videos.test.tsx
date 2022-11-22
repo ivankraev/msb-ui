@@ -1,6 +1,6 @@
 import React from 'react'
 import { fireEvent, screen } from '@testing-library/react'
-import Training from '../TrainingsComponent'
+import Videos from '../Videos'
 import { renderWithProviders } from '@msp/utils/test-utils'
 
 const preloadedState = {
@@ -59,7 +59,7 @@ jest.mock('@msp/features/api/trainingsApiSLice', () => ({
 
 describe('Training component', () => {
   it('Should render Training page', () => {
-    renderWithProviders(<Training />, { preloadedState })
+    renderWithProviders(<Videos />, { preloadedState })
     const tabsCard = screen.getByTestId('tabs-card')
     const videoComponent = screen.queryAllByTestId('video-component')
     expect(tabsCard.children).toHaveLength(2)
@@ -67,7 +67,7 @@ describe('Training component', () => {
   })
 
   it('Should change active tab on click', () => {
-    renderWithProviders(<Training />, { preloadedState })
+    renderWithProviders(<Videos />, { preloadedState })
     const tab = screen.getByTestId('tabs-card')
     fireEvent.click(tab.children[1])
     const frame = screen.getByTestId('video-frame')

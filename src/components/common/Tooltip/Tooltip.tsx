@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
+import cx from 'classnames'
 import s from './Tooltip.scss'
 
 interface Props {
   children: React.ReactNode
   text: string
   fullWidth?: boolean
+  inverted?: boolean
 }
 
-const Tooltip = ({ children, text, fullWidth = false }: Props) => {
+const Tooltip = ({ children, text, fullWidth = false, inverted = false }: Props) => {
   let activeTimeout: NodeJS.Timeout
   let fadedInTimeout: NodeJS.Timeout
   const [active, setActive] = useState(false)
@@ -41,7 +43,7 @@ const Tooltip = ({ children, text, fullWidth = false }: Props) => {
       {children}
       {active && (
         <div className={s.tooltipHolder} style={{ transform: fadedIn ? 'scale(1)' : 'scale(0)' }}>
-          <span className={s.tooltipText}>{text}</span>
+          <span className={cx(s.tooltipText, { [s.tooltipTextInverted]: inverted })}>{text}</span>
         </div>
       )}
     </div>

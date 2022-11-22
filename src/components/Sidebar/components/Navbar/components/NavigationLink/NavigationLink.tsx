@@ -20,6 +20,7 @@ const NavigationLink: React.FC<Props> = ({ navigationItem, isSelected, onClick }
     navigationItemWrapperProps = {
       text: 'Coming soon',
       fullWidth: true,
+      inverted: true,
     }
   } else {
     NavigationItemWrapper = React.Fragment

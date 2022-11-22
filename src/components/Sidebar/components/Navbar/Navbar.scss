@@ -4,6 +4,7 @@
   .menuList {
     li {
       position: relative;
+      user-select: none;
     }
 
     .menuItemContainer {

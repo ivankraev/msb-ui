@@ -5,6 +5,7 @@ const INTEGRATIONS = '/integrations'
 const TRAINING = '/training'
 
 export const UMBRELLA_DASHBOARD_LINK = 'https://dashboard.umbrella.com'
+export const SKILLJAR_LINK = 'https://dashboard.skilljar.com/login'
 
 export const links = {
   index: '/',

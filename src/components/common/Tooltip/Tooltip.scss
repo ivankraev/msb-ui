@@ -32,5 +32,14 @@
         border-color: $light-dark-color transparent transparent transparent;
       }
     }
+
+    .tooltipTextInverted {
+      background-color: $default-background-color;
+      color: $light-dark-color;
+
+      &::after {
+        border-color: $default-background-color transparent transparent transparent;
+      }
+    }
   }
 }
